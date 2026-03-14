@@ -1,2 +1,3 @@
 # Roingus Game
- Repository for development of Miceylium
+ Repository for development of Micelium
+
