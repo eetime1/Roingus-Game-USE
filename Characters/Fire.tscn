@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://b35eidbvj6gxq"]
+
+[ext_resource type="Texture2D" uid="uid://comsm7d8xjxkf" path="res://Placeholders/FirePlaceholder.png" id="1_1rfsn"]
+
+[node name="Fire" type="CharacterBody2D" unique_id=922281026]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1548385974]
+texture = ExtResource("1_1rfsn")
+offset = Vector2(0, -640)

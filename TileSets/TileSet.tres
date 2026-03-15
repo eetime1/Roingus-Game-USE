@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://btogtfspn416n" path="res://Placeholders/BurningTilePlaceholder.png" id="1_yg1ur"]
 [ext_resource type="Texture2D" uid="uid://cyhmyv7vighsk" path="res://Placeholders/GrassTilePlaceholder.png" id="2_diasd"]
 [ext_resource type="Texture2D" uid="uid://cciqyqn2buku" path="res://Placeholders/WaterTilePlaceholder.png" id="3_1w3yj"]
-[ext_resource type="Texture2D" uid="uid://bumvkmj75x45q" path="res://Sprites/TileFloor.png" id="4_hluyk"]
+[ext_resource type="Texture2D" uid="uid://bumvkmj75x45q" path="res://Placeholders/TileFloor.png" id="4_yg1ur"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4unu6"]
 texture = ExtResource("1_yg1ur")
@@ -63,7 +63,7 @@ texture_region_size = Vector2i(400, 400)
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-200, -200, 200, -200, 200, 200, -200, 200)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3vbjp"]
-texture = ExtResource("4_hluyk")
+texture = ExtResource("4_yg1ur")
 texture_region_size = Vector2i(400, 400)
 0:0/0 = 0
 1:0/0 = 0
