@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://bby3lodlnwh2p"]
 
 [ext_resource type="Script" uid="uid://bbhtaswvlkplk" path="res://Scripts/Global.gd" id="1_0q6p2"]
-[ext_resource type="TileSet" uid="uid://cefhh0b670jia" path="res://TileSets/TileSet.tres" id="2_2fw7k"]
+[ext_resource type="TileSet" uid="uid://cefhh0b670jia" path="res://The Fuckers/TileSet.tres" id="2_2fw7k"]
 [ext_resource type="PackedScene" uid="uid://b35eidbvj6gxq" path="res://Characters/Fire.tscn" id="3_ygr2a"]
 [ext_resource type="Texture2D" uid="uid://bpjofc5a3gdfp" path="res://Sprites/RoingusCivilian.png" id="4_t7uon"]
 [ext_resource type="Texture2D" uid="uid://dhdv6p7f37qlm" path="res://Placeholders/BigTreePlaceholder.png" id="5_04o3s"]
@@ -10,12 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://mpjhwxyemula" path="res://Characters/RoingusUnit.tscn" id="8_gi1go"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_04o3s"]
-vertices = PackedVector2Array(11397.828, -1814.3281, 11443.148, 8993.281, 2406.2422, 2184, 2292.8516, 1760.8828, 2292.8516, 2607.1172, 6600, 5800, 7000, 6600, 6600, 6600, 1983.1172, 2916.8516, 5000, 5800, 5000, 6200, 3800, 6200, 1560, 3030.2422, 3800, 7000, 3400, 7000, 3400, 7800, 3800, 7800, 3800, 8200, -3039.8672, 9013.711, 6600, 8200, 6600, 7800, 7000, 7800, 1983.1172, 1451.1484, -2979.1094, -1838.6563, 1560, 1337.7578, 1136.8828, 1451.1484, 827.14844, 1760.8828, 713.7578, 2184, 827.14844, 2607.1172, 1136.8828, 2916.8516)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 2, 1, 5), PackedInt32Array(6, 7, 5), PackedInt32Array(8, 9, 10, 11, 12), PackedInt32Array(11, 13, 14, 12), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(19, 20, 21, 1), PackedInt32Array(1, 21, 6), PackedInt32Array(0, 3, 22), PackedInt32Array(23, 0, 22, 24), PackedInt32Array(23, 24, 25), PackedInt32Array(23, 25, 26), PackedInt32Array(18, 23, 26, 27), PackedInt32Array(18, 27, 28), PackedInt32Array(18, 28, 29), PackedInt32Array(15, 18, 29, 12, 14), PackedInt32Array(19, 1, 18, 17), PackedInt32Array(9, 8, 4, 5), PackedInt32Array(5, 1, 6)])
+vertices = PackedVector2Array(2613.289, 2184, 2472.1719, 1657.3516, 11198.656, -1614.6719, 11242.3125, 8793.5625, 6800, 5600, 7200, 6400, 6800, 6400, 2086.6484, 3096.1719, 4800, 5600, 4800, 6000, 3600, 6000, 1560, 3237.289, 3600, 6800, 3200, 6800, 3200, 8000, 3600, 8000, 3600, 8400, -2838.75, 8813.43, 6800, 8400, 6800, 8000, 7200, 8000, 2086.6484, 1271.8281, -2780.2422, -1638.3203, 1560, 1130.7109, 1033.3516, 1271.8281, 647.8281, 1657.3516, 506.71094, 2184, 647.8281, 2710.6484, 1033.3516, 3096.1719, 2472.1719, 2710.6484)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 4), PackedInt32Array(7, 8, 9, 10, 11), PackedInt32Array(10, 12, 13, 11), PackedInt32Array(14, 15, 16, 17), PackedInt32Array(18, 19, 20, 3), PackedInt32Array(3, 20, 5), PackedInt32Array(2, 1, 21), PackedInt32Array(22, 2, 21, 23), PackedInt32Array(22, 23, 24), PackedInt32Array(22, 24, 25), PackedInt32Array(17, 22, 25, 26), PackedInt32Array(17, 26, 27), PackedInt32Array(17, 27, 28), PackedInt32Array(14, 17, 28, 11, 13), PackedInt32Array(18, 3, 17, 16), PackedInt32Array(8, 7, 29), PackedInt32Array(8, 29, 0, 4), PackedInt32Array(4, 3, 5)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(11597, -2014, 11644, 9193, -3241, 9214, -3178, -2039)])
 source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
-agent_radius = 200.0
+agent_radius = 400.0
 
 [node name="Game" type="Node2D" unique_id=729880689]
 y_sort_enabled = true

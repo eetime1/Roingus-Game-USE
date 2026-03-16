@@ -33,7 +33,6 @@ func _process(delta: float) -> void:
 				var dup = self.duplicate()
 				get_parent().add_child(dup)
 				get_parent().get_child(-1).position = position + newSpaceCheck * randomAngleVector
-				get_parent().get_child(-1).add_to_group('navigation')
 				fireHealth -= 50.0
 				isTrapped = false
 				break
