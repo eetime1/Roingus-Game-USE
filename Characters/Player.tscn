@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://dhd2bjgai6d1f"]
 
 [ext_resource type="Script" uid="uid://ewjqcywaba1i" path="res://Scripts/CamControlChar.gd" id="1_t8hoq"]
-[ext_resource type="Texture2D" uid="uid://b24v2ccircr4a" path="res://Placeholders/MagiCrystal.png" id="2_oo13o"]
+[ext_resource type="Texture2D" uid="uid://b5mwt5tf6oto1" path="res://Sprites/magicrystalICON.png" id="2_1ju47"]
 [ext_resource type="Script" uid="uid://o8di5vyyvffu" path="res://Scripts/PrintCrystalAmount.gd" id="3_1ju47"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oo13o"]
-texture = ExtResource("2_oo13o")
+texture = ExtResource("2_1ju47")
 
 [node name="Player" type="CharacterBody2D" unique_id=1372272007]
 script = ExtResource("1_t8hoq")
@@ -39,5 +39,3 @@ offset_bottom = -1000.8185
 theme_override_font_sizes/font_size = 32
 text = "0"
 script = ExtResource("3_1ju47")
-
-[connection signal="gems2" from="." to="CanvasLayer/Panel/Label2" method="_on_player_gems_2"]

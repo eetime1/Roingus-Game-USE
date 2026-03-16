@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://0dr7jnis1px6" path="res://Placeholders/HomeMushroomPlaceholder.png" id="4_pvli7"]
 [ext_resource type="Texture2D" uid="uid://dhdv6p7f37qlm" path="res://Placeholders/BigTreePlaceholder.png" id="4_yuf3j"]
 [ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Characters/Player.tscn" id="5_uroyq"]
-[ext_resource type="PackedScene" uid="uid://sgw5r5vrip1c" path="res://Levels/Gui.tscn" id="7_yuf3j"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uroyq"]
 vertices = PackedVector2Array(-796.5078, 388.97656, -842.7422, -400, -400, -400, 6052.8594, 461.65625, -2800, -3200, -2800, -3160.9688, -3621.539, -3185.8594, -3608.4922, -3976.6719, 0, -3200, -1136.3125, -5640.078, 0, -3600, -400, -800, 4400, -800, 5994.0313, -3444.25, 4400, -3200, 4000, -3200, 4000, -4000, 5975.4297, -5586.953, 400, -4000, 400, -3600)

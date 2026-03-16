@@ -1,5 +1,6 @@
 extends Label
 
 
-func _on_player_gems_2(gemCount) -> void:
-	text = str(gemCount)
+func _process(_delta) -> void:
+	text = str(Global.read("gemCount"))
+	pass
