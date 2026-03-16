@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dxrwciulmjoj8"]
+
+[ext_resource type="Texture2D" uid="uid://lnx1dxhafonu" path="res://Placeholders/world_mapT.png" id="1_xuf0a"]
+
+[node name="Control" type="Control" unique_id=1834192749]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=886152874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+scale = Vector2(0.72002065, 0.72002065)
+
+[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer" unique_id=1755041838]
+layout_direction = 2
+layout_mode = 2
+texture = ExtResource("1_xuf0a")
+stretch_mode = 2
