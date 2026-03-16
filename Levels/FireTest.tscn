@@ -17,7 +17,7 @@ source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
 agent_radius = 400.0
 
-[node name="Game" type="Node2D" unique_id=729880689]
+[node name="Game2" type="Node2D" unique_id=729880689]
 y_sort_enabled = true
 script = ExtResource("1_0q6p2")
 

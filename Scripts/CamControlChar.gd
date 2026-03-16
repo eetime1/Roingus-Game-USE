@@ -7,7 +7,6 @@ const zoomFactor = 0.01
 var isPressed = false
 var lastMouseX
 var lastMouseY
-signal gems2
 
 func _physics_process(_delta: float) -> void:
 
@@ -57,8 +56,3 @@ func _input(event):
 		position.y += (lastMouseY - event.position.y) * MouseSpeed * $Camera2D.zoom.y
 		lastMouseX = event.position.x
 		lastMouseY = event.position.y
-
-
-func _on_game_gems(gemCount) -> void:
-	emit_signal('gems2', gemCount)
-	pass # Replace with function body.

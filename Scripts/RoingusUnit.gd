@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 const movement_speed = 2000.0
-signal gems_get
 @onready var nav_agent : Node  = $NavigationAgent2D
 @onready var movementPaused = false
 var timer = 0.0
@@ -32,7 +31,9 @@ func _physics_process(delta: float) -> void:
 	
 	elif nav_agent.target_position == get_parent().get_child(4).global_position && !movementPaused:
 		$Sprite2DFull.visible = false
-		emit_signal("gems_get")
+		var gemSum = int(Global.read("gemCount")) + 50
+		
+		Global.write("gemCount", str(gemSum))
 		nav_agent.target_position = get_parent().get_child(3).global_position
 		movementPaused = true
 		await get_tree().create_timer(1).timeout
