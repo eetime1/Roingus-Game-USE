@@ -51,5 +51,5 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 		get_parent().add_child(dup)
 		get_parent().get_child(-1).position = get_parent().get_child(4).global_position
-		print('wrow')
+		
 	
