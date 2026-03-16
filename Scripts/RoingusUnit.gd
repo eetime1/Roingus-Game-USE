@@ -4,7 +4,7 @@ const movement_speed = 2000.0
 signal gems_get
 @onready var nav_agent : Node  = $NavigationAgent2D
 @onready var movementPaused = false
-var timer = 0
+var timer = 0.0
 
 func _ready() -> void:
 	nav_agent.target_position = get_parent().get_child(3).global_position

@@ -30,7 +30,7 @@ tile_set = ExtResource("2_2fw7k")
 navigation_polygon = SubResource("NavigationPolygon_04o3s")
 
 [node name="RoingusCivilian" type="Sprite2D" parent="." unique_id=229898552]
-position = Vector2(7824, 1176)
+position = Vector2(3194, 4152)
 texture = ExtResource("4_t7uon")
 
 [node name="BigTreePlaceholder" type="Sprite2D" parent="." unique_id=1618630633]
