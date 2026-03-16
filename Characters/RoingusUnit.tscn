@@ -5,9 +5,8 @@
 [ext_resource type="Script" uid="uid://dgs5yflq6ea2w" path="res://Scripts/Bouncing.gd" id="3_qe76c"]
 [ext_resource type="Texture2D" uid="uid://bpjofc5a3gdfp" path="res://Sprites/RoingusCivilian.png" id="4_g67gc"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_266xe"]
-radius = 165.0
-height = 772.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_g67gc"]
+radius = 400.0
 
 [node name="RoingusUnit" type="CharacterBody2D" unique_id=357388380]
 script = ExtResource("1_266xe")
@@ -19,7 +18,7 @@ script = ExtResource("3_qe76c")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=370545300]
 rotation = 1.5707964
-shape = SubResource("CapsuleShape2D_266xe")
+shape = SubResource("CircleShape2D_g67gc")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1858068583]
 path_desired_distance = 200.0
