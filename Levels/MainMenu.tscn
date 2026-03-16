@@ -249,7 +249,6 @@ text = "Exit Settings"
 metadata/_edit_use_anchors_ = true
 
 [node name="Menu" type="Control" parent="." unique_id=1673603881]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

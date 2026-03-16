@@ -48,3 +48,5 @@ offset = Vector2(0, -1280)
 
 [node name="RoingusUnit" parent="." unique_id=357388380 instance=ExtResource("2_pvli7")]
 position = Vector2(960, 185)
+
+[node name="GUI" parent="." unique_id=314829441 instance=ExtResource("7_yuf3j")]
