@@ -33,14 +33,15 @@ func _process(delta: float) -> void:
 				var dup = self.duplicate()
 				get_parent().add_child(dup)
 				get_parent().get_child(-1).position = position + newSpaceCheck * randomAngleVector
-				get_parent().get_child(-1).add_to_group('navigation')
+				get_parent().get_child(-1).fireHealth = randf_range(1, 20)
 				fireHealth -= 50.0
 				isTrapped = false
 				break
 			randomAngle += PI / 30
+			randomAngleVector = Vector2(cos(randomAngle), sin(randomAngle)).normalized()
 		if isTrapped:
 			queue_free()
-		
+	
 	elif timer >= 1:
 		timer -= 1
 		fireHealth += 10

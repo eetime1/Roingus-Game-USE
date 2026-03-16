@@ -7,7 +7,6 @@ const zoomFactor = 0.01
 var isPressed = false
 var lastMouseX
 var lastMouseY
-signal gems2
 
 func _physics_process(_delta: float) -> void:
 

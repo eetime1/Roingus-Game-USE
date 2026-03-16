@@ -1,43 +1,51 @@
 [gd_scene format=3 uid="uid://dhd2bjgai6d1f"]
 
-[ext_resource type="Script" uid="uid://ewjqcywaba1i" path="res://Scripts/CamControlChar.gd" id="1_t8hoq"]
-[ext_resource type="Texture2D" uid="uid://b24v2ccircr4a" path="res://Placeholders/MagiCrystal.png" id="2_oo13o"]
-[ext_resource type="Script" uid="uid://o8di5vyyvffu" path="res://Scripts/PrintCrystalAmount.gd" id="3_1ju47"]
+[ext_resource type="Script" uid="uid://dbmf6f2ml45jf" path="res://Scripts/gui.gd" id="1_t8hoq"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oo13o"]
-texture = ExtResource("2_oo13o")
-
-[node name="Player" type="CharacterBody2D" unique_id=1372272007]
-script = ExtResource("1_t8hoq")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1241245794]
-zoom = Vector2(0.1, 0.1)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1115632695]
-
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=743238656]
+[node name="GUI" type="Control" unique_id=314829441]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 5.0
-offset_right = -1812.0
-offset_bottom = -966.60767
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_oo13o")
+script = ExtResource("1_t8hoq")
 
-[node name="Label2" type="Label" parent="CanvasLayer/Panel" unique_id=1275493928]
-layout_mode = 1
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=292494668]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1987433300]
 anchors_preset = -1
-anchor_right = 18.424002
-anchor_bottom = 9.916
-offset_left = 116.0
-offset_top = 29.0
-offset_right = -1760.0962
-offset_bottom = -1000.8185
-theme_override_font_sizes/font_size = 32
-text = "0"
-script = ExtResource("3_1ju47")
+anchor_right = 0.186
+anchor_bottom = 0.21000001
+offset_right = -0.11999512
+offset_bottom = 0.19999695
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
-[connection signal="gems2" from="." to="CanvasLayer/Panel/Label2" method="_on_player_gems_2"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1082158181]
+anchors_preset = -1
+anchor_left = 0.79479164
+anchor_top = 0.0037037036
+anchor_right = 0.9980833
+anchor_bottom = 0.2268148
+offset_right = -0.3200035
+offset_bottom = 0.040000916
+color = Color(1, 0.72156864, 1, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1855642045]
+anchors_preset = -1
+anchor_left = 0.91600007
+anchor_top = 0.9250001
+anchor_right = 0.984
+anchor_bottom = 0.975
+offset_left = 0.27990723
+offset_top = -6.1035156e-05
+offset_right = -0.2800293
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Quit Game"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_quit_button"]
