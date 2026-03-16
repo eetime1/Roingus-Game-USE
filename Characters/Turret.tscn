@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://dr83tclmjw0ec"]
+
+[ext_resource type="Script" uid="uid://cb0g7ee8u5wf7" path="res://Scripts/PlainTurret.gd" id="1_2eu2u"]
+[ext_resource type="Texture2D" uid="uid://n8ysew12cvqc" path="res://Placeholders/PlainShroomPlaceholder.png" id="1_6nxjc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2eu2u"]
+radius = 400.0
+
+[node name="Turret" type="StaticBody2D" unique_id=1397304827]
+collision_mask = 4
+script = ExtResource("1_2eu2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=656800676]
+shape = SubResource("CircleShape2D_2eu2u")
+
+[node name="PlainShroomPlaceholder" type="Sprite2D" parent="." unique_id=1147840798]
+texture = ExtResource("1_6nxjc")
+offset = Vector2(0, -640)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=488644472]
+anchors_preset = -1
+anchor_top = -0.37300003
+anchor_right = 1.0
+offset_left = -673.0
+offset_top = -1528.0
+offset_right = 653.0
+offset_bottom = -1328.0
+step = 0.1
+show_percentage = false
