@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 3000.0
 const MouseSpeed = 100
-##const zoomFactor = 0.01
+const zoomFactor = 0.01
 var isPressed = false
 var lastMouseX
 var lastMouseY
@@ -44,12 +44,12 @@ func _input(event):
 			isPressed = false
 			
 		
-		#if event.button_index == 4:
-			#$Camera2D.zoom.x += zoomFactor
-			#$Camera2D.zoom.y += zoomFactor
-		#elif event.button_index == 5:
-			#$Camera2D.zoom.x -= zoomFactor
-			#$Camera2D.zoom.y -= zoomFactor
+		if event.button_index == 4:
+			$Camera2D.zoom.x += zoomFactor
+			$Camera2D.zoom.y += zoomFactor
+		elif event.button_index == 5:
+			$Camera2D.zoom.x -= zoomFactor
+			$Camera2D.zoom.y -= zoomFactor
 		
 	
 	if event is InputEventMouseMotion && isPressed:
