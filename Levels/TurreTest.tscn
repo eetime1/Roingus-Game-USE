@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://dmi7xsqahdjpi"]
 
 [ext_resource type="TileSet" uid="uid://cefhh0b670jia" path="res://The Fuckers/TileSet.tres" id="1_v5avo"]
-[ext_resource type="PackedScene" uid="uid://dr83tclmjw0ec" path="res://Characters/Turret.tscn" id="3_x2xwe"]
+[ext_resource type="PackedScene" uid="uid://dr83tclmjw0ec" path="res://Characters/TurretPlain.tscn" id="3_x2xwe"]
 [ext_resource type="PackedScene" uid="uid://b35eidbvj6gxq" path="res://Characters/Fire.tscn" id="4_fuyi5"]
 [ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Characters/Player.tscn" id="5_8mbuo"]
 
@@ -15,8 +15,8 @@ tile_set = ExtResource("1_v5avo")
 [node name="Player" parent="." unique_id=1372272007 instance=ExtResource("5_8mbuo")]
 position = Vector2(3474, 2630)
 
-[node name="Turret" parent="." unique_id=1397304827 instance=ExtResource("3_x2xwe")]
-position = Vector2(1985, 2200)
-
 [node name="Fire" parent="." unique_id=1165742437 instance=ExtResource("4_fuyi5")]
-position = Vector2(3780, 2188)
+position = Vector2(6805, 2024)
+
+[node name="PlainTurret" parent="." unique_id=1397304827 instance=ExtResource("3_x2xwe")]
+position = Vector2(2297, 2066)
