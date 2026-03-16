@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Characters/Player.tscn" id="5_uroyq"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_uroyq"]
-vertices = PackedVector2Array(-2600, -3000, -2600, -2954.8203, -3824.7734, -2991.9297, -3807.5781, -4033.9531, 200, -3400, 359.4297, -5041.1406, 600, -3800, 4848.789, 615.0078, -1019, 643.03906, -1019, -600, -600, -600, -600, -1000, 4200, -1000, 6297.9375, 557.9219, 6195.539, -3387.0625, 4200, -3000, 3800, -3000, 3800, -3800, 5094.2734, -5071.297, 600, -3400, 200, -3000)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 0, 3, 5, 6), PackedInt32Array(7, 8, 9, 10), PackedInt32Array(7, 10, 11, 12, 13), PackedInt32Array(14, 15, 16, 17, 18), PackedInt32Array(6, 19, 4), PackedInt32Array(4, 20, 0), PackedInt32Array(6, 5, 18, 17), PackedInt32Array(15, 14, 13, 12)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-4005, -4192, 335, -5241, 5202, -5272, 6394, -3449, 6503, 750, 4853, 815, -1219, 844, -1219, -771, -2459, -757, -2444, -2750, -4028, -2798)])
+vertices = PackedVector2Array(-1169.4219, 643.75, -2226.5703, 79.59375, -2252.7969, -600, -600, -600, 4848.789, 615.0078, -2600, -3000, -2600, -2954.8203, -3824.7734, -2991.9297, -3807.5781, -4033.9531, 200, -3400, 359.4297, -5041.1406, 600, -3800, -600, -1000, 4200, -1000, 6297.9375, 557.9219, 6195.539, -3387.0625, 4200, -3000, 3800, -3000, 3800, -3800, 5094.2734, -5071.297, 600, -3400, 200, -3000)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 7, 8), PackedInt32Array(9, 5, 8, 10, 11), PackedInt32Array(4, 3, 12, 13, 14), PackedInt32Array(15, 16, 17, 18, 19), PackedInt32Array(11, 20, 9), PackedInt32Array(9, 21, 5), PackedInt32Array(11, 10, 19, 18), PackedInt32Array(16, 15, 14, 13)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-4005, -4192, 335, -5241, 5202, -5272, 6394, -3449, 6503, 750, 4853, 815, -1219, 844, -2422, 202, -2459, -757, -2444, -2750, -4028, -2798)])
 source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
 agent_radius = 200.0
