@@ -1,10 +1,15 @@
 extends Node
 
-	
-func read(ourString: String) -> Variant:
-	var wFile = FileAccess.open('./Data/GlobalData.json', FileAccess.READ)
+var json = JSON.new()
+
+func _ready() -> void:
+	write("gemCount", "0")
+	write("health", "100")
+	write("roingusCount", "1")
+
+func read(ourString: String, filePath: String = "./Data/GlobalData.json") -> Variant:
+	var wFile = FileAccess.open(filePath, FileAccess.READ)
 	var jsoned = wFile.get_as_text()
-	var json = JSON.new()
 	json.parse(jsoned)
 	var data_received = json.data
 	wFile.close()
@@ -13,14 +18,14 @@ func read(ourString: String) -> Variant:
 		return json
 	return(data_received[ourString])
 
-func write(ourString: String, ourData) -> void:
-	var fuckyou = read('all')
+func write(ourString: String, ourData, filePath: String = "./Data/GlobalData.json") -> void:
+	var fuckyou = read('all', filePath)
 	var quack = fuckyou.data
 	print(quack, fuckyou.data[ourString], quack[ourString])
 	quack[ourString] = ourData
 	print(quack[ourString])
 	
-	var file = FileAccess.open('./Data/GlobalData.json', FileAccess.WRITE)
+	var file = FileAccess.open(filePath, FileAccess.WRITE)
 	print(fuckyou.data[ourString])
 	
 	var json_string = JSON.stringify(quack, "\t")
