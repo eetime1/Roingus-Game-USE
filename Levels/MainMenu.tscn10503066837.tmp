@@ -32,9 +32,7 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="SettingsControls" type="Control" parent="." unique_id=955759610]
-visible = false
 layout_mode = 1
-anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
@@ -43,11 +41,10 @@ grow_vertical = 2
 [node name="SettingsTabs" type="TabContainer" parent="SettingsControls" unique_id=1324123887]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.34500003
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 0.39996338
-current_tab = 2
+offset_top = 373.0
+current_tab = 1
 
 [node name="Audio" type="TabBar" parent="SettingsControls/SettingsTabs" unique_id=260204759]
 visible = false
@@ -60,8 +57,6 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = -264.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 
@@ -126,32 +121,21 @@ icon_alignment = 1
 text_direction = 1
 
 [node name="Video" type="TabBar" parent="SettingsControls/SettingsTabs" unique_id=2082657782]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsControls/SettingsTabs/Video" unique_id=2033845466]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = -303.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 metadata/_edit_use_anchors_ = true
 
 [node name="VVideo" type="VBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer" unique_id=279030490]
 layout_mode = 2
-
-[node name="QuitWindow" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=1849002224]
-layout_mode = 2
-
-[node name="Quit" type="Button" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/QuitWindow" unique_id=126255335]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Quit Window"
 
 [node name="WindowControls" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=408489669]
 layout_mode = 2
@@ -192,9 +176,22 @@ popup/item_2/text = "1280 x 720"
 popup/item_2/id = 2
 popup/item_3/text = "640 x 480"
 popup/item_3/id = 3
-popup/item_3/disabled = true
+
+[node name="RestartButton" type="Button" parent="SettingsControls/SettingsTabs/Video" unique_id=800616290]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = -0.59800005
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1751.0
+offset_top = 1011.24805
+offset_right = -38.0
+offset_bottom = -38.0
+text = "Restart Window"
+metadata/_edit_use_anchors_ = true
 
 [node name="Controls" type="TabBar" parent="SettingsControls/SettingsTabs" unique_id=403467471]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -204,8 +201,6 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_bottom = -303.0
-grow_horizontal = 2
-grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 metadata/_edit_use_anchors_ = true
@@ -237,14 +232,12 @@ popup/item_1/id = 1
 [node name="ExitSettings" type="Button" parent="SettingsControls" unique_id=2019117859]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.95800006
-anchor_top = 0.351
-anchor_right = 0.95800006
-anchor_bottom = 0.351
-offset_left = -52.360107
-offset_top = -15.080017
-offset_right = 50.639893
-offset_bottom = 15.919983
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1787.0
+offset_top = 364.0
+offset_right = -30.0
+offset_bottom = -685.0
 text = "Exit Settings"
 metadata/_edit_use_anchors_ = true
 
@@ -296,8 +289,8 @@ offset_right = 55.59192
 offset_bottom = 15.639954
 text = "Exit"
 
-[connection signal="pressed" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/QuitWindow/Quit" to="." method="_restart_window"]
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton" to="." method="_setSize"]
+[connection signal="pressed" from="SettingsControls/SettingsTabs/Video/RestartButton" to="." method="_restart_window"]
 [connection signal="pressed" from="SettingsControls/ExitSettings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Menu/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="Menu/Exit" to="." method="_quit_window"]
+[connection signal="pressed" from="Menu/Exit" to="." method="_end_game"]

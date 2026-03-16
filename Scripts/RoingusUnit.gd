@@ -17,7 +17,6 @@ func _physics_process(delta: float) -> void:
 		get_parent().get_child(1).bake_navigation_polygon
 		nav_agent.get_next_path_position()
 		timer -=0.5
-		print('fearuygkeawrkguy')
 	else:
 		timer += delta
 	

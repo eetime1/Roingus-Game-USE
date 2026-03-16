@@ -58,7 +58,6 @@ func _input(event):
 		lastMouseX = event.position.x
 		lastMouseY = event.position.y
 
-
 func _on_game_gems(gemCount) -> void:
 	emit_signal('gems2', gemCount)
 	pass # Replace with function body.
