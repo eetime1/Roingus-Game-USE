@@ -21,12 +21,9 @@ func read(ourString: String, filePath: String = "./Data/GlobalData.json") -> Var
 func write(ourString: String, ourData, filePath: String = "./Data/GlobalData.json") -> void:
 	var fuckyou = read('all', filePath)
 	var quack = fuckyou.data
-	print(quack, fuckyou.data[ourString], quack[ourString])
 	quack[ourString] = ourData
-	print(quack[ourString])
 	
 	var file = FileAccess.open(filePath, FileAccess.WRITE)
-	print(fuckyou.data[ourString])
 	
 	var json_string = JSON.stringify(quack, "\t")
 	file.store_string(json_string)
