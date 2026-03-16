@@ -1,41 +1,9 @@
 [gd_scene format=3 uid="uid://dhd2bjgai6d1f"]
 
 [ext_resource type="Script" uid="uid://ewjqcywaba1i" path="res://Scripts/CamControlChar.gd" id="1_t8hoq"]
-[ext_resource type="Texture2D" uid="uid://b5mwt5tf6oto1" path="res://Sprites/magicrystalICON.png" id="2_1ju47"]
-[ext_resource type="Script" uid="uid://o8di5vyyvffu" path="res://Scripts/PrintCrystalAmount.gd" id="3_1ju47"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oo13o"]
-texture = ExtResource("2_1ju47")
 
 [node name="Player" type="CharacterBody2D" unique_id=1372272007]
 script = ExtResource("1_t8hoq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1241245794]
 zoom = Vector2(0.1, 0.1)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1115632695]
-
-[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=743238656]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 5.0
-offset_right = -1812.0
-offset_bottom = -966.60767
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxTexture_oo13o")
-
-[node name="Label2" type="Label" parent="CanvasLayer/Panel" unique_id=1275493928]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 18.424002
-anchor_bottom = 9.916
-offset_left = 116.0
-offset_top = 29.0
-offset_right = -1760.0962
-offset_bottom = -1000.8185
-theme_override_font_sizes/font_size = 32
-text = "0"
-script = ExtResource("3_1ju47")

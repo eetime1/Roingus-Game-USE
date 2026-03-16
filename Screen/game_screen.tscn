@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bmdfppyjjn0fl"]
+
+[ext_resource type="PackedScene" uid="uid://sgw5r5vrip1c" path="res://Levels/Gui.tscn" id="1_bedem"]
+[ext_resource type="PackedScene" uid="uid://c8oapypokdyka" path="res://Levels/NavTest2.tscn" id="2_ih3no"]
+
+[node name="GameScreen" type="Node2D" unique_id=809576985]
+
+[node name="GUI" parent="." unique_id=314829441 instance=ExtResource("1_bedem")]
+
+[node name="NavTest2" parent="." unique_id=286958204 instance=ExtResource("2_ih3no")]
