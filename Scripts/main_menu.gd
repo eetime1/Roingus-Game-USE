@@ -15,7 +15,7 @@ func _ready() -> void:
 	# Sets current screen and size
 	#DisplayServer.window_set_current_screen(1)
 	#DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-	#get_tree().root.unresizable = true
+	get_tree().root.unresizable = false
 	#get_tree().root.borderless = false
 	
 	DisplayServer.window_set_size(Vector2i(int(dataFromFile[0]),int(dataFromFile[1])))
