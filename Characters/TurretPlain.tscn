@@ -6,11 +6,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2eu2u"]
 radius = 400.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_c85jh"]
-radius = 2560.0
-
 [node name="PlainTurret" type="StaticBody2D" unique_id=1397304827]
 collision_layer = 3
+collision_mask = 4
 script = ExtResource("1_2eu2u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=656800676]
@@ -30,12 +28,3 @@ offset_right = 653.0
 offset_bottom = -1328.0
 step = 0.1
 show_percentage = false
-
-[node name="FireCheckBox" type="Area2D" parent="." unique_id=2040236954]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FireCheckBox" unique_id=676799932]
-shape = SubResource("CircleShape2D_c85jh")
-
-[connection signal="body_entered" from="FireCheckBox" to="." method="_on_fire_enter_area"]

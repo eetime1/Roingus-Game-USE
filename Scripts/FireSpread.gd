@@ -2,6 +2,10 @@ extends StaticBody2D
 
 var fireHealth = 10.0
 var timer = 0
+signal SHOOTME
+
+func _ready() -> void:
+	emit_signal("SHOOTME", self)
 
 func raycastAndRandomize(angle:Vector2) -> float:
 	var space_state = get_world_2d().direct_space_state
@@ -38,7 +42,6 @@ func _process(delta: float) -> void:
 				
 				get_parent().get_child(-1).position = position + newSpaceCheck * randomAngleVector
 				get_parent().get_child(-1).fireHealth = randf_range(1, 20)
-				get_parent().get_child(-1).collision_layer = collision_layer
 				fireHealth -= 50.0
 				isTrapped = false
 				break

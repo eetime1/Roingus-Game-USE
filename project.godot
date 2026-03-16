@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Micelium"
-run/main_scene="uid://dqdw0kl22vpi4"
+run/main_scene="uid://dmi7xsqahdjpi"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
