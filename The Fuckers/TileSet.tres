@@ -1,12 +1,12 @@
 [gd_resource type="TileSet" format=3 uid="uid://cefhh0b670jia"]
 
-[ext_resource type="Texture2D" uid="uid://btogtfspn416n" path="res://Placeholders/BurningTilePlaceholder.png" id="1_yg1ur"]
-[ext_resource type="Texture2D" uid="uid://cyhmyv7vighsk" path="res://Placeholders/GrassTilePlaceholder.png" id="2_diasd"]
-[ext_resource type="Texture2D" uid="uid://cciqyqn2buku" path="res://Placeholders/WaterTilePlaceholder.png" id="3_1w3yj"]
-[ext_resource type="Texture2D" uid="uid://bumvkmj75x45q" path="res://Placeholders/TileFloor.png" id="4_yg1ur"]
+[ext_resource type="Texture2D" uid="uid://btogtfspn416n" path="res://Assets/Placeholders/BurningTilePlaceholder.png" id="1_ve4em"]
+[ext_resource type="Texture2D" uid="uid://cyhmyv7vighsk" path="res://Assets/Placeholders/GrassTilePlaceholder.png" id="2_17dm7"]
+[ext_resource type="Texture2D" uid="uid://cciqyqn2buku" path="res://Assets/Placeholders/WaterTilePlaceholder.png" id="3_wqd8g"]
+[ext_resource type="Texture2D" uid="uid://bumvkmj75x45q" path="res://Assets/Placeholders/TileFloor.png" id="4_k1i5l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4unu6"]
-texture = ExtResource("1_yg1ur")
+texture = ExtResource("1_ve4em")
 texture_region_size = Vector2i(400, 400)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-200, -200, 200, -200, 200, 200, -200, 200)
@@ -28,7 +28,7 @@ texture_region_size = Vector2i(400, 400)
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-200, -200, 200, -200, 200, 200, -200, 200)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wd8d"]
-texture = ExtResource("2_diasd")
+texture = ExtResource("2_17dm7")
 texture_region_size = Vector2i(400, 400)
 0:0/0 = 0
 1:0/0 = 0
@@ -41,7 +41,7 @@ texture_region_size = Vector2i(400, 400)
 2:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n204u"]
-texture = ExtResource("3_1w3yj")
+texture = ExtResource("3_wqd8g")
 texture_region_size = Vector2i(400, 400)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-200, -200, 200, -200, 200, 200, -200, 200)
@@ -63,7 +63,7 @@ texture_region_size = Vector2i(400, 400)
 2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-200, -200, 200, -200, 200, 200, -200, 200)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3vbjp"]
-texture = ExtResource("4_yg1ur")
+texture = ExtResource("4_k1i5l")
 texture_region_size = Vector2i(400, 400)
 0:0/0 = 0
 1:0/0 = 0
