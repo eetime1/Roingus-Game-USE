@@ -25,8 +25,6 @@ func _process(delta: float) -> void:
 	$ProgressBar.value = fireHealth
 	timer += delta
 	
-	if fireHealth <= 0:
-		queue_free()
 	
 	if fireHealth >= 100 && timer >= 1:
 		
@@ -39,7 +37,6 @@ func _process(delta: float) -> void:
 			if newSpaceCheck != 0:
 				var dup = self.duplicate()
 				get_parent().add_child(dup)
-				
 				get_parent().get_child(-1).position = position + newSpaceCheck * randomAngleVector
 				get_parent().get_child(-1).fireHealth = randf_range(1, 20)
 				fireHealth -= 50.0
