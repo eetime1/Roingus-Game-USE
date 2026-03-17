@@ -11,7 +11,7 @@ func instance(mushroom) -> void:
 	match (mushroom):
 		0:
 			#print("Mushroom1")
-			turret = preload("res://Characters/TurretPlain.tscn")
+			turret = preload("res://Scenes/Characters/TurretPlain.tscn")
 		1:
 			#print("Mushroom2")
 			turret = null

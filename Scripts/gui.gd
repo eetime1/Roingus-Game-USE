@@ -22,7 +22,7 @@ func _quit_button():
 	get_tree().quit()
 
 func _open_build_menu():
-	var positionChange = 460
+	var positionChange = 350
 	var positionMinimum = -100
 	#print($CanvasLayer/BuildMenu.position.y - DisplayServer.window_get_size().y)
 	if $CanvasLayer/BuildMenu.position.y - DisplayServer.window_get_size().y > positionMinimum:
