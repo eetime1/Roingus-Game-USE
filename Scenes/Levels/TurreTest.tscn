@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://b35eidbvj6gxq" path="res://Scenes/Characters/Fire.tscn" id="4_fuyi5"]
 [ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Scenes/Characters/Player.tscn" id="5_8mbuo"]
 
-
 [node name="TurretTest" type="Node2D" unique_id=953633863]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1740659852 groups=["navigation"]]
@@ -17,7 +16,55 @@ tile_set = ExtResource("1_v5avo")
 position = Vector2(3474, 2630)
 
 [node name="Fire" parent="." unique_id=1165742437 instance=ExtResource("4_fuyi5")]
-position = Vector2(9888, 2032)
+position = Vector2(6703, 1577)
 
 [node name="PlainTurret" parent="." unique_id=1397304827 instance=ExtResource("3_x2xwe")]
-position = Vector2(5232, 1875)
+position = Vector2(2816, 1561)
+
+[node name="PlainTurret2" parent="." unique_id=1746253410 instance=ExtResource("3_x2xwe")]
+position = Vector2(3207, 2743)
+
+[node name="PlainTurret3" parent="." unique_id=1975132919 instance=ExtResource("3_x2xwe")]
+position = Vector2(3770, 3940)
+
+[node name="PlainTurret4" parent="." unique_id=73210655 instance=ExtResource("3_x2xwe")]
+position = Vector2(5192, 4586)
+
+[node name="PlainTurret5" parent="." unique_id=1450101928 instance=ExtResource("3_x2xwe")]
+position = Vector2(16844, 4984)
+
+[node name="PlainTurret5" parent="PlainTurret5" unique_id=401218821 instance=ExtResource("3_x2xwe")]
+position = Vector2(89, -3919)
+
+[node name="PlainTurret5" parent="PlainTurret5/PlainTurret5" unique_id=2048585940 instance=ExtResource("3_x2xwe")]
+position = Vector2(-220, -4630)
+
+[node name="PlainTurret5" parent="PlainTurret5/PlainTurret5/PlainTurret5" unique_id=1150990837 instance=ExtResource("3_x2xwe")]
+position = Vector2(-900, -4290)
+
+[node name="PlainTurret5" parent="PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5" unique_id=1836389345 instance=ExtResource("3_x2xwe")]
+position = Vector2(-4362, -2250)
+
+[node name="PlainTurret5" parent="PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5" unique_id=1498663465 instance=ExtResource("3_x2xwe")]
+position = Vector2(-4919, -859)
+
+[node name="PlainTurret5" parent="PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5" unique_id=428594286 instance=ExtResource("3_x2xwe")]
+position = Vector2(-4455, 780)
+
+[node name="PlainTurret5" parent="PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5" unique_id=272768696 instance=ExtResource("3_x2xwe")]
+position = Vector2(-3589, 2696)
+
+[node name="PlainTurret5" parent="PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5" unique_id=1601373453 instance=ExtResource("3_x2xwe")]
+position = Vector2(-2198, 4149)
+
+[node name="PlainTurret5" parent="PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5" unique_id=1086214336 instance=ExtResource("3_x2xwe")]
+position = Vector2(2346, 3469)
+
+[node name="PlainTurret5" parent="PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5" unique_id=2046517197 instance=ExtResource("3_x2xwe")]
+position = Vector2(15267, 7797)
+
+[node name="PlainTurret5" parent="PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5" unique_id=1434759667 instance=ExtResource("3_x2xwe")]
+position = Vector2(-3527, -178)
+
+[node name="PlainTurret5" parent="PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5/PlainTurret5" unique_id=855312246 instance=ExtResource("3_x2xwe")]
+position = Vector2(-2569, -766)

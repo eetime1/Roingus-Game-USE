@@ -3,7 +3,7 @@ extends Node
 var json = JSON.new()
 
 func _ready() -> void:
-	write("gemCount", "0")
+	write("gemCount", "100")
 	write("health", "100")
 	write("roingusCount", "1")
 	write("fireIndex", "0")
@@ -29,3 +29,4 @@ func write(ourString: String, ourData, filePath: String = "./Data/GlobalData.jso
 	var json_string = JSON.stringify(quack, "\t")
 	file.store_string(json_string)
 	file.close()
+	

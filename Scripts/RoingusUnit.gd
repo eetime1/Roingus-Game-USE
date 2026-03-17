@@ -5,6 +5,7 @@ const movement_speed = 2000.0
 @onready var movementPaused = false
 var timer = 0.0
 
+
 func _ready() -> void:
 	nav_agent.target_position = get_parent().get_child(3).global_position
 
