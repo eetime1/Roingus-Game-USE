@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1 && isHoldingWhat != -1:
-			turret_instantiate.emit(isHoldingWhat, event.global_position)
+			turret_instantiate.emit(isHoldingWhat)
 			isHoldingWhat = -1
 		
 func _quit_button():

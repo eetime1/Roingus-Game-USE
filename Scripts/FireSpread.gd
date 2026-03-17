@@ -1,11 +1,10 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 var fireHealth = 10.0
 var timer = 0
-signal SHOOTME
 
 func _ready() -> void:
-	emit_signal("SHOOTME", self)
+	pass
 
 func raycastAndRandomize(angle:Vector2) -> float:
 	var space_state = get_world_2d().direct_space_state

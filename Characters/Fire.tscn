@@ -6,7 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_iprgc"]
 radius = 639.176
 
-[node name="Fire" type="StaticBody2D" unique_id=1165742437]
+[node name="Fire" type="CharacterBody2D" unique_id=188389518]
 collision_layer = 7
 collision_mask = 2
 script = ExtResource("1_iprgc")

@@ -2,16 +2,14 @@
 
 [ext_resource type="Script" uid="uid://bbhtaswvlkplk" path="res://Scripts/Global.gd" id="1_0q6p2"]
 [ext_resource type="TileSet" uid="uid://cefhh0b670jia" path="res://The Fuckers/TileSet.tres" id="2_2fw7k"]
-[ext_resource type="PackedScene" uid="uid://b35eidbvj6gxq" path="res://Characters/Fire.tscn" id="3_ygr2a"]
 [ext_resource type="Texture2D" uid="uid://bpjofc5a3gdfp" path="res://Sprites/RoingusCivilian.png" id="4_t7uon"]
 [ext_resource type="Texture2D" uid="uid://dhdv6p7f37qlm" path="res://Placeholders/BigTreePlaceholder.png" id="5_04o3s"]
-[ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Characters/Player.tscn" id="5_ygr2a"]
 [ext_resource type="Texture2D" uid="uid://0dr7jnis1px6" path="res://Placeholders/HomeMushroomPlaceholder.png" id="6_gb8f6"]
 [ext_resource type="PackedScene" uid="uid://mpjhwxyemula" path="res://Characters/RoingusUnit.tscn" id="8_gi1go"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_04o3s"]
-vertices = PackedVector2Array(2332.289, 2212, 2191.1719, 1685.3516, 11198.656, -1614.6719, 11242.3125, 8793.5625, 6800, 5600, 7200, 6400, 6800, 6400, 2191.1719, 2738.6484, 4800, 5600, 4800, 6000, 3600, 6000, 1805.6484, 3124.1719, 3600, 6800, 3200, 6800, 1279, 3265.289, 3200, 8000, 3600, 8000, 3600, 8400, -2838.75, 8813.43, 6800, 8400, 6800, 8000, 7200, 8000, 1805.6484, 1299.8281, -2780.2422, -1638.3203, 1279, 1158.7109, 752.35156, 1299.8281, 366.82813, 1685.3516, 225.71094, 2212, 366.82813, 2738.6484, 752.35156, 3124.1719)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 6, 4), PackedInt32Array(7, 8, 9, 10, 11), PackedInt32Array(10, 12, 13, 14, 11), PackedInt32Array(15, 16, 17, 18), PackedInt32Array(19, 20, 21, 3), PackedInt32Array(3, 21, 5), PackedInt32Array(2, 1, 22), PackedInt32Array(23, 2, 22, 24), PackedInt32Array(23, 24, 25), PackedInt32Array(23, 25, 26), PackedInt32Array(18, 23, 26, 27), PackedInt32Array(18, 27, 28), PackedInt32Array(18, 28, 29), PackedInt32Array(15, 18, 29, 14, 13), PackedInt32Array(19, 3, 18, 17), PackedInt32Array(8, 7, 0, 4), PackedInt32Array(4, 3, 5)])
+vertices = PackedVector2Array(11242.3125, 8793.5625, -2838.75, 8813.43, -2834.2031, 8000, -2000, 8000, -2000, 4000, 8000, 4000, 7600, 5200, 8000, 5200, 7600, 7200, 8800, 7200, 8800, 6400, 9200, 6400, 9200, 3600, 9600, 3600, 9600, 2400, 9200, 2400, 9200, 400, 5600, 400, 5600, 0, 11198.656, -1614.6719, 4400, 0, 4400, -400, 4000, -400, 4000, -800, 2800, 800, 3200, 800, 3200, 1200, -2805.0938, 2800, 4400, 1200, 4400, 1600, 8000, 1600, 8000, 2800, -2780.2422, -1638.3203, 2800, -800)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(5, 7, 6), PackedInt32Array(3, 6, 8), PackedInt32Array(0, 3, 8, 9), PackedInt32Array(9, 10, 11, 0), PackedInt32Array(11, 12, 13, 0), PackedInt32Array(14, 15, 16), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(18, 20, 21, 19), PackedInt32Array(21, 22, 23, 19), PackedInt32Array(24, 25, 26, 27), PackedInt32Array(26, 28, 29, 27), PackedInt32Array(29, 30, 31, 27), PackedInt32Array(24, 27, 32, 33), PackedInt32Array(33, 32, 19, 23), PackedInt32Array(16, 19, 0, 14), PackedInt32Array(13, 14, 0)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(11597, -2014, 11644, 9193, -3241, 9214, -3178, -2039)])
 source_geometry_mode = 1
 source_geometry_group_name = &"navigation"
@@ -43,11 +41,5 @@ position = Vector2(223, 8138)
 texture = ExtResource("6_gb8f6")
 offset = Vector2(0, -1280)
 
-[node name="Player" parent="." unique_id=1372272007 instance=ExtResource("5_ygr2a")]
-position = Vector2(3474, 2630)
-
 [node name="RoingusUnit" parent="." unique_id=357388380 instance=ExtResource("8_gi1go")]
 position = Vector2(-1819, 8400)
-
-[node name="Fire" parent="." unique_id=1165742437 instance=ExtResource("3_ygr2a")]
-position = Vector2(-313, 1634)

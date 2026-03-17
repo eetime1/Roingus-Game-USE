@@ -13,7 +13,6 @@ func _process(delta: float) -> void:
 	
 	if timer >= 1 && closestFire != []:
 		timer -= 1
-		print("SHOOT")
 		closestFire[0].fireHealth -= 50
 		if closestFire[0].fireHealth <= 0:
 			closestFire[0].queue_free()
@@ -25,6 +24,5 @@ func _process(delta: float) -> void:
 		#print('KIA')
 		queue_free()
 
-func _on_fire_shootme(thisguy) -> void:
-	if (position - thisguy.position).length() <= 5120:
-		closestFire.append(thisguy)
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	closestFire.append(body)
