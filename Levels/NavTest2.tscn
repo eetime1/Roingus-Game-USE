@@ -17,7 +17,6 @@ source_geometry_group_name = &"navigation"
 agent_radius = 400.0
 
 [node name="NavTest2" type="Node2D" unique_id=286958204]
-visible = false
 y_sort_enabled = true
 script = ExtResource("1_ni3bj")
 

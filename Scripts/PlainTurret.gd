@@ -4,6 +4,9 @@ var turretHealth = 100.0
 var timer = 0
 var closestFire = []
 
+func _ready():
+	add_to_group("turrets")
+
 func _process(delta: float) -> void:
 	$ProgressBar.value = turretHealth
 	timer += delta
@@ -19,9 +22,8 @@ func _process(delta: float) -> void:
 		timer -= 1
 	
 	if turretHealth <= 0:
-		print('KIA')
+		#print('KIA')
 		queue_free()
-
 
 func _on_fire_shootme(thisguy) -> void:
 	if (position - thisguy.position).length() <= 5120:

@@ -16,12 +16,10 @@ tile_set = ExtResource("1_v5avo")
 position = Vector2(3474, 2630)
 
 [node name="Fire" parent="." unique_id=1165742437 instance=ExtResource("4_fuyi5")]
-position = Vector2(9888, 2032)
+position = Vector2(6805, 2024)
 
 [node name="Fire2" parent="." unique_id=1071880221 instance=ExtResource("4_fuyi5")]
-position = Vector2(8654, 3350)
+position = Vector2(3553, 3350)
 
 [node name="PlainTurret" parent="." unique_id=1397304827 instance=ExtResource("3_x2xwe")]
 position = Vector2(2297, 2066)
-
-[connection signal="SHOOTME" from="Fire" to="PlainTurret" method="_on_fire_shootme"]
