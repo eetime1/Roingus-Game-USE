@@ -13,6 +13,8 @@ func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	# *I'm going to cry*
+	Global.globalPosition = global_position
+	
 	var directionLR := Input.get_axis("left", "right")
 	if directionLR:
 		velocity.x = directionLR * SPEED  / $Camera2D.zoom.x

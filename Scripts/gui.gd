@@ -12,6 +12,13 @@ func _process(_delta: float) -> void:
 	$CanvasLayer/Roingus/Label2.text = str(Global.data["roingusCount"])
 	
 	$OnMouse.global_position = get_global_mouse_position()
+	
+	if $CanvasLayer/Secret.modulate.a > 0 && $CanvasLayer/AudioStreamPlayer2D.get_playback_position() > 0:
+		$CanvasLayer/Secret.modulate.a = (1 -($CanvasLayer/AudioStreamPlayer2D.get_playback_position() / 1.25))
+		$CanvasLayer/Secret.self_modulate.a = (1 -($CanvasLayer/AudioStreamPlayer2D.get_playback_position() / 1.25))
+	else:
+		$CanvasLayer/Secret.modulate.a = 0
+	
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -45,6 +52,10 @@ func _input(event):
 ⠀⠀⠀⡟⡾⣿⢿⢿⢵⣽⣾⣼⣘⢸⢸⣞⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠁⠇⠡⠩⡫⢿⣝⡻⡮⣒⢽⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 no mycelium??????? ⠀')
+			$CanvasLayer/AudioStreamPlayer2D.position = Global.globalPosition
+			
+			$CanvasLayer/AudioStreamPlayer2D.play()
+			$CanvasLayer/Secret.modulate.a = 1
 		
 func _quit_button():
 	get_tree().quit()

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dryvjr1nqu435"]
+
+[ext_resource type="AudioStream" uid="uid://bgt53rpx2vhw1" path="res://Assets/SFX/vine-boom.mp3" id="1_vlwvb"]
+
+[node name="Sound" type="Node2D" unique_id=959362475]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2035654033]
+stream = ExtResource("1_vlwvb")
