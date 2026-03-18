@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cuisjagkaia0l"]
+
+[ext_resource type="Texture2D" uid="uid://uin8ooe61em6" path="res://Assets/Sprites/PlainShroomDR.png" id="1_fo0r3"]
+[ext_resource type="Texture2D" uid="uid://bvcbsta0ip3bv" path="res://Assets/Sprites/PlainShroom.png" id="2_u0s8s"]
+[ext_resource type="Texture2D" uid="uid://d3qmghomxb32p" path="res://Assets/Sprites/PlainShroomUR.png" id="3_7437f"]
+[ext_resource type="Texture2D" uid="uid://cxr3la8nr48vo" path="res://Assets/Sprites/PlainShroomUp.png" id="4_2owvy"]
+[ext_resource type="Texture2D" uid="uid://c1miwpstff2pn" path="res://Assets/Sprites/PlainShroomDown.png" id="5_bi2gl"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fo0r3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u0s8s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7437f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2owvy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bi2gl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

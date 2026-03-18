@@ -1,6 +1,8 @@
 [gd_scene format=4 uid="uid://bd2bjfcj26ff7"]
 
 [ext_resource type="TileSet" uid="uid://cefhh0b670jia" path="res://The Fuckers/TileSet.tres" id="1_2n171"]
+[ext_resource type="PackedScene" uid="uid://bpsmsdxcuq3nv" path="res://Scenes/Characters/TurretPath.tscn" id="2_mpy0r"]
+[ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Scenes/Characters/Player.tscn" id="3_6upjl"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_mpy0r"]
 vertices = PackedVector2Array(29600, 5200, 8400, 5200, 8400, -8400, 29600, -8400)
@@ -20,3 +22,9 @@ tile_set = ExtResource("1_2n171")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=1439015866]
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_mpy0r")
+
+[node name="TurretPath" parent="." unique_id=1989489247 instance=ExtResource("2_mpy0r")]
+position = Vector2(16233, 1112)
+
+[node name="Player" parent="." unique_id=1372272007 instance=ExtResource("3_6upjl")]
+position = Vector2(16364, 941)

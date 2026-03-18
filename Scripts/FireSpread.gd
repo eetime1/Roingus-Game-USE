@@ -1,11 +1,17 @@
 extends CharacterBody2D
 
-var fireHealth = 10.0
+@export var fireHealth = 10.0
 var timer = 0
 var turretsInRange = []
 var detChangeHP = 10.0
+var animTimer = 0.0
 
 func _ready() -> void:
+	add_to_group('navigation')
+	$Fire1.scale = Vector2(fireHealth / 100, fireHealth / 100)
+	$Fire2.scale = Vector2(fireHealth / 100, fireHealth / 100)
+	$Fire3.scale = Vector2(fireHealth / 100, fireHealth / 100)
+	visible = true
 	pass
 
 func raycastAndRandomize(angle:Vector2) -> float:
@@ -25,10 +31,32 @@ func _process(delta: float) -> void:
 	if fireHealth <= 0:
 		queue_free()
 	
+	timer += delta
+	animTimer += delta
+	
+	if animTimer >= 0.25:
+		var random = randi() % 3
+		if random == 0:
+			$Fire1.scale = Vector2(fireHealth / 100, fireHealth / 100)
+			$Fire1.visible = true
+			$Fire2.visible = false
+			$Fire3.visible = false
+		elif random == 1:
+			$Fire2.scale = Vector2(fireHealth / 100, fireHealth / 100)
+			$Fire1.visible = false
+			$Fire2.visible = true
+			$Fire3.visible = false
+		elif random == 2:
+			$Fire3.scale = Vector2(fireHealth / 100, fireHealth / 100)
+			$Fire1.visible = false
+			$Fire2.visible = false
+			$Fire3.visible = true
+		animTimer -= 0.25
+	
 	if detChangeHP != fireHealth:
 		detChangeHP = fireHealth
-		$Sprite2D.scale = Vector2(fireHealth / 100, fireHealth / 100)
-	timer += delta
+	
+	
 	
 	if timer >= 1 && turretsInRange != []:
 		var deleted = 0
@@ -38,7 +66,6 @@ func _process(delta: float) -> void:
 				deleted += 1
 		
 		if turretsInRange != []:
-			timer -= 1
 			turretsInRange[0].turretHealth -= 25
 			fireHealth -= 25
 	
@@ -52,6 +79,8 @@ func _process(delta: float) -> void:
 			var newSpaceCheck = raycastAndRandomize(randomAngleVector)
 			if newSpaceCheck != 0:
 				var dup = self.duplicate()
+				dup.fireHealth = randf_range(1, 20)
+				dup.visible = false
 				get_parent().add_child(dup)
 				get_parent().get_child(-1).position = position + newSpaceCheck * randomAngleVector
 				get_parent().get_child(-1).fireHealth = randf_range(1, 20)
@@ -64,7 +93,7 @@ func _process(delta: float) -> void:
 			queue_free()
 			
 	
-	elif timer >= 1:
+	if timer >= 1:
 		timer -= 1
 		fireHealth += 10
 

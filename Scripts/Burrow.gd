@@ -1,10 +1,10 @@
 extends Node2D
 
-var isSaved = false
 var civSaved = 0
+@export var civInside = 3
 
 func _physics_process(delta: float) -> void:
-	if isSaved:
+	if civSaved >= civInside:
 		$BurrowSaved.visible = true
 		$BurrowSOS.visible = false
 	else:
