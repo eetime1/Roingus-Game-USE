@@ -10,6 +10,9 @@ func _ready():
 	add_to_group('navigation')
 
 func _process(delta: float) -> void:
+	if turretHealth <= 0:
+		queue_free()
+	
 	$ProgressBar.value = turretHealth
 	timer += delta
 	

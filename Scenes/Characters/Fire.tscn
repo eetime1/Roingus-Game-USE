@@ -14,7 +14,7 @@ radius = 1920.0
 radius = 640.0
 
 [node name="Fire" type="CharacterBody2D" unique_id=188389518]
-collision_layer = 8
+collision_layer = 9
 collision_mask = 26
 script = ExtResource("1_iprgc")
 
@@ -27,15 +27,16 @@ script = ExtResource("3_qy72q")
 shape = SubResource("CircleShape2D_iprgc")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1090718484]
-collision_layer = 8
-collision_mask = 10
+collision_layer = 0
+collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=609997126]
 shape = SubResource("CircleShape2D_qy72q")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1965438387]
-collision_layer = 8
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=867148623]
 shape = SubResource("CircleShape2D_tyfce")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

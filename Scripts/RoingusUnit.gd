@@ -49,6 +49,6 @@ func _physics_process(delta: float) -> void:
 		$Sprite2DEmpty.visible = true
 		nav_agent.target_position = burrow.global_position
 		movementPaused = false
-		position = home.global_position
+		position = home.global_position + Vector2(0,100)
 		
 	

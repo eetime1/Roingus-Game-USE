@@ -10,8 +10,6 @@ func _process(_delta: float) -> void:
 	
 	#var turrets = get_tree().get_nodes_in_group("turrets")
 	
-	
-	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1 && isHoldingWhat != -1:

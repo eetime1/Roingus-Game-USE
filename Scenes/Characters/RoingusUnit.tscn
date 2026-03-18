@@ -10,7 +10,7 @@ radius = 400.0
 
 [node name="RoingusUnit" type="CharacterBody2D" unique_id=357388380]
 collision_layer = 4
-collision_mask = 25
+collision_mask = 9
 script = ExtResource("1_266xe")
 
 [node name="Sprite2DEmpty" type="Sprite2D" parent="." unique_id=1012876932]
@@ -24,7 +24,7 @@ shape = SubResource("CircleShape2D_g67gc")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1858068583]
 path_desired_distance = 200.0
-target_desired_distance = 100.0
+target_desired_distance = 700.0
 path_max_distance = 500.0
 path_postprocessing = 1
 debug_enabled = true
