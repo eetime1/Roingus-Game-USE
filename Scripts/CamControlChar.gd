@@ -13,7 +13,6 @@ func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var directionLR := Input.get_axis("left", "right")
-	print(directionLR)
 	if directionLR:
 		velocity.x = directionLR * SPEED  / $Camera2D.zoom.x
 		if Input.is_action_pressed("shift") :
@@ -59,6 +58,5 @@ func _input(event):
 	if event is InputEventMouseMotion && isPressed:
 		position.x += (lastMouseX - event.position.x) * MouseSpeed / $Camera2D.zoom.x
 		position.y += (lastMouseY - event.position.y) * MouseSpeed / $Camera2D.zoom.y
-		print(position)
 		lastMouseX = event.position.x
 		lastMouseY = event.position.y

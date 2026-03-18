@@ -35,10 +35,6 @@ func _process(delta: float) -> void:
 		var crystals = Global.read("gemCount")
 		Global.write("gemCount", int(crystals)-1)
 		timer -= 1
-	
-	if turretHealth <= 0:
-		print('KIA')
-		queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	closestFire.append(body)

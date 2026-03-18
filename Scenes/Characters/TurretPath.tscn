@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://bpsmsdxcuq3nv"]
+
+[ext_resource type="Texture2D" uid="uid://n8ysew12cvqc" path="res://Assets/Placeholders/PlainShroomPlaceholder.png" id="1_5h18x"]
+[ext_resource type="Script" uid="uid://b3822gva84l37" path="res://Scenes/Characters/PathTurret.gd" id="1_timno"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5h18x"]
+radius = 646.0279
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_timno"]
+radius = 640.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hsgsg"]
+radius = 5120.0
+
+[node name="TurretPath" type="CharacterBody2D" unique_id=1989489247]
+script = ExtResource("1_timno")
+
+[node name="PathShroomPlaceholder" type="Sprite2D" parent="." unique_id=766531925]
+texture = ExtResource("1_5h18x")
+offset = Vector2(0, -640)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2095401893]
+shape = SubResource("CircleShape2D_5h18x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=604447269]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=786602529]
+shape = SubResource("CircleShape2D_timno")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1009608053]
+anchors_preset = -1
+anchor_top = -0.37300003
+anchor_right = 1.0
+offset_left = -673.0
+offset_top = -1528.0
+offset_right = 653.0
+offset_bottom = -1328.0
+max_value = 50.0
+step = 0.1
+show_percentage = false
+
+[node name="Area2D" type="Area2D" parent="." unique_id=912098013]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1291663818]
+shape = SubResource("CircleShape2D_hsgsg")

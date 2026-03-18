@@ -10,7 +10,7 @@ func _physics_process(delta: float) -> void:
 		Global.write("health", turretHealth)
 	timer += delta
 	
-	if int(Global.read("health")) <= 0 || int(Global.read("gemCount")) <= 0:
+	if changeDet <= 0 || int(Global.read("gemCount")) <= 0:
 		print("game over goes here. this msg is in HomeShroom.gd")
 	
 	if timer >= 1:

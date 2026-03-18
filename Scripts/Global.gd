@@ -5,9 +5,9 @@ var mushroomsCost = {"path":25, "turret":50, "wall":100, "heal":150}
 
 func _ready() -> void:
 	write("gemCount", 50)
-	write("health", "100")
-	write("roingusCount", "1")
-	write("fireIndex", "0")
+	write("health", 200)
+	write("roingusCount", 1)
+	write("fireIndex", 0)
 
 func read(ourString: String, filePath: String = "./Data/GlobalData.json") -> Variant:
 	var wFile = FileAccess.open(filePath, FileAccess.READ)
