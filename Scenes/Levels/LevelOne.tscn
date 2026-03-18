@@ -4,7 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://bpjofc5a3gdfp" path="res://Assets/Sprites/RoingusCivilian.png" id="2_87eea"]
 [ext_resource type="Texture2D" uid="uid://dm8nc6d6stjy1" path="res://Assets/Placeholders/Level1DraftFixed.png" id="3_xfqfw"]
 [ext_resource type="PackedScene" uid="uid://gwuh4mkx5i87" path="res://Scenes/Characters/Burrow.tscn" id="5_2yxij"]
-[ext_resource type="PackedScene" uid="uid://b35eidbvj6gxq" path="res://Scenes/Characters/Fire.tscn" id="7_1bf4a"]
+[ext_resource type="PackedScene" uid="uid://c1h2h81wksbr1" path="res://Scenes/Characters/Settlement.tscn" id="6_2yxij"]
+[ext_resource type="PackedScene" uid="uid://cqgnsssexewa8" path="res://Scenes/Characters/HomeShroom.tscn" id="6_xrkai"]
+[ext_resource type="PackedScene" uid="uid://mpjhwxyemula" path="res://Scenes/Characters/RoingusUnit.tscn" id="7_1bf4a"]
+[ext_resource type="PackedScene" uid="uid://dr83tclmjw0ec" path="res://Scenes/Characters/TurretPlain.tscn" id="8_1bf4a"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2yqxq"]
 vertices = PackedVector2Array(8193.344, -975.9297, 8140.9688, -13621.078, 8360.953, -13401.109, 8360.953, -15226.891, 8135.258, -15001.203, 8075.6563, -29392, 22000, -1008.28906, 8888, -13259.891, 22000, -2000, 8888, -15368.109, 28800, -29392, 9415.047, -13401.109, 9415.047, -15226.891, 28800, -28400, 29200, -28000, 9800.891, -14841.047, 29200, -28400, 9800.891, -13786.953, 22400, -2800, 22400, -2000, 59021, -1095.0625, 28800, -1024.2266, 28800, -2000, 29200, -2000, 59021, -29392, 29600, -2800, 30000, -3200, 32800, -26800, 32400, -28000, 32400, -28400, 34000, -28400, 34800, -26800, 34000, -29392, 35600, -26000, 35200, -26400, 29200, -2800, 29600, -3200, 30000, -4400, 30400, -4400, 30400, -6000, 29200, -6000, 29200, -6400, 30000, -6400, 30000, -6800, 30400, -6800, 30400, -8800, 30000, -8800, 30000, -9200, 29600, -9200, 29600, -10000, 29200, -10000, 29200, -11200, 28800, -11200, 28800, -12000, 29200, -12000, 29200, -12800, 29600, -12800, 29600, -13200, 30000, -13200, 30000, -13600, 30400, -13600, 30400, -14400, 30800, -14400, 30800, -15200, 31200, -15200, 31200, -18800, 31600, -18800, 31600, -19200, 32400, -19200, 32400, -19600, 33200, -19600, 33200, -20000, 34000, -20000, 34000, -20400, 34400, -20400, 34400, -20800, 34800, -20800, 34800, -21200, 35200, -21200, 35200, -22000, 35600, -22000, 35600, -22400, 36000, -22400, 36000, -25200, 35600, -25200, 35200, -26000, 34800, -26400, 32800, -26400, 30800, -26400, 30800, -26000, 30000, -26000, 30000, -23600, 29600, -23600, 29600, -22800, 29200, -22800, 29200, -22000, 28400, -22000, 28400, -21600, 28000, -21600, 28000, -21200, 27600, -21200, 27600, -20800, 27200, -20800, 27200, -20000, 26800, -20000, 26800, -19200, 26400, -19200, 26400, -16000, 26000, -16000, 26000, -15200, 25600, -15200, 25600, -14800, 25200, -14800, 25200, -14400, 24800, -14400, 24800, -14000, 24400, -14000, 24400, -13600, 24000, -13600, 24000, -12800, 23600, -12800, 9942.109, -14314, 23600, -8800, 24000, -8800, 24000, -8000, 24400, -8000, 24400, -6800, 24800, -6800, 24800, -6000, 26800, -6000, 26800, -5600, 26000, -5600, 26000, -5200, 24000, -5200, 24000, -4400, 23600, -4400, 23600, -4000, 23200, -4000, 23200, -3600, 22800, -3600, 22800, -2800)
@@ -39,5 +42,26 @@ texture = ExtResource("3_xfqfw")
 [node name="Burrow1" parent="." unique_id=1058059735 instance=ExtResource("5_2yxij")]
 position = Vector2(23514, -14982)
 
-[node name="Fire" parent="." unique_id=188389518 groups=["navigation"] instance=ExtResource("7_1bf4a")]
-position = Vector2(11272, -11860)
+[node name="Settlement" parent="." unique_id=1886421436 instance=ExtResource("6_2yxij")]
+position = Vector2(51832, -4989)
+
+[node name="HomeShroom" parent="." unique_id=1160796152 instance=ExtResource("6_xrkai")]
+position = Vector2(9933, -1921)
+
+[node name="RoingusUnit" parent="." unique_id=357388380 instance=ExtResource("7_1bf4a")]
+position = Vector2(12836, -2084)
+
+[node name="PlainTurret" parent="." unique_id=966794143 groups=["navigation"] instance=ExtResource("8_1bf4a")]
+position = Vector2(15182, -4917)
+
+[node name="PlainTurret2" parent="." unique_id=397236570 groups=["navigation"] instance=ExtResource("8_1bf4a")]
+position = Vector2(13649, -5939)
+
+[node name="PlainTurret3" parent="." unique_id=1550269745 groups=["navigation"] instance=ExtResource("8_1bf4a")]
+position = Vector2(12140, -7054)
+
+[node name="PlainTurret4" parent="." unique_id=294688381 groups=["navigation"] instance=ExtResource("8_1bf4a")]
+position = Vector2(16390, -3802)
+
+[node name="PlainTurret5" parent="." unique_id=437399770 groups=["navigation"] instance=ExtResource("8_1bf4a")]
+position = Vector2(10328, -7913)
