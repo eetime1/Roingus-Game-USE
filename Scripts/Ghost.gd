@@ -26,4 +26,5 @@ func _on_gui_change_held() -> void:
 			$Area2D/CollisionShape2D.shape.radius = 600
 		_:
 			$Sprite2D.texture = null
+	$Sprite2D.modulate = Color(255, 0, 0, 0.5)
 	

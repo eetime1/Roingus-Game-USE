@@ -322,16 +322,17 @@ Cost: 150 gems"
 
 [node name="OnMouse" type="Area2D" parent="." unique_id=1755619586]
 collision_layer = 0
-collision_mask = 60
+collision_mask = 188
 script = ExtResource("7_2k5ak")
 
 [node name="Sprite2D" type="Sprite2D" parent="OnMouse" unique_id=706528060]
-modulate = Color(0, 1, 0, 0.5882353)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OnMouse" unique_id=1713425318]
 shape = SubResource("CircleShape2D_iqavc")
 
 [node name="Area2D" type="Area2D" parent="OnMouse" unique_id=2037031080]
+collision_layer = 0
+collision_mask = 64
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OnMouse/Area2D" unique_id=1331974410]
 shape = SubResource("CircleShape2D_2k5ak")
@@ -349,5 +350,5 @@ shape = SubResource("CircleShape2D_2k5ak")
 [connection signal="pressed" from="CanvasLayer/BuildMenu2/DefensiveShrooms/VBoxContainer/HealShroom" to="." method="_summoning_mushroom" binds= ["heal"]]
 [connection signal="body_entered" from="OnMouse" to="." method="_on_on_mouse_body_entered"]
 [connection signal="body_exited" from="OnMouse" to="." method="_on_on_mouse_body_exited"]
-[connection signal="body_entered" from="OnMouse/Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="OnMouse/Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="area_entered" from="OnMouse/Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="OnMouse/Area2D" to="." method="_on_area_2d_area_exited"]

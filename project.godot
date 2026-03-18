@@ -81,6 +81,7 @@ scrolldown={
 2d_physics/layer_5="Turrets"
 2d_physics/layer_6="Burrows"
 2d_physics/layer_7="Mycelium"
+2d_physics/layer_8="Unturretable Terrain"
 
 [physics]
 

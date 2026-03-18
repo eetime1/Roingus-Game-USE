@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://dm8nc6d6stjy1" path="res://Assets/Placeholders/Level1DraftFixed.png" id="3_xfqfw"]
 [ext_resource type="PackedScene" uid="uid://gwuh4mkx5i87" path="res://Scenes/Characters/Burrow.tscn" id="5_2yxij"]
 [ext_resource type="PackedScene" uid="uid://c1h2h81wksbr1" path="res://Scenes/Characters/Settlement.tscn" id="6_2yxij"]
+[ext_resource type="PackedScene" uid="uid://cqgnsssexewa8" path="res://Scenes/Characters/HomeShroom.tscn" id="7_xrkai"]
 [ext_resource type="PackedScene" uid="uid://b35eidbvj6gxq" path="res://Scenes/Characters/Fire.tscn" id="8_1bf4a"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2yqxq"]
@@ -46,3 +47,6 @@ position = Vector2(51832, -4989)
 
 [node name="Fire" parent="." unique_id=188389518 groups=["navigation"] instance=ExtResource("8_1bf4a")]
 position = Vector2(21181, -15861)
+
+[node name="HomeShroom" parent="." unique_id=1160796152 instance=ExtResource("7_xrkai")]
+position = Vector2(9987, -1865)
