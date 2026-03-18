@@ -34,11 +34,13 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = 0
 	if directionUD == 0:
 		velocity.y = 0
+	
+	
+	
+	
+	
+	
 
-	
-	
-	
-	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 3 && event.pressed:

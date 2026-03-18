@@ -3,6 +3,8 @@ extends Control
 var isHoldingWhat = null
 signal turret_instantiate
 signal changeHeld
+var blockedNum = 0
+var myceliumNum = 0
 
 func _process(_delta: float) -> void:
 	$CanvasLayer/Health.value = Global.data["health"]
@@ -13,12 +15,36 @@ func _process(_delta: float) -> void:
 	
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == 1 && isHoldingWhat != null:
+		if event.button_index == 2 && isHoldingWhat != null:
+			isHoldingWhat = null
+			emit_signal("changeHeld")
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			print('cancelled')
+		
+		if event.button_index == 1 && isHoldingWhat != null && blockedNum == 0 && myceliumNum > 0:
 			#if true: # event.x is NOT over non-allowed
 			turret_instantiate.emit(isHoldingWhat)
 			isHoldingWhat = null
 			emit_signal("changeHeld")
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		elif event.button_index == 1 && isHoldingWhat != null && blockedNum != 0:
+			print('blocked')
+		elif event.button_index == 1 && isHoldingWhat != null && myceliumNum == 0:
+			print('
+⣞⢽⢪⢣⢣⢣⢫⡺⡵⣝⡮⣗⢷⢽⢽⢽⣮⡷⡽⣜⣜⢮⢺⣜⢷⢽⢝⡽⣝
+⠸⡸⠜⠕⠕⠁⢁⢇⢏⢽⢺⣪⡳⡝⣎⣏⢯⢞⡿⣟⣷⣳⢯⡷⣽⢽⢯⣳⣫⠇
+⠀⠀⢀⢀⢄⢬⢪⡪⡎⣆⡈⠚⠜⠕⠇⠗⠝⢕⢯⢫⣞⣯⣿⣻⡽⣏⢗⣗⠏⠀
+⠀⠪⡪⡪⣪⢪⢺⢸⢢⢓⢆⢤⢀⠀⠀⠀⠀⠈⢊⢞⡾⣿⡯⣏⢮⠷⠁⠀⠀
+⠀⠀⠀⠈⠊⠆⡃⠕⢕⢇⢇⢇⢇⢇⢏⢎⢎⢆⢄⠀⢑⣽⣿⢝⠲⠉⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⡿⠂⠠⠀⡇⢇⠕⢈⣀⠀⠁⠡⠣⡣⡫⣂⣿⠯⢪⠰⠂⠀⠀⠀⠀
+⠀⠀⠀⠀⡦⡙⡂⢀⢤⢣⠣⡈⣾⡃⠠⠄⠀⡄⢱⣌⣶⢏⢊⠂⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⢝⡲⣜⡮⡏⢎⢌⢂⠙⠢⠐⢀⢘⢵⣽⣿⡿⠁⠁⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠨⣺⡺⡕⡕⡱⡑⡆⡕⡅⡕⡜⡼⢽⡻⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣼⣳⣫⣾⣵⣗⡵⡱⡡⢣⢑⢕⢜⢕⡝⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣴⣿⣾⣿⣿⣿⡿⡽⡑⢌⠪⡢⡣⣣⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⡟⡾⣿⢿⢿⢵⣽⣾⣼⣘⢸⢸⣞⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠁⠇⠡⠩⡫⢿⣝⡻⡮⣒⢽⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+no mycelium??????? ⠀')
 		
 func _quit_button():
 	get_tree().quit()
@@ -38,3 +64,22 @@ func _summoning_mushroom(extra_arg_0: String) -> void:
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	else:
 		print("broke")
+
+
+func _on_on_mouse_body_entered(body: Node2D) -> void:
+	blockedNum += 1
+	pass # Replace with function body.
+
+func _on_on_mouse_body_exited(body: Node2D) -> void:
+	blockedNum -= 1
+	pass # Replace with function body.
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	myceliumNum += 1
+	pass # Replace with function body.
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	myceliumNum -= 1
+	pass # Replace with function body.
