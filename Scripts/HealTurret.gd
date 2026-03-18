@@ -17,8 +17,7 @@ func _process(delta: float) -> void:
 	timer += delta
 	
 	if timer >= 1 && closestTurret != []:
-		var crystals = Global.read("gemCount")
-		Global.write("gemCount", int(crystals)-1)
+		Global.data["gemCount"] -= 1
 		timer -= 1
 		
 		var deleted = 0
@@ -34,8 +33,7 @@ func _process(delta: float) -> void:
 					closestTurret[0].turretHealth += 25
 					break
 	elif timer >= 2:
-		var crystals = Global.read("gemCount")
-		Global.write("gemCount", int(crystals)-1)
+		Global.data["gemCount"] -= 1
 		timer -= 1
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

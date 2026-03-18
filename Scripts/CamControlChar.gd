@@ -4,7 +4,7 @@ const SPEED = 600.0
 const MouseSpeed = 1
 const zoomFactor = 0.005
 const zoomMin = 0.15
-const zoomMax = 0.07
+const zoomMax = 0.05
 var isPressed = false
 var lastMouseX
 var lastMouseY

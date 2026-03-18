@@ -4,13 +4,13 @@ var json = JSON.new()
 var mushroomsCost = {"path":25, "turret":50, "wall":100, "heal":150}
 var data = {"gemCount": 50, "health": 200, "roingusCount": 1, "fireIndex": 0}
 
-func _ready() -> void:
-	write("gemCount", 300)
-	write("health", 200)
-	write("roingusCount", 1)
-	write("fireIndex", 0)
+#func _ready() -> void:
+	#write("gemCount", 300)
+	#write("health", 200)
+	#write("roingusCount", 1)
+	#write("fireIndex", 0)
 
-func read(ourString: String, filePath: String = "./Data/GlobalData.json") -> Variant:
+func read(ourString: String, filePath: String = "./Data/configs/config.json") -> Variant:
 	var wFile = FileAccess.open(filePath, FileAccess.READ)
 	var jsoned = wFile.get_as_text()
 	json.parse(jsoned)
@@ -22,7 +22,7 @@ func read(ourString: String, filePath: String = "./Data/GlobalData.json") -> Var
 	return(data_received[ourString])
 	
 
-func write(ourString: String, ourData, filePath: String = "./Data/GlobalData.json") -> void:
+func write(ourString: String, ourData, filePath: String = "./Data/configs/config.json") -> void:
 	var fuckyou = read('all', filePath)
 	var quack = fuckyou.data
 	quack[ourString] = ourData
