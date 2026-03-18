@@ -33,6 +33,7 @@ navigation_polygon = SubResource("NavigationPolygon_2yqxq")
 texture = ExtResource("2_87eea")
 
 [node name="Level1DraftFixed" type="Sprite2D" parent="." unique_id=995067323]
+visible = false
 z_index = -3
 position = Vector2(33462, -15157)
 scale = Vector2(8, 8)

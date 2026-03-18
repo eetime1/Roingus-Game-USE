@@ -1,9 +1,13 @@
 [gd_scene format=3 uid="uid://dhd2bjgai6d1f"]
 
 [ext_resource type="Script" uid="uid://ewjqcywaba1i" path="res://Scripts/CamControlChar.gd" id="1_t8hoq"]
+[ext_resource type="Texture2D" uid="uid://dypixqgb4qb1t" path="res://Assets/Sprites/roingusICON.png" id="2_0el0d"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1372272007]
 script = ExtResource("1_t8hoq")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1241245794]
 zoom = Vector2(0.1, 0.1)
+
+[node name="OnMouse" type="Sprite2D" parent="." unique_id=1788460349]
+texture = ExtResource("2_0el0d")

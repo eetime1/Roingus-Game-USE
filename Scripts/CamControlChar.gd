@@ -1,17 +1,18 @@
 extends CharacterBody2D
 
-
 const SPEED = 600.0
 const MouseSpeed = 1
-const zoomFactor = 0.01
+const zoomFactor = 0.005
+const zoomMin = 0.15
+const zoomMax = 0.07
 var isPressed = false
 var lastMouseX
 var lastMouseY
 
 func _physics_process(_delta: float) -> void:
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
+	# *I'm going to cry*
 	var directionLR := Input.get_axis("left", "right")
 	if directionLR:
 		velocity.x = directionLR * SPEED  / $Camera2D.zoom.x
@@ -34,10 +35,10 @@ func _physics_process(_delta: float) -> void:
 	if directionUD == 0:
 		velocity.y = 0
 
-func _input(event):
+	$OnMouse.global_position = get_global_mouse_position()
 	
+func _input(event):
 	if event is InputEventMouseButton:
-		
 		if event.button_index == 3 && event.pressed:
 			isPressed = true
 			lastMouseX = event.position.x
@@ -46,14 +47,12 @@ func _input(event):
 		elif event.button_index == 3 && !event.pressed :
 			isPressed = false
 			
-		
-		if event.button_index == 4:
+		if event.button_index == 4 && $Camera2D.zoom.x < zoomMin:
 			$Camera2D.zoom.x += zoomFactor
 			$Camera2D.zoom.y += zoomFactor
-		elif event.button_index == 5:
+		elif event.button_index == 5 && $Camera2D.zoom.x > zoomMax:
 			$Camera2D.zoom.x -= zoomFactor
 			$Camera2D.zoom.y -= zoomFactor
-		
 	
 	if event is InputEventMouseMotion && isPressed:
 		position.x += (lastMouseX - event.position.x) * MouseSpeed / $Camera2D.zoom.x

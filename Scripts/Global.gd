@@ -4,7 +4,7 @@ var json = JSON.new()
 var mushroomsCost = {"path":25, "turret":50, "wall":100, "heal":150}
 
 func _ready() -> void:
-	write("gemCount", 50)
+	write("gemCount", 300)
 	write("health", 200)
 	write("roingusCount", 1)
 	write("fireIndex", 0)

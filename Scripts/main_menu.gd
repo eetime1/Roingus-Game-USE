@@ -23,10 +23,14 @@ func _ready() -> void:
 		
 	# Sets current screen and size
 	get_tree().root.unresizable = true
-	get_tree().root.position = Vector2i(50,100)
 	
 	DisplayServer.window_set_size(Vector2i(dataFromFile["screenX"],dataFromFile["screenY"]))
 	get_tree().root.content_scale_size = Vector2i(dataFromFile["screenX"],dataFromFile["screenY"])
+
+	var centerPositioningX = DisplayServer.screen_get_size().x / 2 - DisplayServer.window_get_size().x / 2
+	var centerPositioningY = DisplayServer.screen_get_size().y / 2 - DisplayServer.window_get_size().y / 2
+	get_tree().root.position = Vector2i(centerPositioningX, centerPositioningY)
+	
 
 	if dataFromFile["mode"] == "windowed":
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)

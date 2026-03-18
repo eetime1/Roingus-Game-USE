@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://dypixqgb4qb1t" path="res://Assets/Sprites/roingusICON.png" id="5_luu77"]
 [ext_resource type="Script" uid="uid://ctt5avyq7c1bc" path="res://Scripts/v_scroll_bar.gd" id="6_j8enm"]
 
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhjjm"]
 bg_color = Color(0.15294118, 0.7882353, 0.18039216, 1)
 
@@ -96,6 +95,31 @@ offset_bottom = -909.8701
 theme_override_font_sizes/font_size = 32
 text = "0"
 metadata/_edit_use_anchors_ = true
+
+[node name="Health" type="ProgressBar" parent="CanvasLayer" unique_id=64851755]
+anchors_preset = -1
+anchor_left = 0.011000001
+anchor_top = 0.98100007
+anchor_right = 0.011000001
+anchor_bottom = 0.98100007
+offset_left = -0.12000084
+offset_top = -67.4801
+offset_right = 443.88
+offset_bottom = 0.51989746
+theme_override_styles/fill = SubResource("StyleBoxFlat_uhjjm")
+show_percentage = false
+
+[node name="Label" type="Label" parent="CanvasLayer/Health" unique_id=1615760650]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -68.0
+offset_right = 444.0
+grow_vertical = 0
+text = "Health"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="BuildMenu1" type="VBoxContainer" parent="CanvasLayer" unique_id=25748644]
 visible = false
@@ -290,31 +314,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "HealShroom
 Cost: 150 gems"
-
-[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=64851755]
-anchors_preset = -1
-anchor_left = 0.011000001
-anchor_top = 0.98100007
-anchor_right = 0.011000001
-anchor_bottom = 0.98100007
-offset_left = -0.12000084
-offset_top = -67.4801
-offset_right = 443.88
-offset_bottom = 0.51989746
-theme_override_styles/fill = SubResource("StyleBoxFlat_uhjjm")
-show_percentage = false
-
-[node name="Label" type="Label" parent="CanvasLayer/ProgressBar" unique_id=1615760650]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -68.0
-offset_right = 444.0
-grow_vertical = 0
-text = "Health"
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/QuitGame" to="." method="_quit_button"]
 [connection signal="pressed" from="CanvasLayer/BuildMenu1/Build Menu" to="." method="_open_build_menu"]
