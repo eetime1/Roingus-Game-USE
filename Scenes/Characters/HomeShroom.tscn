@@ -28,7 +28,7 @@ z_index = -1
 texture = ExtResource("3_reu5w")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=851498944]
-collision_layer = 0
+collision_layer = 64
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1992677255]

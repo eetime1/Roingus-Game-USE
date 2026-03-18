@@ -6,9 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://cbo1pfrp1naty" path="res://Assets/Sprites/Building_Icon.png" id="5_d3vi1"]
 [ext_resource type="Texture2D" uid="uid://dypixqgb4qb1t" path="res://Assets/Sprites/roingusICON.png" id="5_luu77"]
 [ext_resource type="Script" uid="uid://ctt5avyq7c1bc" path="res://Scripts/v_scroll_bar.gd" id="6_j8enm"]
+[ext_resource type="Script" uid="uid://djptr3yj742ek" path="res://Scripts/Ghost.gd" id="7_2k5ak"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhjjm"]
 bg_color = Color(0.15294118, 0.7882353, 0.18039216, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iqavc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2k5ak"]
 
 [node name="GUI" type="Control" unique_id=314829441]
 layout_mode = 3
@@ -315,6 +320,23 @@ theme_override_font_sizes/font_size = 36
 text = "HealShroom
 Cost: 150 gems"
 
+[node name="OnMouse" type="Area2D" parent="." unique_id=1755619586]
+collision_layer = 0
+collision_mask = 60
+script = ExtResource("7_2k5ak")
+
+[node name="Sprite2D" type="Sprite2D" parent="OnMouse" unique_id=706528060]
+modulate = Color(0, 1, 0, 0.5882353)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OnMouse" unique_id=1713425318]
+shape = SubResource("CircleShape2D_iqavc")
+
+[node name="Area2D" type="Area2D" parent="OnMouse" unique_id=2037031080]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OnMouse/Area2D" unique_id=1331974410]
+shape = SubResource("CircleShape2D_2k5ak")
+
+[connection signal="changeHeld" from="." to="OnMouse" method="_on_gui_change_held"]
 [connection signal="pressed" from="CanvasLayer/QuitGame" to="." method="_quit_button"]
 [connection signal="pressed" from="CanvasLayer/BuildMenu1/Build Menu" to="." method="_open_build_menu"]
 [connection signal="pressed" from="CanvasLayer/BuildMenu1/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/PathShroom" to="." method="_summoning_mushroom" binds= ["path"]]
@@ -325,3 +347,7 @@ Cost: 150 gems"
 [connection signal="pressed" from="CanvasLayer/BuildMenu2/OffensiveShrooms/VBoxContainer/TurretShroom" to="." method="_summoning_mushroom" binds= ["turret"]]
 [connection signal="pressed" from="CanvasLayer/BuildMenu2/DefensiveShrooms/VBoxContainer/WallShroom" to="." method="_summoning_mushroom" binds= ["wall"]]
 [connection signal="pressed" from="CanvasLayer/BuildMenu2/DefensiveShrooms/VBoxContainer/HealShroom" to="." method="_summoning_mushroom" binds= ["heal"]]
+[connection signal="body_entered" from="OnMouse" to="." method="_on_on_mouse_body_entered"]
+[connection signal="body_exited" from="OnMouse" to="." method="_on_on_mouse_body_exited"]
+[connection signal="body_entered" from="OnMouse/Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="OnMouse/Area2D" to="." method="_on_area_2d_body_exited"]
