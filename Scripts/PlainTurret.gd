@@ -14,6 +14,9 @@ func _process(delta: float) -> void:
 	timer += delta
 	
 	if timer >= 1 && closestFire != []:
+		var crystals = Global.read("gemCount")
+		Global.write("gemCount", int(crystals)-1)
+		
 		var deleted = 0
 		for i in range(closestFire.size()):
 			if !is_instance_valid(closestFire[i - deleted]):
@@ -26,6 +29,8 @@ func _process(delta: float) -> void:
 			if closestFire[0].fireHealth <= 0:
 				closestFire[0].queue_free()
 	elif timer >= 2:
+		var crystals = Global.read("gemCount")
+		Global.write("gemCount", int(crystals)-1)
 		timer -= 1
 	
 	if turretHealth <= 0:

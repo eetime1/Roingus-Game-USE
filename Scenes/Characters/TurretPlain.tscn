@@ -9,9 +9,12 @@ radius = 646.0279
 [sub_resource type="CircleShape2D" id="CircleShape2D_jxsxp"]
 radius = 2560.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqxgs"]
+radius = 640.0
+
 [node name="PlainTurret" type="CharacterBody2D" unique_id=966794143]
 collision_layer = 16
-collision_mask = 4
+collision_mask = 29
 script = ExtResource("1_2eu2u")
 
 [node name="PlainShroomPlaceholder" type="Sprite2D" parent="." unique_id=1147840798]
@@ -38,5 +41,12 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=599136039]
 shape = SubResource("CircleShape2D_jxsxp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=803102952]
+collision_layer = 16
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1831185321]
+shape = SubResource("CircleShape2D_aqxgs")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

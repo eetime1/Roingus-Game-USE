@@ -5,9 +5,9 @@ const movement_speed = 2000.0
 @onready var movementPaused = false
 var timer = 0.0
 
-@onready var burrow = $"../Level/Burrow1"
-@onready var home = $"../Level/HomeShroom"
-@onready var navmesh = $"../Level/NavigationRegion2D"
+@onready var burrow = $"../Burrow1"
+@onready var home = $"../HomeShroom"
+@onready var navmesh = $"../NavigationRegion2D"
 
 func _ready() -> void:
 	nav_agent.target_position = burrow.global_position

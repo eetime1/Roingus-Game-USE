@@ -21,6 +21,6 @@ func instance(mushroom) -> void:
 			
 	if turret:
 		var a = turret.instantiate()
-		add_child(a)
+		$Level.add_child(a)
 		# Theres a hardcoded section (meant to represent offsetY of the turretplain scene)
 		a.position = Vector2(get_global_mouse_position() + Vector2(0, 640))
