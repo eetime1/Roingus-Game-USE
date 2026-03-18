@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bpsmsdxcuq3nv"]
 
 [ext_resource type="Texture2D" uid="uid://n8ysew12cvqc" path="res://Assets/Placeholders/PlainShroomPlaceholder.png" id="1_5h18x"]
-[ext_resource type="Script" uid="uid://b3822gva84l37" path="res://Scenes/Characters/PathTurret.gd" id="1_timno"]
+[ext_resource type="Script" uid="uid://b3822gva84l37" path="res://Scripts/PathTurret.gd" id="1_timno"]
+[ext_resource type="Texture2D" uid="uid://b3uwh4iyiapd6" path="res://Assets/Sprites/MyceliumPath.png" id="2_hsgsg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5h18x"]
 radius = 646.0279
@@ -13,7 +14,12 @@ radius = 640.0
 radius = 5120.0
 
 [node name="TurretPath" type="CharacterBody2D" unique_id=1989489247]
+collision_layer = 19
 script = ExtResource("1_timno")
+
+[node name="MyceliumPath" type="Sprite2D" parent="." unique_id=1519267873]
+z_index = -1
+texture = ExtResource("2_hsgsg")
 
 [node name="PathShroomPlaceholder" type="Sprite2D" parent="." unique_id=766531925]
 texture = ExtResource("1_5h18x")

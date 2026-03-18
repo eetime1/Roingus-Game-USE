@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://di5rqsrbqd7yf"]
+
+[ext_resource type="Script" uid="uid://dbc5i0rltkx3i" path="res://Scripts/WallTurret.gd" id="1_rhban"]
+[ext_resource type="Texture2D" uid="uid://n8ysew12cvqc" path="res://Assets/Placeholders/PlainShroomPlaceholder.png" id="2_tlmr3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xj4bv"]
+radius = 1280.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_caqlk"]
+radius = 1280.0
+
+[node name="TurretWall" type="CharacterBody2D" unique_id=688921188]
+collision_layer = 19
+script = ExtResource("1_rhban")
+
+[node name="WallShroomPlaceholder" type="Sprite2D" parent="." unique_id=506280970]
+scale = Vector2(2, 2)
+texture = ExtResource("2_tlmr3")
+offset = Vector2(0, -640)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=420874407]
+shape = SubResource("CircleShape2D_xj4bv")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1004389436]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2097853907]
+shape = SubResource("CircleShape2D_caqlk")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=994024697]
+anchors_preset = -1
+anchor_top = -0.37300003
+anchor_right = 1.0
+offset_left = -673.0
+offset_top = -1528.0
+offset_right = 653.0
+offset_bottom = -1328.0
+max_value = 500.0
+step = 0.1
+show_percentage = false

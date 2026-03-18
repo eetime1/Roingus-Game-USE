@@ -36,8 +36,8 @@ func _process(delta: float) -> void:
 		
 		if turretsInRange != []:
 			timer -= 1
-			turretsInRange[0].turretHealth -= 50
-			fireHealth -= 50
+			turretsInRange[0].turretHealth -= 25
+			fireHealth -= 25
 	
 	if fireHealth >= 100 && timer >= 1:
 		

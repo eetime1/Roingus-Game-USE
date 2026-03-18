@@ -48,4 +48,4 @@ position = Vector2(51832, -4989)
 position = Vector2(9933, -1921)
 
 [node name="RoingusUnit" parent="." unique_id=357388380 instance=ExtResource("7_1bf4a")]
-position = Vector2(12836, -2084)
+position = Vector2(21450, -6441)
