@@ -22,6 +22,9 @@ func raycastAndRandomize(angle:Vector2) -> float:
 	return randf_range(1280,longestDistance)
 
 func _process(delta: float) -> void:
+	if fireHealth <= 0:
+		queue_free()
+	
 	if detChangeHP != fireHealth:
 		detChangeHP = fireHealth
 		$Sprite2D.scale = Vector2(fireHealth / 100, fireHealth / 100)
@@ -60,8 +63,6 @@ func _process(delta: float) -> void:
 		if isTrapped:
 			queue_free()
 			
-	if fireHealth <= 0:
-		queue_free()
 	
 	elif timer >= 1:
 		timer -= 1

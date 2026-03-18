@@ -2,6 +2,7 @@ extends Node
 
 var json = JSON.new()
 var mushroomsCost = {"path":25, "turret":50, "wall":100, "heal":150}
+var data = {"gemCount": 50, "health": 200, "roingusCount": 1, "fireIndex": 0}
 
 func _ready() -> void:
 	write("gemCount", 50)
@@ -19,6 +20,7 @@ func read(ourString: String, filePath: String = "./Data/GlobalData.json") -> Var
 	if ourString == "all":
 		return json
 	return(data_received[ourString])
+	
 
 func write(ourString: String, ourData, filePath: String = "./Data/GlobalData.json") -> void:
 	var fuckyou = read('all', filePath)

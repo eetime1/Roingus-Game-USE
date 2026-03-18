@@ -2,19 +2,34 @@
 
 [ext_resource type="Script" uid="uid://bnuiwc5o6wa83" path="res://Scripts/HomeShroom.gd" id="1_audn5"]
 [ext_resource type="Texture2D" uid="uid://co5686wg0n5m2" path="res://Assets/Sprites/HomeShroom.png" id="1_xsxq0"]
+[ext_resource type="Texture2D" uid="uid://b3uwh4iyiapd6" path="res://Assets/Sprites/MyceliumPath.png" id="3_reu5w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_audn5"]
-radius = 256.0
+radius = 512.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ceu4c"]
+radius = 5120.0
 
 [node name="HomeShroom" type="CharacterBody2D" unique_id=1160796152]
-scale = Vector2(2, 2)
 collision_layer = 18
 collision_mask = 0
 script = ExtResource("1_audn5")
 
 [node name="HomeShroom" type="Sprite2D" parent="." unique_id=560668132]
+scale = Vector2(2, 2)
 texture = ExtResource("1_xsxq0")
 offset = Vector2(600, -1000)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=583436900]
 shape = SubResource("CircleShape2D_audn5")
+
+[node name="MyceliumPath" type="Sprite2D" parent="." unique_id=41659708]
+z_index = -1
+texture = ExtResource("3_reu5w")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=851498944]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1992677255]
+shape = SubResource("CircleShape2D_ceu4c")
