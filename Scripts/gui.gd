@@ -2,11 +2,14 @@ extends Control
 
 var isHoldingWhat = null
 signal turret_instantiate
+signal changeHeld
 
 func _process(_delta: float) -> void:
 	$CanvasLayer/Health.value = Global.data["health"]
 	$CanvasLayer/Crystals/Label2.text = str(Global.data["gemCount"])
 	$CanvasLayer/Roingus/Label2.text = str(Global.data["roingusCount"])
+	
+	$OnMouse.global_position = get_global_mouse_position()
 	
 func _input(event):
 	if event is InputEventMouseButton:
@@ -14,6 +17,7 @@ func _input(event):
 			#if true: # event.x is NOT over non-allowed
 			turret_instantiate.emit(isHoldingWhat)
 			isHoldingWhat = null
+			emit_signal("changeHeld")
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 func _quit_button():
@@ -30,6 +34,7 @@ func _open_build_menu():
 func _summoning_mushroom(extra_arg_0: String) -> void:
 	if int(Global.data["gemCount"]) > Global.mushroomsCost[extra_arg_0]:
 		isHoldingWhat = extra_arg_0
+		emit_signal("changeHeld")
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	else:
 		print("broke")

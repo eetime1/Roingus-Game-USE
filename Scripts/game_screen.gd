@@ -1,6 +1,6 @@
 extends Node2D
 
-var turret
+var shroom
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,20 +10,21 @@ func _ready() -> void:
 func instance(mushroom = null) -> void:
 	match (mushroom):
 		"turret":
-			print('t0')
-			turret = preload("res://Scenes/Characters/TurretPlain.tscn")
+			shroom = load("res://Scenes/Characters/TurretPlain.tscn")
 		"path":
-			turret = null
+			shroom = load("res://Scenes/Characters/Turretpath.tscn")
 		"wall":
-			turret = null
+			shroom = load("res://Scenes/Characters/TurretWall.tscn")
 		"heal":
-			turret = null
+			shroom = load("res://Scenes/Characters/TurretHeal.tscn")
+		_:
+			shroom = null
 			
 	if mushroom != null:
 		Global.data["gemCount"] -= Global.mushroomsCost[mushroom]
 		
-	if turret:
-		var a = turret.instantiate()
+	if shroom:
+		var a = shroom.instantiate()
 		$Level.add_child(a)
 		a.position = Vector2(get_global_mouse_position() + Vector2(0, 640))
 		print(a.position)

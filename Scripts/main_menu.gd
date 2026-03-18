@@ -2,7 +2,6 @@ extends Control
 var dataFromFile = {}
 var newResolution
 var newMode
-var attempts = 0
 @onready var txtFile = './Data/configs/config.json'
 
 func _ready() -> void:
@@ -11,7 +10,7 @@ func _ready() -> void:
 	var dataFromFile = JSON.parse_string(file.get_as_text())
 	
 	# To make sure it actually detects something smh || Fix later
-	if dataFromFile.size() < 6:
+	if dataFromFile.size() < 8:
 		Global.write("screenX", 1280, txtFile)
 		Global.write("screenY", 720, txtFile)
 		Global.write("buttonNo", 2, txtFile)
@@ -19,6 +18,7 @@ func _ready() -> void:
 		Global.write("currentScreen", 0, txtFile)
 		Global.write("mode", "windowed", txtFile)
 		Global.write("modeNo", 1, txtFile)
+		Global.write("showFPS", false, txtFile)
 		dataFromFile = JSON.parse_string(file.get_as_text())
 		
 	# Sets current screen and size
@@ -43,6 +43,7 @@ func _ready() -> void:
 	# Sets up the options button to be accurate to current screen
 	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.selected = int(dataFromFile["buttonNo"])
 	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton.selected = int(dataFromFile["modeNo"])
+	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton.toggle_mode = bool(dataFromFile["showFPS"])
 # This function
 func _on_settings_pressed() -> void:
 	$SettingsControls.visible = !$SettingsControls.visible
@@ -82,3 +83,11 @@ func _restart_window() -> void:
 		Global.write("mode", newMode[0], txtFile)
 		Global.write("modeNo", newMode[1], txtFile)
 	get_tree().quit()
+
+
+func _show_fps(toggled_on: bool) -> void:
+	if toggled_on == true:
+		Global.write("showFPS", true, txtFile)
+	elif toggled_on == false:
+		Global.write("showFPS", false, txtFile)
+		

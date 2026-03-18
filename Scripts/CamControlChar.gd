@@ -35,7 +35,9 @@ func _physics_process(_delta: float) -> void:
 	if directionUD == 0:
 		velocity.y = 0
 
-	$OnMouse.global_position = get_global_mouse_position()
+	
+	
+	
 	
 func _input(event):
 	if event is InputEventMouseButton:
