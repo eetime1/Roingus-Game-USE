@@ -11,10 +11,13 @@ func instance(mushroom = null) -> void:
 	match (mushroom):
 		"turret":
 			turret = preload("res://Scenes/Characters/TurretPlain.tscn")
-		1:
+		"path":
 			turret = null
-		2:
+		"wall":
 			turret = null
+		"heal":
+			turret = null
+			
 	if mushroom != null:
 		var currentGems = int(Global.read("gemCount","./Data/GlobalData.json"))
 		Global.write("gemCount", currentGems - Global.mushroomsCost[mushroom],"./Data/GlobalData.json")
