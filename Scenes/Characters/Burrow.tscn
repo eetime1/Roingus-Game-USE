@@ -1,9 +1,21 @@
 [gd_scene format=3 uid="uid://gwuh4mkx5i87"]
 
-[ext_resource type="Texture2D" uid="uid://dlfif0xyey3jg" path="res://Assets/Placeholders/BurrowPlaceholder.png" id="1_igh51"]
+[ext_resource type="Script" uid="uid://bmfhpumea25hq" path="res://Scripts/Burrow.gd" id="1_sh13c"]
+[ext_resource type="Texture2D" uid="uid://b6h54mnc4fdo6" path="res://Assets/Sprites/BurrowSaved.png" id="2_3nmc7"]
+[ext_resource type="Texture2D" uid="uid://comf7bw833ml3" path="res://Assets/Sprites/BurrowSOS.png" id="3_pggcy"]
 
-[node name="Burrow1" type="Node2D" unique_id=1058059735]
+[sub_resource type="CircleShape2D" id="CircleShape2D_sh13c"]
 
-[node name="BurrowPlaceholder" type="Sprite2D" parent="." unique_id=104112152]
-texture = ExtResource("1_igh51")
-offset = Vector2(0, -640)
+[node name="Burrow1" type="CharacterBody2D" unique_id=1531954552]
+collision_layer = 32
+script = ExtResource("1_sh13c")
+
+[node name="BurrowSaved" type="Sprite2D" parent="." unique_id=1069962770]
+visible = false
+texture = ExtResource("2_3nmc7")
+
+[node name="BurrowSOS" type="Sprite2D" parent="." unique_id=1013982267]
+texture = ExtResource("3_pggcy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1768066760]
+shape = SubResource("CircleShape2D_sh13c")

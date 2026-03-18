@@ -10,6 +10,7 @@ func _ready() -> void:
 func instance(mushroom = null) -> void:
 	match (mushroom):
 		"turret":
+			print('t0')
 			turret = preload("res://Scenes/Characters/TurretPlain.tscn")
 		"path":
 			turret = null

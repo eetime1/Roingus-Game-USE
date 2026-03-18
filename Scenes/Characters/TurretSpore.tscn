@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bonhqwvr0tsul"]
+
+[ext_resource type="Script" uid="uid://dd4e8me1d3twu" path="res://SporeTurret.gd" id="1_67cjo"]
+[ext_resource type="Texture2D" uid="uid://n8ysew12cvqc" path="res://Assets/Placeholders/PlainShroomPlaceholder.png" id="2_2dach"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dix6s"]
+radius = 646.0279
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jek2o"]
+radius = 2560.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mhagp"]
+radius = 640.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_67cjo"]
+radius = 1280.0
+
+[node name="TurretSpore" type="CharacterBody2D" unique_id=1848655097]
+script = ExtResource("1_67cjo")
+
+[node name="PlainShroomPlaceholder" type="Sprite2D" parent="." unique_id=1838709766]
+texture = ExtResource("2_2dach")
+offset = Vector2(0, -640)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=634491441]
+anchors_preset = -1
+anchor_top = -0.37300003
+anchor_right = 1.0
+offset_left = -673.0
+offset_top = -1528.0
+offset_right = 653.0
+offset_bottom = -1328.0
+step = 0.1
+show_percentage = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1895746255]
+shape = SubResource("CircleShape2D_dix6s")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1081508145]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1401820833]
+shape = SubResource("CircleShape2D_jek2o")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1834929347]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1461025812]
+shape = SubResource("CircleShape2D_mhagp")
+
+[node name="AOE" type="Area2D" parent="." unique_id=802493030]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AOE" unique_id=1867439041]
+shape = SubResource("CircleShape2D_67cjo")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="AOE" to="." method="_on_aoe_body_entered"]

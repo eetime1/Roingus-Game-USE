@@ -2,7 +2,7 @@ extends Control
 
 var isHoldingWhat = null
 signal turret_instantiate
-	
+
 func _process(_delta: float) -> void:
 	$CanvasLayer/Health.value = Global.data["health"]
 	$CanvasLayer/Crystals/Label2.text = str(Global.data["gemCount"])

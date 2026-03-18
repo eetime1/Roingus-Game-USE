@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var maxHealth = 50.0
 var turretHealth = 50.0
 var timer = 0
 

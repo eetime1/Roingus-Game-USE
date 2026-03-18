@@ -20,6 +20,7 @@ func read(ourString: String, filePath: String = "./Data/GlobalData.json") -> Var
 	if ourString == "all":
 		return json
 	return(data_received[ourString])
+	
 
 func write(ourString: String, ourData, filePath: String = "./Data/GlobalData.json") -> void:
 	var fuckyou = read('all', filePath)
