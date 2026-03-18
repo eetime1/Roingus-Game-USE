@@ -151,7 +151,7 @@ layout_mode = 2
 theme_override_constants/margin_top = 10
 
 [node name="VScrollBar" type="VScrollBar" parent="CanvasLayer/BuildMenu/MarginContainer" unique_id=408720190]
-custom_minimum_size = Vector2(0, 332)
+custom_minimum_size = Vector2(20, 332)
 layout_mode = 2
 script = ExtResource("6_j8enm")
 
@@ -167,29 +167,29 @@ layout_mode = 0
 offset_right = 395.0
 offset_bottom = 1004.0
 
-[node name="Mushroom1" type="Button" parent="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer" unique_id=630164303]
+[node name="PathShroom" type="Button" parent="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer" unique_id=630164303]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Mushroom 1
-Costs 50 Crystal"
+text = "PathShroom
+Cost: 25 gems"
 
-[node name="Mushroom2" type="Button" parent="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer" unique_id=332265586]
+[node name="TurretShroom" type="Button" parent="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer" unique_id=332265586]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Mushroom 2
-Costs [] Crystal"
+text = "TurretShroom
+Cost: 50 gems"
 
-[node name="Mushroom3" type="Button" parent="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer" unique_id=1420681356]
+[node name="WallShroom" type="Button" parent="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer" unique_id=1420681356]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Mushroom 3
-Costs [] Crystal"
+text = "WallShroom
+Cost: 100 gems"
 
-[node name="Mushroom4" type="Button" parent="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer" unique_id=1194339395]
+[node name="HealShroom" type="Button" parent="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer" unique_id=1194339395]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "Mushroom 2
-Costs [] Crystal"
+text = "HealShroom
+Cost: 150 gems"
 
 [node name="Mushroom5" type="Button" parent="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer" unique_id=420241988]
 layout_mode = 2
@@ -248,6 +248,7 @@ vertical_alignment = 1
 
 [connection signal="pressed" from="CanvasLayer/QuitGame" to="." method="_quit_button"]
 [connection signal="pressed" from="CanvasLayer/BuildMenu/Build Menu" to="." method="_open_build_menu"]
-[connection signal="pressed" from="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/Mushroom1" to="." method="_summoning_mushroom" binds= [0]]
-[connection signal="pressed" from="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/Mushroom2" to="." method="_summoning_mushroom" binds= [1]]
-[connection signal="pressed" from="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/Mushroom3" to="." method="_summoning_mushroom" binds= [2]]
+[connection signal="pressed" from="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/PathShroom" to="." method="_summoning_mushroom" binds= ["path"]]
+[connection signal="pressed" from="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/TurretShroom" to="." method="_summoning_mushroom" binds= ["turret"]]
+[connection signal="pressed" from="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/WallShroom" to="." method="_summoning_mushroom" binds= ["wall"]]
+[connection signal="pressed" from="CanvasLayer/BuildMenu/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/HealShroom" to="." method="_summoning_mushroom" binds= ["heal"]]

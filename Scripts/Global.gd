@@ -1,9 +1,10 @@
 extends Node
 
 var json = JSON.new()
+var mushroomsCost = {"path":25, "turret":50, "wall":100, "heal":150}
 
 func _ready() -> void:
-	write("gemCount", "100")
+	write("gemCount", 50)
 	write("health", "100")
 	write("roingusCount", "1")
 	write("fireIndex", "0")

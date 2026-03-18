@@ -1,6 +1,6 @@
 extends Control
 
-var isHoldingWhat = -1
+var isHoldingWhat = null
 signal turret_instantiate
 	
 func _process(_delta: float) -> void:
@@ -10,13 +10,11 @@ func _process(_delta: float) -> void:
 	
 	#var turrets = get_tree().get_nodes_in_group("turrets")
 	
-	
-	
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == 1 && isHoldingWhat != -1:
+		if event.button_index == 1 && isHoldingWhat != null:
 			turret_instantiate.emit(isHoldingWhat)
-			isHoldingWhat = -1
+			isHoldingWhat = null
 		
 func _quit_button():
 	get_tree().quit()
@@ -30,5 +28,8 @@ func _open_build_menu():
 	else:
 		$CanvasLayer/BuildMenu.position.y += positionChange
 		
-func _summoning_mushroom(extra_arg_0: int) -> void:
-	isHoldingWhat = extra_arg_0
+func _summoning_mushroom(extra_arg_0: String) -> void:
+	if int(Global.read("gemCount","./Data/GlobalData.json")) > Global.mushroomsCost[extra_arg_0]:
+		isHoldingWhat = extra_arg_0
+	else:
+		print("broke")
