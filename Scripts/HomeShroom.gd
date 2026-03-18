@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var timer = 0
 var turretHealth = 200
 var changeDet = 200
+var distFromHome = 0
 
 func _physics_process(delta: float) -> void:
 	if changeDet != turretHealth:

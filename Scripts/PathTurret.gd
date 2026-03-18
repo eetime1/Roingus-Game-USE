@@ -3,6 +3,7 @@ extends CharacterBody2D
 var maxHealth = 50.0
 var turretHealth = 50.0
 var timer = 0
+var distFromHome = -1
 
 func _ready():
 	add_to_group("turrets")
