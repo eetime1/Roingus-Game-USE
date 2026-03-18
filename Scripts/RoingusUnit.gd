@@ -9,6 +9,9 @@ var timer = 0.0
 @onready var home = $"../HomeShroom"
 @onready var navmesh = $"../NavigationRegion2D"
 
+@onready var diffGoal = nav_agent.get_next_path_position()
+@onready var nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
+
 func _ready() -> void:
 	nav_agent.target_position = burrow.global_position
 
@@ -21,7 +24,8 @@ func _physics_process(delta: float) -> void:
 		timer += delta
 	
 	if !nav_agent.is_navigation_finished() && !movementPaused:
-		var nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
+		if nav_point_direction != diffGoal:
+			nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
 		velocity = nav_point_direction * movement_speed
 		move_and_slide()
 		

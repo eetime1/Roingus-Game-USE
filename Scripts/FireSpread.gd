@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 var fireHealth = 10.0
 var timer = 0
+var turretsInRange = []
+var detChangeHP = 10.0
 
 func _ready() -> void:
 	pass
@@ -20,9 +22,22 @@ func raycastAndRandomize(angle:Vector2) -> float:
 	return randf_range(1280,longestDistance)
 
 func _process(delta: float) -> void:
-	$Sprite2D.scale = Vector2(fireHealth / 100, fireHealth / 100)
+	if detChangeHP != fireHealth:
+		detChangeHP = fireHealth
+		$Sprite2D.scale = Vector2(fireHealth / 100, fireHealth / 100)
 	timer += delta
 	
+	if timer >= 1 && turretsInRange != []:
+		var deleted = 0
+		for i in range(turretsInRange.size()):
+			if !is_instance_valid(turretsInRange[i - deleted]):
+				turretsInRange.remove_at(i - deleted)
+				deleted += 1
+		
+		if turretsInRange != []:
+			timer -= 1
+			turretsInRange[0].turretHealth -= 50
+			fireHealth -= 50
 	
 	if fireHealth >= 100 && timer >= 1:
 		
@@ -44,7 +59,16 @@ func _process(delta: float) -> void:
 			randomAngleVector = Vector2(cos(randomAngle), sin(randomAngle)).normalized()
 		if isTrapped:
 			queue_free()
+			
+	if fireHealth <= 0:
+		queue_free()
 	
 	elif timer >= 1:
 		timer -= 1
 		fireHealth += 10
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		turretsInRange.append(body)
+	
