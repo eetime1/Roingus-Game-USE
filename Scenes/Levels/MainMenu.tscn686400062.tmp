@@ -46,17 +46,19 @@ anchor_top = 0.34500003
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 0.39996338
-current_tab = 0
+current_tab = 1
 
 [node name="Audio" type="TabBar" parent="SettingsControls/SettingsTabs" unique_id=260204759]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsControls/SettingsTabs/Audio" unique_id=304289408]
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 176.20001
+anchor_bottom = 1.0
+offset_bottom = -264.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
@@ -123,17 +125,15 @@ icon_alignment = 1
 text_direction = 1
 
 [node name="Video" type="TabBar" parent="SettingsControls/SettingsTabs" unique_id=2082657782]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsControls/SettingsTabs/Video" unique_id=2033845466]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.000454384
 anchor_right = 1.0
-anchor_bottom = 0.000454384
-offset_bottom = 157.0
+anchor_bottom = 1.0
+offset_bottom = -303.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 20
@@ -142,7 +142,14 @@ metadata/_edit_use_anchors_ = true
 
 [node name="VVideo" type="VBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer" unique_id=279030490]
 layout_mode = 2
-alignment = 1
+
+[node name="QuitWindow" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=1849002224]
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/QuitWindow" unique_id=126255335]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quit Window"
 
 [node name="WindowControls" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=408489669]
 layout_mode = 2
@@ -182,14 +189,6 @@ popup/item_1/id = 1
 popup/item_2/text = "1280 x 720"
 popup/item_2/id = 2
 
-[node name="QuitWindow" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=1849002224]
-layout_mode = 2
-
-[node name="Quit" type="Button" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/QuitWindow" unique_id=126255335]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Quit To Change Window"
-
 [node name="ShowFps" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=1032640814]
 layout_mode = 2
 
@@ -221,10 +220,12 @@ metadata/_tab_index = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="SettingsControls/SettingsTabs/Controls" unique_id=2019822664]
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 15
 anchor_right = 1.0
-offset_bottom = 137.20001
+anchor_bottom = 1.0
+offset_bottom = -303.0
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 metadata/_edit_use_anchors_ = true
@@ -256,14 +257,14 @@ popup/item_1/id = 1
 [node name="ExitSettings" type="Button" parent="SettingsControls" unique_id=2019117859]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.98481256
-anchor_top = 0.36222228
-anchor_right = 0.98481256
-anchor_bottom = 0.36222228
-offset_left = -103.56006
-offset_top = -15.800034
-offset_right = -0.5600586
-offset_bottom = 15.199966
+anchor_left = 0.95800006
+anchor_top = 0.351
+anchor_right = 0.95800006
+anchor_bottom = 0.351
+offset_left = -52.360107
+offset_top = -15.080017
+offset_right = 50.639893
+offset_bottom = 15.919983
 text = "Exit Settings"
 metadata/_edit_use_anchors_ = true
 
@@ -315,9 +316,9 @@ offset_right = 55.59192
 offset_bottom = 15.639954
 text = "Exit"
 
+[connection signal="pressed" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/QuitWindow/Quit" to="." method="_restart_window"]
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton" to="." method="_setMode"]
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton" to="." method="_setSize"]
-[connection signal="pressed" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/QuitWindow/Quit" to="." method="_restart_window"]
 [connection signal="toggled" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton" to="." method="_toggles" binds= ["showFPS"]]
 [connection signal="toggled" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/NoMycelium/CheckButton" to="." method="_toggles" binds= ["noMycelium"]]
 [connection signal="pressed" from="SettingsControls/ExitSettings" to="." method="_on_settings_pressed"]

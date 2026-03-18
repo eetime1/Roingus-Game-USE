@@ -12,13 +12,15 @@ func _process(_delta: float) -> void:
 	$CanvasLayer/Roingus/Label2.text = str(Global.data["roingusCount"])
 	
 	$OnMouse.global_position = get_global_mouse_position()
-	
-	if $CanvasLayer/Secret.modulate.a > 0 && $CanvasLayer/AudioStreamPlayer2D.get_playback_position() > 0:
-		$CanvasLayer/Secret.modulate.a = (1 -($CanvasLayer/AudioStreamPlayer2D.get_playback_position() / 1.25))
-		$CanvasLayer/Secret.self_modulate.a = (1 -($CanvasLayer/AudioStreamPlayer2D.get_playback_position() / 1.25))
+	if $CanvasLayer/Panel2/Secret.modulate.a > 0.02:
+		$CanvasLayer/Panel2/Secret.modulate.a = (1 -($CanvasLayer/AudioStreamPlayer2D.get_playback_position() / 1.25))
+		$CanvasLayer/Panel2/Secret.self_modulate.a = (1 -($CanvasLayer/AudioStreamPlayer2D.get_playback_position() / 1.25))
 	else:
-		$CanvasLayer/Secret.modulate.a = 0
-	
+		$CanvasLayer/Panel2/Secret.modulate.a = 0
+
+	if Global.read("showFPS"):
+		$CanvasLayer/FpsCounts.text = "FPS: " + str(Engine.get_frames_per_second())
+
 
 func _input(event):
 	if event is InputEventMouseButton:
@@ -37,7 +39,14 @@ func _input(event):
 		elif event.button_index == 1 && isHoldingWhat != null && blockedNum != 0:
 			print('blocked')
 		elif event.button_index == 1 && isHoldingWhat != null && myceliumNum == 0:
-			print('
+			
+			
+			if Global.read("noMycelium") == true:
+				$CanvasLayer/AudioStreamPlayer2D.position = Global.globalPosition
+				$CanvasLayer/AudioStreamPlayer2D.play()
+				$CanvasLayer/Panel2/Secret.modulate.a = 1
+				print('
+---------------------------------------
 ⣞⢽⢪⢣⢣⢣⢫⡺⡵⣝⡮⣗⢷⢽⢽⢽⣮⡷⡽⣜⣜⢮⢺⣜⢷⢽⢝⡽⣝
 ⠸⡸⠜⠕⠕⠁⢁⢇⢏⢽⢺⣪⡳⡝⣎⣏⢯⢞⡿⣟⣷⣳⢯⡷⣽⢽⢯⣳⣫⠇
 ⠀⠀⢀⢀⢄⢬⢪⡪⡎⣆⡈⠚⠜⠕⠇⠗⠝⢕⢯⢫⣞⣯⣿⣻⡽⣏⢗⣗⠏⠀
@@ -51,12 +60,10 @@ func _input(event):
 ⠀⠀⠀⣴⣿⣾⣿⣿⣿⡿⡽⡑⢌⠪⡢⡣⣣⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⡟⡾⣿⢿⢿⢵⣽⣾⣼⣘⢸⢸⣞⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠁⠇⠡⠩⡫⢿⣝⡻⡮⣒⢽⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
-no mycelium??????? ⠀')
-			$CanvasLayer/AudioStreamPlayer2D.position = Global.globalPosition
-			
-			$CanvasLayer/AudioStreamPlayer2D.play()
-			$CanvasLayer/Secret.modulate.a = 1
-		
+----------no mycelium???????----------')
+
+			else:
+				print("Not on mycelium")
 func _quit_button():
 	get_tree().quit()
 

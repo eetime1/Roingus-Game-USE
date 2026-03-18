@@ -10,7 +10,7 @@ func _ready() -> void:
 	var dataFromFile = JSON.parse_string(file.get_as_text())
 	
 	# To make sure it actually detects something smh || Fix later
-	if dataFromFile.size() < 8:
+	if dataFromFile.size() < 9:
 		Global.write("screenX", 1280, txtFile)
 		Global.write("screenY", 720, txtFile)
 		Global.write("buttonNo", 2, txtFile)
@@ -19,6 +19,7 @@ func _ready() -> void:
 		Global.write("mode", "windowed", txtFile)
 		Global.write("modeNo", 1, txtFile)
 		Global.write("showFPS", false, txtFile)
+		Global.write("noMycelium", false, txtFile)
 		dataFromFile = JSON.parse_string(file.get_as_text())
 		
 	# Sets current screen and size
@@ -34,17 +35,18 @@ func _ready() -> void:
 	if dataFromFile["mode"] == "windowed":
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		get_tree().root.borderless = false
-	if dataFromFile["mode"] == "fullscreen":
+	elif dataFromFile["mode"] == "fullscreen":
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-	if dataFromFile["mode"] == "windowed-borderless":
+	elif dataFromFile["mode"] == "windowed-borderless":
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		get_tree().root.borderless = true
 	
 	# Sets up the options button to be accurate to current screen
 	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.selected = int(dataFromFile["buttonNo"])
 	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton.selected = int(dataFromFile["modeNo"])
-	#$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton.toggle_mode = bool(dataFromFile["showFPS"])
-# This function
+	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton.button_pressed = bool(dataFromFile["showFPS"])
+	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/NoMycelium/CheckButton.button_pressed = bool(dataFromFile["noMycelium"])
+
 func _on_settings_pressed() -> void:
 	$SettingsControls.visible = !$SettingsControls.visible
 	$Menu.visible = !$Menu.visible
@@ -61,7 +63,7 @@ func _setSize(this) -> void:
 			newResolution = [1280,720,2]
 		3:
 			newResolution = [640,480,3]
-
+		
 func _setMode(this) -> void:
 	match (this):
 		0:
@@ -70,9 +72,13 @@ func _setMode(this) -> void:
 			newMode = ["windowed", 1]
 		2:
 			newMode = ["windowed-borderless", 2]
-
+		
 func _quit_window() -> void:
 	get_tree().quit()
+
+func _open_scene():
+	get_tree().change_scene_to_file("res://Scenes/Screen/game_screen.tscn")
+	pass
 
 func _restart_window() -> void:
 	if newResolution != null:
@@ -85,9 +91,8 @@ func _restart_window() -> void:
 	get_tree().quit()
 
 
-func _show_fps(toggled_on: bool) -> void:
+func _toggles(toggled_on: bool, what = "string") -> void:
 	if toggled_on == true:
-		Global.write("showFPS", true, txtFile)
+		Global.write(what, true, txtFile)
 	elif toggled_on == false:
-		Global.write("showFPS", false, txtFile)
-		
+		Global.write(what, false, txtFile)
