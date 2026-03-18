@@ -1,10 +1,13 @@
 extends CharacterBody2D
 
 @onready var timer = 0
-var turretHealth = 100
+var turretHealth = 200
+var changeDet = 200
 
 func _physics_process(delta: float) -> void:
-	Global.write("health", turretHealth)
+	if changeDet != turretHealth:
+		changeDet = turretHealth
+		Global.write("health", turretHealth)
 	timer += delta
 	
 	if int(Global.read("health")) <= 0 || int(Global.read("gemCount")) <= 0:

@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://comsm7d8xjxkf" path="res://Assets/Placeholders/FirePlaceholder.png" id="1_1rfsn"]
 [ext_resource type="Script" uid="uid://68mbfr0enyaw" path="res://Scripts/FireSpread.gd" id="1_iprgc"]
-[ext_resource type="Script" uid="uid://dgs5yflq6ea2w" path="res://Scripts/Bouncing.gd" id="3_qy72q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iprgc"]
 radius = 639.176
@@ -21,7 +20,6 @@ script = ExtResource("1_iprgc")
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1548385974]
 texture = ExtResource("1_1rfsn")
 offset = Vector2(0, -640)
-script = ExtResource("3_qy72q")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1029905128]
 shape = SubResource("CircleShape2D_iprgc")

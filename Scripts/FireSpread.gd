@@ -3,6 +3,7 @@ extends CharacterBody2D
 var fireHealth = 10.0
 var timer = 0
 var turretsInRange = []
+var detChangeHP = 10.0
 
 func _ready() -> void:
 	pass
@@ -21,7 +22,9 @@ func raycastAndRandomize(angle:Vector2) -> float:
 	return randf_range(1280,longestDistance)
 
 func _process(delta: float) -> void:
-	$Sprite2D.scale = Vector2(fireHealth / 100, fireHealth / 100)
+	if detChangeHP != fireHealth:
+		detChangeHP = fireHealth
+		$Sprite2D.scale = Vector2(fireHealth / 100, fireHealth / 100)
 	timer += delta
 	
 	if timer >= 1 && turretsInRange != []:
