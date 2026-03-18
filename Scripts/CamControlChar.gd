@@ -58,6 +58,5 @@ func _input(event):
 	if event is InputEventMouseMotion && isPressed:
 		position.x += (lastMouseX - event.position.x) * MouseSpeed / $Camera2D.zoom.x
 		position.y += (lastMouseY - event.position.y) * MouseSpeed / $Camera2D.zoom.y
-		print(position)
 		lastMouseX = event.position.x
 		lastMouseY = event.position.y

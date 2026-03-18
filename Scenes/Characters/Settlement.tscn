@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c1h2h81wksbr1"]
+
+[ext_resource type="Texture2D" uid="uid://dka7llv7kubeu" path="res://Assets/Sprites/Settlement.png" id="1_da04f"]
+
+[node name="Settlement" type="Node2D" unique_id=1886421436]
+
+[node name="Settlement" type="Sprite2D" parent="." unique_id=481019761]
+scale = Vector2(3, 3)
+texture = ExtResource("1_da04f")
+offset = Vector2(0, -1200)

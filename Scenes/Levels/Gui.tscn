@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://dbmf6f2ml45jf" path="res://Scripts/gui.gd" id="1_pw6eg"]
 [ext_resource type="Texture2D" uid="uid://uqsbjxyogvtg" path="res://Assets/Backgrounds/GameSpace.png" id="2_uhjjm"]
 [ext_resource type="Texture2D" uid="uid://b5mwt5tf6oto1" path="res://Assets/Sprites/magicrystalICON.png" id="3_53usy"]
-[ext_resource type="Texture2D" uid="uid://cbo1pfrp1naty" path="res://Assets/Placeholders/Building_Icon.png" id="5_d3vi1"]
+[ext_resource type="Texture2D" uid="uid://cbo1pfrp1naty" path="res://Assets/Sprites/Building_Icon.png" id="5_d3vi1"]
 [ext_resource type="Texture2D" uid="uid://dypixqgb4qb1t" path="res://Assets/Sprites/roingusICON.png" id="5_luu77"]
 [ext_resource type="Script" uid="uid://ctt5avyq7c1bc" path="res://Scripts/v_scroll_bar.gd" id="6_j8enm"]
+
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uhjjm"]
 bg_color = Color(0.15294118, 0.7882353, 0.18039216, 1)
