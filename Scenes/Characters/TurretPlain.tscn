@@ -3,15 +3,14 @@
 [ext_resource type="Script" uid="uid://cb0g7ee8u5wf7" path="res://Scripts/PlainTurret.gd" id="1_2eu2u"]
 [ext_resource type="Texture2D" uid="uid://n8ysew12cvqc" path="res://Assets/Placeholders/PlainShroomPlaceholder.png" id="1_6nxjc"]
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_qb8r1"]
 radius = 646.0279
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jxsxp"]
 radius = 2560.0
 
-[node name="PlainTurret" type="StaticBody2D" unique_id=1397304827]
-collision_layer = 3
+[node name="PlainTurret" type="CharacterBody2D" unique_id=966794143]
+collision_layer = 16
 collision_mask = 4
 script = ExtResource("1_2eu2u")
 
@@ -35,7 +34,7 @@ shape = SubResource("CircleShape2D_qb8r1")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=330435413]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=599136039]
 shape = SubResource("CircleShape2D_jxsxp")

@@ -5,11 +5,12 @@
 [ext_resource type="Script" uid="uid://dgs5yflq6ea2w" path="res://Scripts/Bouncing.gd" id="3_qe76c"]
 [ext_resource type="Texture2D" uid="uid://bpjofc5a3gdfp" path="res://Assets/Sprites/RoingusCivilian.png" id="4_g67gc"]
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_g67gc"]
 radius = 400.0
 
 [node name="RoingusUnit" type="CharacterBody2D" unique_id=357388380]
+collision_layer = 4
+collision_mask = 25
 script = ExtResource("1_266xe")
 
 [node name="Sprite2DEmpty" type="Sprite2D" parent="." unique_id=1012876932]

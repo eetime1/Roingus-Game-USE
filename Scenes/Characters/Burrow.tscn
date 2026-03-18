@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://gwuh4mkx5i87"]
+
+[ext_resource type="Texture2D" uid="uid://dlfif0xyey3jg" path="res://Assets/Placeholders/BurrowPlaceholder.png" id="1_igh51"]
+
+[node name="Burrow1" type="Node2D" unique_id=1058059735]
+
+[node name="BurrowPlaceholder" type="Sprite2D" parent="." unique_id=104112152]
+texture = ExtResource("1_igh51")
+offset = Vector2(0, -640)

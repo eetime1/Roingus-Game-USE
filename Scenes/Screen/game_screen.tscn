@@ -2,10 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://sgw5r5vrip1c" path="res://Scenes/Levels/Gui.tscn" id="1_bedem"]
 [ext_resource type="Script" uid="uid://bv7ae7rvepmmy" path="res://Scripts/game_screen.gd" id="1_jegvc"]
-[ext_resource type="PackedScene" uid="uid://dmi7xsqahdjpi" path="res://Scenes/Levels/TurreTest.tscn" id="4_m0upi"]
+[ext_resource type="PackedScene" uid="uid://dtdfd2564flbq" path="res://Scenes/Levels/LevelOne.tscn" id="4_m0upi"]
 [ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Scenes/Characters/Player.tscn" id="5_ol1ve"]
+[ext_resource type="PackedScene" uid="uid://b35eidbvj6gxq" path="res://Scenes/Characters/Fire.tscn" id="6_yjxi7"]
+[ext_resource type="PackedScene" uid="uid://mpjhwxyemula" path="res://Scenes/Characters/RoingusUnit.tscn" id="8_lnyjw"]
 
 [node name="GameScreen" type="Node2D" unique_id=809576985]
+y_sort_enabled = true
 script = ExtResource("1_jegvc")
 
 [node name="GUI" parent="." unique_id=314829441 instance=ExtResource("1_bedem")]
@@ -13,5 +16,11 @@ script = ExtResource("1_jegvc")
 [node name="Player" parent="." unique_id=1372272007 instance=ExtResource("5_ol1ve")]
 position = Vector2(24722, -3935)
 
-[node name="TurretTest" parent="." unique_id=953633863 instance=ExtResource("4_m0upi")]
-position = Vector2(21194, -7836)
+[node name="Level" parent="." unique_id=363940844 instance=ExtResource("4_m0upi")]
+position = Vector2(-99, -143)
+
+[node name="RoingusUnit" parent="." unique_id=357388380 instance=ExtResource("8_lnyjw")]
+position = Vector2(13565, -3698)
+
+[node name="Fire" parent="." unique_id=188389518 instance=ExtResource("6_yjxi7")]
+position = Vector2(13869, -13608)

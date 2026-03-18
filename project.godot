@@ -74,10 +74,11 @@ scrolldown={
 
 [layer_names]
 
-2d_physics/layer_1="Physics, Roingus Nav, Turret Placement"
-2d_physics/layer_2="Fire Placement"
-2d_physics/layer_3="Can be hit by turrets"
-2d_physics/layer_4="Can damage turrets"
+2d_physics/layer_1="Terrain (impassable by roingus)"
+2d_physics/layer_2="Fireproof Terrain (may be passable by roingus)"
+2d_physics/layer_3="Roingus"
+2d_physics/layer_4="Fire"
+2d_physics/layer_5="Turrets"
 
 [physics]
 

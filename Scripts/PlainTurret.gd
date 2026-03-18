@@ -1,4 +1,4 @@
-extends StaticBody2D
+extends CharacterBody2D
 
 var turretHealth = 100.0
 var timer = 0
@@ -7,6 +7,7 @@ var fireDist = []
 
 func _ready():
 	add_to_group("turrets")
+	add_to_group('navigation')
 
 func _process(delta: float) -> void:
 	$ProgressBar.value = turretHealth
@@ -21,7 +22,6 @@ func _process(delta: float) -> void:
 		
 		if closestFire != []:
 			timer -= 1
-			print(closestFire)
 			closestFire[0].fireHealth -= 50
 			if closestFire[0].fireHealth <= 0:
 				closestFire[0].queue_free()
@@ -29,7 +29,7 @@ func _process(delta: float) -> void:
 		timer -= 1
 	
 	if turretHealth <= 0:
-		#print('KIA')
+		print('KIA')
 		queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:

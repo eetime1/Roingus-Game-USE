@@ -8,7 +8,7 @@ func _ready() -> void:
 
 func raycastAndRandomize(angle:Vector2) -> float:
 	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(position + Vector2(0, 0), position + 2560*angle, 0b10)
+	var query = PhysicsRayQueryParameters2D.create(position + Vector2(0, 0), position + 2560*angle, 0b1010)
 	var result = space_state.intersect_ray(query)
 	
 	var longestDistance = 2560
@@ -21,7 +21,6 @@ func raycastAndRandomize(angle:Vector2) -> float:
 
 func _process(delta: float) -> void:
 	$Sprite2D.scale = Vector2(fireHealth / 100, fireHealth / 100)
-	$ProgressBar.value = fireHealth
 	timer += delta
 	
 	
