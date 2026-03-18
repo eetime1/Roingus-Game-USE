@@ -39,9 +39,8 @@ func _physics_process(delta: float) -> void:
 	
 	elif nav_agent.target_position == home.global_position && !movementPaused:
 		$Sprite2DFull.visible = false
-		var gemSum = int(Global.read("gemCount")) + 50
+		Global.data["gemCount"] += 50
 		
-		Global.write("gemCount", str(gemSum))
 		nav_agent.target_position = burrow.global_position
 		movementPaused = true
 		await get_tree().create_timer(1).timeout

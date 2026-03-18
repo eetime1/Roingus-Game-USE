@@ -19,8 +19,7 @@ func instance(mushroom = null) -> void:
 			turret = null
 			
 	if mushroom != null:
-		var currentGems = int(Global.read("gemCount","./Data/GlobalData.json"))
-		Global.write("gemCount", currentGems - Global.mushroomsCost[mushroom],"./Data/GlobalData.json")
+		Global.data["gemCount"] -= Global.mushroomsCost[mushroom]
 		
 	if turret:
 		var a = turret.instantiate()

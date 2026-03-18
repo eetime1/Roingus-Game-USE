@@ -31,7 +31,6 @@ func _ready() -> void:
 	var centerPositioningY = DisplayServer.screen_get_size().y / 2 - DisplayServer.window_get_size().y / 2
 	get_tree().root.position = Vector2i(centerPositioningX, centerPositioningY)
 	
-
 	if dataFromFile["mode"] == "windowed":
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		get_tree().root.borderless = false

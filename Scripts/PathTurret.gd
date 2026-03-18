@@ -14,6 +14,5 @@ func _process(delta: float) -> void:
 	timer += delta
 	
 	if timer >= 1:
-		var crystals = Global.read("gemCount")
-		Global.write("gemCount", int(crystals)-1)
 		timer -= 1
+		Global.data["gemCount"] -= 1

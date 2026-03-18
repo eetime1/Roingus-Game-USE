@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://bpsmsdxcuq3nv"]
 
 [ext_resource type="Texture2D" uid="uid://n8ysew12cvqc" path="res://Assets/Placeholders/PlainShroomPlaceholder.png" id="1_5h18x"]
-[ext_resource type="Script" uid="uid://b3822gva84l37" path="res://Scenes/Characters/PathTurret.gd" id="1_timno"]
+[ext_resource type="Script" uid="uid://b3822gva84l37" path="res://Scripts/PathTurret.gd" id="1_timno"]
+
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5h18x"]
 radius = 646.0279

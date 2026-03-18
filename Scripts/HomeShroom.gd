@@ -7,14 +7,14 @@ var changeDet = 200
 func _physics_process(delta: float) -> void:
 	if changeDet != turretHealth:
 		changeDet = turretHealth
-		Global.write("health", turretHealth)
+		Global.data["health"] = changeDet
 	timer += delta
 	
-	if changeDet <= 0 || int(Global.read("gemCount")) <= 0:
+	if changeDet <= 0 || Global.data["gemCount"] <= 0:
 		print("game over goes here. this msg is in HomeShroom.gd")
 	
 	if timer >= 1:
 		timer -= 1
-		var crystals = Global.read("gemCount")
-		Global.write("gemCount", int(crystals)-1)
+		Global.data["gemCount"] -= 1
+
 	
