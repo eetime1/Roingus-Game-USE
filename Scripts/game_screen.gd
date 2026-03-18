@@ -12,12 +12,13 @@ func instance(mushroom = null) -> void:
 		"turret":
 			print('t0')
 			turret = preload("res://Scenes/Characters/TurretPlain.tscn")
-		1:
-			print('t1')
+		"path":
 			turret = null
-		2:
-			print('t2')
+		"wall":
 			turret = null
+		"heal":
+			turret = null
+			
 	if mushroom != null:
 		var currentGems = int(Global.read("gemCount","./Data/GlobalData.json"))
 		Global.write("gemCount", currentGems - Global.mushroomsCost[mushroom],"./Data/GlobalData.json")

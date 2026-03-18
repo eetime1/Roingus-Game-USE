@@ -8,8 +8,6 @@ func _process(_delta: float) -> void:
 	$CanvasLayer/Crystals/Label2.text = str(Global.read("gemCount"))
 	$CanvasLayer/Roingus/Label2.text = str(Global.read("roingusCount"))
 	
-	#var turrets = get_tree().get_nodes_in_group("turrets")
-	
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == 1 && isHoldingWhat != null:
@@ -22,7 +20,6 @@ func _quit_button():
 func _open_build_menu():
 	var positionChange = 350
 	var positionMinimum = -100
-	#print($CanvasLayer/BuildMenu.position.y - DisplayServer.window_get_size().y)
 	if $CanvasLayer/BuildMenu.position.y - DisplayServer.window_get_size().y > positionMinimum:
 		$CanvasLayer/BuildMenu.position.y -= positionChange
 	else:

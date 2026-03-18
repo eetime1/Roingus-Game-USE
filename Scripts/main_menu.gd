@@ -1,6 +1,7 @@
 extends Control
 var dataFromFile = {}
 var newResolution
+var newMode
 var attempts = 0
 @onready var txtFile = './Data/configs/config.json'
 
@@ -17,20 +18,28 @@ func _ready() -> void:
 		Global.write("borderless", false, txtFile)
 		Global.write("currentScreen", 0, txtFile)
 		Global.write("mode", "windowed", txtFile)
+		Global.write("modeNo", 1, txtFile)
 		dataFromFile = JSON.parse_string(file.get_as_text())
 		
 	# Sets current screen and size
 	get_tree().root.unresizable = true
-	get_tree().root.position = Vector2i(0,20)
+	get_tree().root.position = Vector2i(50,100)
 	
 	DisplayServer.window_set_size(Vector2i(dataFromFile["screenX"],dataFromFile["screenY"]))
 	get_tree().root.content_scale_size = Vector2i(dataFromFile["screenX"],dataFromFile["screenY"])
 
-	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN)
+	if dataFromFile["mode"] == "windowed":
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		get_tree().root.borderless = false
+	if dataFromFile["mode"] == "fullscreen":
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+	if dataFromFile["mode"] == "windowed-borderless":
+		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+		get_tree().root.borderless = true
 	
 	# Sets up the options button to be accurate to current screen
 	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.selected = int(dataFromFile["buttonNo"])
-
+	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton.selected = int(dataFromFile["modeNo"])
 # This function
 func _on_settings_pressed() -> void:
 	$SettingsControls.visible = !$SettingsControls.visible
@@ -52,18 +61,21 @@ func _setSize(this) -> void:
 func _setMode(this) -> void:
 	match (this):
 		0:
-			
-			pass
+			newMode = ["fullscreen", 0]
 		1:
-			pass
+			newMode = ["windowed", 1]
 		2:
-			pass
+			newMode = ["windowed-borderless", 2]
 
 func _quit_window() -> void:
 	get_tree().quit()
 
 func _restart_window() -> void:
-	Global.write("screenX", newResolution[0], txtFile)
-	Global.write("screenY", newResolution[1], txtFile)
-	Global.write("buttonNo", newResolution[2], txtFile)
+	if newResolution != null:
+		Global.write("screenX", newResolution[0], txtFile)
+		Global.write("screenY", newResolution[1], txtFile)
+		Global.write("buttonNo", newResolution[2], txtFile)
+	if newMode != null:
+		Global.write("mode", newMode[0], txtFile)
+		Global.write("modeNo", newMode[1], txtFile)
 	get_tree().quit()

@@ -169,7 +169,7 @@ popup/item_0/text = "Fullscreen"
 popup/item_0/id = 0
 popup/item_1/text = "Windowed"
 popup/item_1/id = 1
-popup/item_2/text = "Windowed-Fullscreen"
+popup/item_2/text = "Windowed-Borderless"
 popup/item_2/id = 2
 
 [node name="ScreenSize" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=767602179]
@@ -293,6 +293,7 @@ offset_bottom = 15.639954
 text = "Exit"
 
 [connection signal="pressed" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/QuitWindow/Quit" to="." method="_restart_window"]
+[connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton" to="." method="_setMode"]
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton" to="." method="_setSize"]
 [connection signal="pressed" from="SettingsControls/ExitSettings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Menu/Settings" to="." method="_on_settings_pressed"]
