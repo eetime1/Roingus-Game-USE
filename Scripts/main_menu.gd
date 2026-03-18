@@ -43,7 +43,7 @@ func _ready() -> void:
 	# Sets up the options button to be accurate to current screen
 	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.selected = int(dataFromFile["buttonNo"])
 	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton.selected = int(dataFromFile["modeNo"])
-	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton.toggle_mode = bool(dataFromFile["showFPS"])
+	#$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton.toggle_mode = bool(dataFromFile["showFPS"])
 # This function
 func _on_settings_pressed() -> void:
 	$SettingsControls.visible = !$SettingsControls.visible

@@ -33,11 +33,10 @@ script = ExtResource("1_pw6eg")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=292494668]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CanvasLayer" unique_id=1821040747]
-position = Vector2(651, 370.99997)
-scale = Vector2(0.19132967, 0.19132967)
+position = Vector2(725.1821, 368.86237)
+scale = Vector2(0.19132964, 0.19132964)
 stream = ExtResource("7_iqavc")
 volume_db = 2.476
-attenuation = 1e-05
 
 [node name="Secret" type="Sprite2D" parent="CanvasLayer" unique_id=986847813]
 modulate = Color(1, 1, 1, 0)
