@@ -3,7 +3,7 @@ extends Node
 var json = JSON.new()
 var mushroomsCost = {"path":25, "turret":50, "wall":100, "heal":150}
 var data = {"gemCount": 500000, "health": 200, "roingusCount": 1, "fireIndex": 0}
-var globalPosition = [0,0]
+var globalPosition = Vector2(0,0)
 #func _ready() -> void:
 	#write("gemCount", 300)
 	#write("health", 200)
@@ -21,7 +21,6 @@ func read(ourString: String, filePath: String = "./Data/configs/config.json") ->
 		return json
 	return(data_received[ourString])
 	
-
 func write(ourString: String, ourData, filePath: String = "./Data/configs/config.json") -> void:
 	var fuckyou = read('all', filePath)
 	var quack = fuckyou.data
