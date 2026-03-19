@@ -40,7 +40,7 @@ scale = Vector2(8, 8)
 texture = ExtResource("3_xfqfw")
 
 [node name="Burrow1" parent="." unique_id=1058059735 instance=ExtResource("5_2yxij")]
-position = Vector2(21785, -4719)
+position = Vector2(40341, -25497)
 
 [node name="Settlement" parent="." unique_id=1886421436 instance=ExtResource("6_2yxij")]
 position = Vector2(51832, -4989)

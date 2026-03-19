@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hls48302uny4"]
 
 [ext_resource type="Texture2D" uid="uid://bpjofc5a3gdfp" path="res://Assets/Sprites/RoingusCivilian.png" id="1_2xtyf"]
-[ext_resource type="Script" uid="uid://241cvtuhk1l1" path="res://Scripts/RoingusCivilian.gd" id="1_llytl"]
+[ext_resource type="Script" uid="uid://c1xwfqbf7lgwk" path="res://Scripts/RoingusCivilian2.gd" id="1_llytl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_llytl"]
 radius = 400.0
@@ -21,8 +21,6 @@ offset = Vector2(0, -640)
 path_desired_distance = 200.0
 target_desired_distance = 700.0
 path_max_distance = 500.0
-navigation_layers = 2
-path_postprocessing = 1
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_point_size = 50.0
