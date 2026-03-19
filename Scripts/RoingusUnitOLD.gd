@@ -2,13 +2,14 @@ extends CharacterBody2D
 
 const movement_speed = 2000.0
 @onready var nav_agent : Node  = $NavigationAgent2D
-@onready var movementPaused = false
+var movementPaused = false
 var timer = 0.0
 
 @onready var burrow = $"../Burrow1"
 @onready var home = $"../HomeShroom"
 @onready var navmesh = $"../NavigationRegion2D"
 
+var first = true
 @onready var diffGoal = nav_agent.get_next_path_position()
 @onready var nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
 
@@ -57,3 +58,9 @@ func _physics_process(delta: float) -> void:
 			position = home.global_position
 		
 	
+
+
+func _on_child_entered_tree(node: Node) -> void:
+	if diffGoal:
+		navmesh.bake_navigation_polygon()
+	pass # Replace with function body.

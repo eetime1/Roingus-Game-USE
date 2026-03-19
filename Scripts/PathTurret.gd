@@ -3,6 +3,7 @@ extends CharacterBody2D
 var maxHealth = 50.0
 var turretHealth = 50.0
 var timer = 0
+var bakeTimer = 0
 
 var distFromHome = 999999999
 var lowerNodes = []
@@ -10,11 +11,23 @@ var isolated = false
 
 func _ready():
 	add_to_group("turrets")
+	add_to_group("mycelium")
 	add_to_group('navigation')
-	
+	$NavMycelium.bake_navigation_polygon()
 
 func _process(delta: float) -> void:
+	bakeTimer += delta
+	if bakeTimer >= 1.5:
+		bakeTimer -= 1.5
+		$NavMycelium.bake_navigation_polygon()
+	
 	if turretHealth <= 0:
+		#$"../NavigationRegion2DCIV".NavigationMeshSourceGeometryData2D.clear()
+		#remove_from_group("mycelium")
+		#var mycelials = get_parent().get_nodes_in_group("mycelium")
+		#for i in range(mycelials.size()):
+		#	$"../NavigationRegion2DCIV".NavigationMeshSourceGeometryData2D.merge(mycelials[i].NavMycelium.NavigationMeshSourceGeometryData2D)
+		
 		queue_free()
 	$ProgressBar.value = turretHealth
 	timer += delta
