@@ -1,7 +1,7 @@
 extends Node2D
 
 var civSaved = 0
-@export var civInside = 3
+@export var civInside = 1
 var civGenned = 0
 var isolated = true
 var distFromHome = 999999999
@@ -27,6 +27,8 @@ func _physics_process(delta: float) -> void:
 		a.burrow = self
 		a.roingusHome.connect(savedFella)
 		civGenned += 1
+	elif timer >= 10:
+		timer -= 5
 	
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -52,3 +54,10 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 
 func savedFella() -> void:
 	civSaved += 1
+
+func returnNextNode() -> Node:
+	var nextNode = lowerNodes[0]
+	for i in range(lowerNodes.size()):
+		if lowerNodes[i].distFromHome < nextNode.distFromHome:
+			nextNode = lowerNodes[i]
+	return nextNode

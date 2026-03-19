@@ -27,5 +27,5 @@ func instance(mushroom = null) -> void:
 		var a = shroom.instantiate()
 		$Level.add_child(a)
 		a.position = Vector2(get_global_mouse_position() + Vector2(0, 640))
-		print(a.position)
+		#print(a.position)
 		

@@ -14,9 +14,11 @@ func _ready():
 
 func _physics_process(delta: float) -> void:
 	bakeTimer += delta
-	if bakeTimer >= 1.5:
-		bakeTimer -= 1.5
+	if bakeTimer >= 0.5:
+		bakeTimer -= 0.5
+		$StaticMycelium/CollisionShape2D.disabled = true
 		$NavMycelium.bake_navigation_polygon()
+		$StaticMycelium/CollisionShape2D.disabled = false
 	
 	if changeDet != turretHealth:
 		changeDet = turretHealth

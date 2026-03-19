@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bv7ae7rvepmmy" path="res://Scripts/game_screen.gd" id="1_jegvc"]
 [ext_resource type="PackedScene" uid="uid://dtdfd2564flbq" path="res://Scenes/Levels/LevelOne.tscn" id="4_m0upi"]
 [ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Scenes/Characters/Player.tscn" id="5_ol1ve"]
+[ext_resource type="Texture2D" uid="uid://cbo1pfrp1naty" path="res://Assets/Sprites/Building_Icon.png" id="5_yjxi7"]
 
 [node name="GameScreen" type="Node2D" unique_id=809576985]
 y_sort_enabled = true
@@ -16,3 +17,11 @@ position = Vector2(24722, -3935)
 position = Vector2(-99, -143)
 
 [node name="GUI" parent="." unique_id=314829441 instance=ExtResource("1_bedem")]
+
+[node name="BuildingIcon" type="Sprite2D" parent="." unique_id=1429118816]
+position = Vector2(18132, -3485)
+texture = ExtResource("5_yjxi7")
+
+[node name="BuildingIcon2" type="Sprite2D" parent="." unique_id=1391588543]
+position = Vector2(13723, -4327)
+texture = ExtResource("5_yjxi7")

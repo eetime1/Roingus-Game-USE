@@ -17,9 +17,11 @@ func _ready():
 
 func _process(delta: float) -> void:
 	bakeTimer += delta
-	if bakeTimer >= 1.5:
-		bakeTimer -= 1.5
+	if bakeTimer >= 0.5:
+		bakeTimer -= 0.5
+		$StaticMycelium/CollisionShape2D.disabled = true
 		$NavMycelium.bake_navigation_polygon()
+		$StaticMycelium/CollisionShape2D.disabled = false
 	
 	if turretHealth <= 0:
 		#$"../NavigationRegion2DCIV".NavigationMeshSourceGeometryData2D.clear()
@@ -51,9 +53,17 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 		lowerNodes.erase(lostDist)
 		if lowerNodes == []:
 			isolated = true
+			distFromHome = 999999999
 		else:
 			distFromHome = 999999999
 			for i in range(lowerNodes.size()):
 				if lowerNodes[i].distFromHome < distFromHome:
 					distFromHome = lowerNodes[i].distFromHome + 1
 	
+
+func returnNextNode() -> Node:
+	var nextNode = lowerNodes[0]
+	for i in range(lowerNodes.size()):
+		if lowerNodes[i].distFromHome < nextNode.distFromHome:
+			nextNode = lowerNodes[i]
+	return nextNode

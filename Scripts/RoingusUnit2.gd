@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		$Sprite2DEmpty.visible = false
 		toBurrow = false
 		movementPaused = true
-		print('burrow arrive')
+		#print('burrow arrive')
 		await get_tree().create_timer(1).timeout
 		$Sprite2DFull.visible = true
 		$NavigationAgent2D.target_position = home
@@ -42,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		toBurrow = true
 		Global.data["gemCount"] += 50
 		movementPaused = true
-		print('gems gotten')
+		#print('gems gotten')
 		await get_tree().create_timer(1).timeout
 		$Sprite2DEmpty.visible = true
 		$NavigationAgent2D.target_position = burrow
@@ -50,11 +50,11 @@ func _physics_process(delta: float) -> void:
 		movementPaused = false
 	
 	if !$NavigationAgent2D.is_target_reachable() && !movementPaused && errorAccount:
-		print($NavigationAgent2D.get_final_position(), $NavigationAgent2D.target_position)
+		#print($NavigationAgent2D.get_final_position(), $NavigationAgent2D.target_position)
 		$Sprite2DFull.visible = false
 		$Sprite2DEmpty.visible = false
 		movementPaused = true
-		print('broken')
+		#print('broken')
 		await get_tree().create_timer(1).timeout
 		position = home
 		$Sprite2DEmpty.visible = true
