@@ -1,16 +1,11 @@
 [gd_scene format=3 uid="uid://b6q0yy25lwybb"]
 
 [ext_resource type="Script" uid="uid://ba5ipbupdh6m6" path="res://Scripts/HealTurret.gd" id="1_vybht"]
+[ext_resource type="Shape2D" uid="uid://caahr6gefvbwj" path="res://The Fuckers/Hitboxes/TurretHealHitbox.tres" id="2_djyq1"]
 [ext_resource type="Texture2D" uid="uid://c55ep0m1ysb65" path="res://Assets/Sprites/HealShroom.png" id="2_vybht"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_qw4ua"]
-radius = 400.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l66fq"]
 radius = 2560.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_1vfwb"]
-radius = 400.0
 
 [node name="TurretHeal" type="CharacterBody2D" unique_id=10501929]
 collision_layer = 19
@@ -28,7 +23,7 @@ step = 0.1
 show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=741717114]
-shape = SubResource("CircleShape2D_qw4ua")
+shape = ExtResource("2_djyq1")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2146420581]
 collision_layer = 0
@@ -41,7 +36,7 @@ shape = SubResource("CircleShape2D_l66fq")
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=35607972]
-shape = SubResource("CircleShape2D_1vfwb")
+shape = ExtResource("2_djyq1")
 
 [node name="HealShroom" type="Sprite2D" parent="." unique_id=69672639]
 texture = ExtResource("2_vybht")

@@ -11,9 +11,11 @@ func _ready():
 func _process(delta: float) -> void:
 	if turretHealth <= 0:
 		queue_free()
+	
 	$ProgressBar.value = turretHealth
 	timer += delta
 	
 	if timer >= 1:
+		turretHealth += 5
 		Global.data["gemCount"] -= 1
 		timer -= 1

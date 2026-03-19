@@ -52,6 +52,7 @@ func _input(event):
 ⠀⠀⠀⡟⡾⣿⢿⢿⢵⣽⣾⣼⣘⢸⢸⣞⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠁⠇⠡⠩⡫⢿⣝⡻⡮⣒⢽⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 no mycelium??????? ⠀')
+			
 			$CanvasLayer/AudioStreamPlayer2D.position = Global.globalPosition
 			
 			$CanvasLayer/AudioStreamPlayer2D.play()
