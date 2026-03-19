@@ -32,7 +32,6 @@ expand_mode = 1
 stretch_mode = 4
 
 [node name="SettingsControls" type="Control" parent="." unique_id=955759610]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -47,9 +46,10 @@ anchor_top = 0.34500003
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 0.39996338
-current_tab = 0
+current_tab = 1
 
 [node name="Audio" type="TabBar" parent="SettingsControls/SettingsTabs" unique_id=260204759]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -124,7 +124,6 @@ icon_alignment = 1
 text_direction = 1
 
 [node name="Video" type="TabBar" parent="SettingsControls/SettingsTabs" unique_id=2082657782]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -184,7 +183,6 @@ popup/item_2/text = "1280 x 720"
 popup/item_2/id = 2
 
 [node name="ScreenChoice" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=1882932780]
-visible = false
 layout_mode = 2
 
 [node name="Text" type="Label" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenChoice" unique_id=874509430]
@@ -285,6 +283,7 @@ text = "Exit Settings"
 metadata/_edit_use_anchors_ = true
 
 [node name="Menu" type="Control" parent="." unique_id=1673603881]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

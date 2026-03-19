@@ -36,9 +36,9 @@ func _input(event):
 			isHoldingWhat = null
 			emit_signal("changeHeld")
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		elif event.button_index == 1 && isHoldingWhat != null && blockedNum != 0:
+		elif event.button_index == 1 && isHoldingWhat != null && blockedNum != 0 && event.pressed:
 			print('blocked')
-		elif event.button_index == 1 && isHoldingWhat != null && myceliumNum == 0:
+		elif event.button_index == 1 && isHoldingWhat != null && myceliumNum == 0 && event.pressed:
 			
 			
 			if Global.read("noMycelium") == true:
