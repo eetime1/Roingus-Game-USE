@@ -199,14 +199,6 @@ item_count = 1
 popup/item_0/text = "First Screen (0)"
 popup/item_0/id = 0
 
-[node name="QuitWindow" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=1849002224]
-layout_mode = 2
-
-[node name="Quit" type="Button" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/QuitWindow" unique_id=126255335]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Quit To Change Window"
-
 [node name="ShowFps" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=1032640814]
 layout_mode = 2
 
@@ -333,7 +325,6 @@ text = "Exit"
 
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton" to="." method="_setMode"]
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton" to="." method="_setSize"]
-[connection signal="pressed" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/QuitWindow/Quit" to="." method="_restart_window"]
 [connection signal="toggled" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton" to="." method="_toggles" binds= ["showFPS"]]
 [connection signal="toggled" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/NoMycelium/CheckButton" to="." method="_toggles" binds= ["noMycelium"]]
 [connection signal="pressed" from="SettingsControls/ExitSettings" to="." method="_on_settings_pressed"]
