@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dqewuo4ac6vdm" path="res://Assets/Sprites/RoingusUnit.png" id="1_4fxe1"]
 [ext_resource type="Script" uid="uid://bcia757i5sbox" path="res://Scripts/RoingusUnit.gd" id="1_266xe"]
 [ext_resource type="Script" uid="uid://dgs5yflq6ea2w" path="res://Scripts/Bouncing.gd" id="3_qe76c"]
-[ext_resource type="Texture2D" uid="uid://bpjofc5a3gdfp" path="res://Assets/Sprites/RoingusCivilian.png" id="4_g67gc"]
+[ext_resource type="Texture2D" uid="uid://dv5kqr6ul3cxn" path="res://Assets/Sprites/RoingusUnitFull.png" id="4_s47ru"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g67gc"]
 radius = 400.0
@@ -31,8 +31,8 @@ debug_enabled = true
 debug_use_custom = true
 debug_path_custom_point_size = 50.0
 
-[node name="Sprite2DFull" type="Sprite2D" parent="." unique_id=1353670861]
+[node name="Sprite2DFull" type="Sprite2D" parent="." unique_id=1896672830]
 visible = false
-texture = ExtResource("4_g67gc")
-offset = Vector2(0, -640)
+texture = ExtResource("4_s47ru")
+offset = Vector2(18, -694)
 script = ExtResource("3_qe76c")

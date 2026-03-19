@@ -1,20 +1,15 @@
 [gd_scene format=3 uid="uid://dr83tclmjw0ec"]
 
 [ext_resource type="Script" uid="uid://cb0g7ee8u5wf7" path="res://Scripts/PlainTurret.gd" id="1_2eu2u"]
+[ext_resource type="Shape2D" uid="uid://cvi1qwxm8c7js" path="res://The Fuckers/Hitboxes/TurretPlainHitbox.tres" id="2_8v07n"]
 [ext_resource type="Texture2D" uid="uid://bvcbsta0ip3bv" path="res://Assets/Sprites/PlainShroom.png" id="2_tl0k7"]
 [ext_resource type="Texture2D" uid="uid://c1miwpstff2pn" path="res://Assets/Sprites/PlainShroomDown.png" id="3_8v07n"]
 [ext_resource type="Texture2D" uid="uid://uin8ooe61em6" path="res://Assets/Sprites/PlainShroomDR.png" id="4_j6k1q"]
 [ext_resource type="Texture2D" uid="uid://cxr3la8nr48vo" path="res://Assets/Sprites/PlainShroomUp.png" id="5_0svxo"]
 [ext_resource type="Texture2D" uid="uid://d3qmghomxb32p" path="res://Assets/Sprites/PlainShroomUR.png" id="6_gtnrr"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qb8r1"]
-radius = 400.0
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_jxsxp"]
 radius = 2560.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_aqxgs"]
-radius = 400.0
 
 [node name="PlainTurret" type="CharacterBody2D" unique_id=966794143]
 collision_layer = 19
@@ -33,7 +28,8 @@ step = 0.1
 show_percentage = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2101462790]
-shape = SubResource("CircleShape2D_qb8r1")
+position = Vector2(0, -150)
+shape = ExtResource("2_8v07n")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=330435413]
 collision_layer = 0
@@ -46,7 +42,8 @@ shape = SubResource("CircleShape2D_jxsxp")
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1831185321]
-shape = SubResource("CircleShape2D_aqxgs")
+position = Vector2(0, -150)
+shape = ExtResource("2_8v07n")
 
 [node name="PlainShroomRight" type="Sprite2D" parent="." unique_id=1644290970]
 visible = false

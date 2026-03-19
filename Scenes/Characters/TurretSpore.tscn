@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bonhqwvr0tsul"]
 
-[ext_resource type="Script" uid="uid://dd4e8me1d3twu" path="res://SporeTurret.gd" id="1_67cjo"]
+[ext_resource type="Script" uid="uid://dd4e8me1d3twu" path="res://Scripts/SporeTurret.gd" id="1_67cjo"]
 [ext_resource type="Texture2D" uid="uid://n8ysew12cvqc" path="res://Assets/Placeholders/PlainShroomPlaceholder.png" id="2_2dach"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dix6s"]

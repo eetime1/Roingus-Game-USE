@@ -64,6 +64,7 @@ func _input(event):
 
 			else:
 				print("Not on mycelium")
+
 func _quit_button():
 	get_tree().quit()
 
@@ -85,12 +86,12 @@ func _summoning_mushroom(extra_arg_0: String) -> void:
 
 
 
-func _on_on_mouse_body_entered(body: Node2D) -> void:
+func _on_on_mouse_body_entered(_body: Node2D) -> void:
 	blockedNum += 1
 	$OnMouse/Sprite2D.modulate = Color(255,0,0,0.5)
 	pass # Replace with function body.
 
-func _on_on_mouse_body_exited(body: Node2D) -> void:
+func _on_on_mouse_body_exited(_body: Node2D) -> void:
 	blockedNum -= 1
 	if myceliumNum > 0 && blockedNum == 0:
 		$OnMouse/Sprite2D.modulate = Color(0,255,0,0.5)
@@ -99,13 +100,13 @@ func _on_on_mouse_body_exited(body: Node2D) -> void:
 
 
 
-func _on_area_2d_area_entered(area: Area2D) -> void:
+func _on_area_2d_area_entered(_area: Area2D) -> void:
 	myceliumNum += 1
 	if blockedNum == 0:
 		$OnMouse/Sprite2D.modulate = Color(0,255,0,0.5)
 	pass # Replace with function body.
 
-func _on_area_2d_area_exited(area: Area2D) -> void:
+func _on_area_2d_area_exited(_area: Area2D) -> void:
 	myceliumNum -= 1
 	if myceliumNum == 0:
 		$OnMouse/Sprite2D.modulate = Color(255,0,0,0.5)

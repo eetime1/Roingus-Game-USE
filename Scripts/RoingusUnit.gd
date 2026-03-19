@@ -26,6 +26,7 @@ func _physics_process(delta: float) -> void:
 	if !nav_agent.is_navigation_finished() && !movementPaused:
 		if nav_point_direction != diffGoal:
 			nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
+		
 		velocity = nav_point_direction * movement_speed
 		move_and_slide()
 		

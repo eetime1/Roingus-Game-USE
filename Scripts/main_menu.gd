@@ -15,7 +15,7 @@ func _ready() -> void:
 		Global.write("screenY", 720, txtFile)
 		Global.write("buttonNo", 2, txtFile)
 		Global.write("borderless", false, txtFile)
-		Global.write("currentScreen", 0, txtFile)
+		Global.write("currentScreen", 1, txtFile)
 		Global.write("mode", "windowed", txtFile)
 		Global.write("modeNo", 1, txtFile)
 		Global.write("showFPS", false, txtFile)
