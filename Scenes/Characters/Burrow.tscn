@@ -6,9 +6,11 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sh13c"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3nmc7"]
+
 [node name="Burrow1" type="CharacterBody2D" unique_id=1531954552]
 collision_layer = 32
-collision_mask = 64
+collision_mask = 0
 script = ExtResource("1_sh13c")
 
 [node name="BurrowSaved" type="Sprite2D" parent="." unique_id=1069962770]
@@ -20,3 +22,13 @@ texture = ExtResource("3_pggcy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1768066760]
 shape = SubResource("CircleShape2D_sh13c")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=237218123]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=188991074]
+shape = SubResource("CircleShape2D_3nmc7")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
