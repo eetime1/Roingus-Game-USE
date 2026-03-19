@@ -86,7 +86,7 @@ offset_right = 1916.4445
 offset_bottom = 1078.0
 texture = ExtResource("2_uhjjm")
 
-[node name="QuitGame" type="Button" parent="CanvasLayer" unique_id=1855642045]
+[node name="Return" type="Button" parent="CanvasLayer" unique_id=1855642045]
 anchors_preset = -1
 anchor_left = 0.010000001
 anchor_top = 0.98100007
@@ -98,7 +98,7 @@ offset_right = 129.44
 offset_bottom = -64.440125
 size_flags_horizontal = 8
 size_flags_vertical = 8
-text = "Quit Game"
+text = "Return"
 metadata/_edit_use_anchors_ = true
 
 [node name="Crystals" type="TextureRect" parent="CanvasLayer" unique_id=1031532788]
@@ -411,7 +411,7 @@ collision_mask = 64
 shape = SubResource("CircleShape2D_2k5ak")
 
 [connection signal="changeHeld" from="." to="OnMouse" method="_on_gui_change_held"]
-[connection signal="pressed" from="CanvasLayer/QuitGame" to="." method="_quit_button"]
+[connection signal="pressed" from="CanvasLayer/Return" to="." method="_quit_button"]
 [connection signal="pressed" from="CanvasLayer/BuildMenu1/Build Menu" to="." method="_open_build_menu"]
 [connection signal="pressed" from="CanvasLayer/BuildMenu1/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/PathShroom" to="." method="_summoning_mushroom" binds= ["path"]]
 [connection signal="pressed" from="CanvasLayer/BuildMenu1/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/TurretShroom" to="." method="_summoning_mushroom" binds= ["turret"]]

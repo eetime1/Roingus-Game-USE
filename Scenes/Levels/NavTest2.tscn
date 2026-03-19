@@ -27,6 +27,7 @@ tile_set = ExtResource("1_1blaa")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=599325643]
 navigation_polygon = SubResource("NavigationPolygon_uroyq")
+travel_cost = 0.025
 
 [node name="BigTreePlaceholder" type="Sprite2D" parent="." unique_id=1576731359]
 position = Vector2(301, -5306)

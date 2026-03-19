@@ -2,6 +2,7 @@ extends Control
 
 var isHoldingWhat = null
 signal turret_instantiate
+signal turret_instantiate_tutorial
 signal changeHeld
 var blockedNum = 0
 var myceliumNum = 0
@@ -31,15 +32,16 @@ func _input(event):
 			print('cancelled')
 		
 		if event.button_index == 1 && isHoldingWhat != null && blockedNum == 0 && myceliumNum > 0:
-			#if true: # event.x is NOT over non-allowed
-			turret_instantiate.emit(isHoldingWhat)
+			if get_parent().name == "TutorialGame":
+				turret_instantiate_tutorial.emit(isHoldingWhat)
+			else:
+				turret_instantiate.emit(isHoldingWhat)
 			isHoldingWhat = null
 			emit_signal("changeHeld")
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		elif event.button_index == 1 && isHoldingWhat != null && blockedNum != 0:
+		elif event.button_index == 1 && isHoldingWhat != null && blockedNum != 0 && event.pressed:
 			print('blocked')
-		elif event.button_index == 1 && isHoldingWhat != null && myceliumNum == 0:
-			
+		elif event.button_index == 1 && isHoldingWhat != null && myceliumNum == 0 && event.pressed:
 			
 			if Global.read("noMycelium") == true:
 				$CanvasLayer/AudioStreamPlayer2D.position = Global.globalPosition
@@ -66,7 +68,7 @@ func _input(event):
 				print("Not on mycelium")
 
 func _quit_button():
-	get_tree().quit()
+	get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
 
 func _open_build_menu():
 	var positionChange = 350

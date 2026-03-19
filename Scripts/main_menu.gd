@@ -2,20 +2,20 @@ extends Control
 var dataFromFile = {}
 var newResolution
 var newMode
+var incrWindow = Vector2(5, 20)
 @onready var txtFile = './Data/configs/config.json'
-
-func _ready() -> void:
 	
+func _ready() -> void:
 	var file = FileAccess.open(txtFile, FileAccess.READ)
 	var dataFromFile = JSON.parse_string(file.get_as_text())
-	
+	get_tree().set_auto_accept_quit(false)
 	# To make sure it actually detects something smh || Fix later
 	if dataFromFile.size() < 9:
 		Global.write("screenX", 1280, txtFile)
 		Global.write("screenY", 720, txtFile)
 		Global.write("buttonNo", 2, txtFile)
 		Global.write("borderless", false, txtFile)
-		Global.write("currentScreen", 1, txtFile)
+		Global.write("currentScreen", 0, txtFile)
 		Global.write("mode", "windowed", txtFile)
 		Global.write("modeNo", 1, txtFile)
 		Global.write("showFPS", false, txtFile)
@@ -23,14 +23,8 @@ func _ready() -> void:
 		dataFromFile = JSON.parse_string(file.get_as_text())
 		
 	# Sets current screen and size
+	DisplayServer.window_set_current_screen(dataFromFile["currentScreen"])
 	get_tree().root.unresizable = true
-	
-	DisplayServer.window_set_size(Vector2i(dataFromFile["screenX"],dataFromFile["screenY"]))
-	get_tree().root.content_scale_size = Vector2i(dataFromFile["screenX"],dataFromFile["screenY"])
-
-	var centerPositioningX = DisplayServer.screen_get_size().x / 2 - DisplayServer.window_get_size().x / 2
-	var centerPositioningY = DisplayServer.screen_get_size().y / 2 - DisplayServer.window_get_size().y / 2
-	get_tree().root.position = Vector2i(centerPositioningX, centerPositioningY)
 	
 	if dataFromFile["mode"] == "windowed":
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -38,14 +32,21 @@ func _ready() -> void:
 	elif dataFromFile["mode"] == "fullscreen":
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 	elif dataFromFile["mode"] == "windowed-borderless":
+		incrWindow = Vector2(0,0)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		get_tree().root.borderless = true
+		
+	var centerPositioningX = DisplayServer.screen_get_position().x + incrWindow.x + (DisplayServer.screen_get_size().x / 2 - DisplayServer.window_get_size().x / 2)
+	var centerPositioningY = DisplayServer.screen_get_position().y + incrWindow.y + (DisplayServer.screen_get_size().y / 2 - DisplayServer.window_get_size().y / 2)
+	get_tree().root.position = Vector2i(centerPositioningX, centerPositioningY)
 	
 	# Sets up the options button to be accurate to current screen
 	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.selected = int(dataFromFile["buttonNo"])
 	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton.selected = int(dataFromFile["modeNo"])
 	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton.button_pressed = bool(dataFromFile["showFPS"])
 	$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/NoMycelium/CheckButton.button_pressed = bool(dataFromFile["noMycelium"])
+
+
 
 func _on_settings_pressed() -> void:
 	$SettingsControls.visible = !$SettingsControls.visible
@@ -64,23 +65,36 @@ func _setSize(this) -> void:
 		3:
 			newResolution = [640,480,3]
 		
+	DisplayServer.window_set_size(Vector2i(newResolution[0],newResolution[1]))
+	get_tree().root.content_scale_size = Vector2i(newResolution[0],newResolution[1])
+	_restart_global()
+	
 func _setMode(this) -> void:
 	match (this):
 		0:
 			newMode = ["fullscreen", 0]
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
 		1:
 			newMode = ["windowed", 1]
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			get_tree().root.borderless = false
 		2:
 			newMode = ["windowed-borderless", 2]
-		
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			get_tree().root.borderless = true
+	_restart_global()
+
 func _quit_window() -> void:
 	get_tree().quit()
 
 func _open_scene():
 	get_tree().change_scene_to_file("res://Scenes/Screen/game_screen.tscn")
 	pass
-
-func _restart_window() -> void:
+	
+func _open_tutorial():
+	get_tree().change_scene_to_file("res://Scenes/Levels/TutorialGame.tscn")
+	
+func _restart_global() -> void:
 	if newResolution != null:
 		Global.write("screenX", newResolution[0], txtFile)
 		Global.write("screenY", newResolution[1], txtFile)
@@ -88,8 +102,7 @@ func _restart_window() -> void:
 	if newMode != null:
 		Global.write("mode", newMode[0], txtFile)
 		Global.write("modeNo", newMode[1], txtFile)
-	get_tree().quit()
-
+	Global.write("currentScreen", DisplayServer.window_get_current_screen(), txtFile)
 
 func _toggles(toggled_on: bool, what = "string") -> void:
 	if toggled_on == true:

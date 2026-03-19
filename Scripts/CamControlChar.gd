@@ -8,39 +8,37 @@ const zoomMax = 0.05
 var isPressed = false
 var lastMouseX
 var lastMouseY
+var camEdgesX = [-9999999, 9999999]
+var camEdgesY = [-9999999, 9999999]
 
 func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	# *I'm going to cry*
 	Global.globalPosition = global_position
-	
+
 	var directionLR := Input.get_axis("left", "right")
 	if directionLR:
 		velocity.x = directionLR * SPEED  / $Camera2D.zoom.x
 		if Input.is_action_pressed("shift") :
 			velocity.x *= 3
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
+		velocity.x = move_toward(0, 0, SPEED)
+	
 	var directionUD := Input.get_axis("up", "down")
 	if directionUD:
 		velocity.y = directionUD * SPEED  / $Camera2D.zoom.y
-		if Input.is_action_pressed("shift") :
+		if Input.is_action_pressed("shift"):
 			velocity.y *= 3
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
-	
-	move_and_slide()
-	if directionLR == 0:
-		velocity.x = 0
-	if directionUD == 0:
+		velocity.y = move_toward(0, 0, SPEED)
+
+	if (global_position.x < camEdgesX[0] && directionLR < 0) || (global_position.x > camEdgesX[1] && directionLR > 0):
+		velocity.x = 0	
+	if (global_position.y < camEdgesY[0] && directionUD < 0) || (global_position.y > camEdgesY[1] && directionUD > 0):
 		velocity.y = 0
-	
-	
-	
-	
-	
+		
+	move_and_slide()	
 	
 
 func _input(event):
@@ -61,7 +59,13 @@ func _input(event):
 			$Camera2D.zoom.y -= zoomFactor
 	
 	if event is InputEventMouseMotion && isPressed:
-		position.x += (lastMouseX - event.position.x) * MouseSpeed / $Camera2D.zoom.x
-		position.y += (lastMouseY - event.position.y) * MouseSpeed / $Camera2D.zoom.y
+		var posXAdd = (lastMouseX - event.position.x) * MouseSpeed / $Camera2D.zoom.x
+		var posYAdd = (lastMouseY - event.position.y) * MouseSpeed / $Camera2D.zoom.y
+		
+		if position.x + posXAdd > camEdgesX[0] && position.x + posXAdd < camEdgesX[1]:
+			position.x += posXAdd
+		if position.y + posYAdd > camEdgesY[0] && position.y + posYAdd < camEdgesY[1]:
+			position.y += posYAdd
+			
 		lastMouseX = event.position.x
 		lastMouseY = event.position.y

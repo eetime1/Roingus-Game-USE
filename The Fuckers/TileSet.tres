@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b5xps5lge2awt" path="res://Assets/Tiles/RedGrassTiles.png" id="2_moufg"]
 [ext_resource type="Texture2D" uid="uid://cybwmysl2a2ox" path="res://Assets/Tiles/StoneTiles.png" id="3_amg56"]
 [ext_resource type="Texture2D" uid="uid://cciqyqn2buku" path="res://Assets/Placeholders/WaterTilePlaceholder.png" id="3_wqd8g"]
+[ext_resource type="Texture2D" uid="uid://it1wysm8hv2a" path="res://Assets/Tiles/darkBlue.png" id="4_albwa"]
 [ext_resource type="Texture2D" uid="uid://bumvkmj75x45q" path="res://Assets/Placeholders/TileFloor.png" id="4_k1i5l"]
 [ext_resource type="Texture2D" uid="uid://xpgxp6rhmt7s" path="res://Assets/Tiles/WaterTiles.png" id="8_xqv00"]
 
@@ -464,6 +465,11 @@ texture_region_size = Vector2i(400, 400)
 8:5/0/physics_layer_1/polygon_0/points = PackedVector2Array(-200, -200, 200, -200, 200, 200, -200, 200)
 8:5/0/physics_layer_2/polygon_0/points = PackedVector2Array(-200, -200, 200, -200, 200, 200, -200, 200)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_moufg"]
+texture = ExtResource("4_albwa")
+texture_region_size = Vector2i(400, 400)
+0:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2wd8d"]
 texture = ExtResource("2_17dm7")
 texture_region_size = Vector2i(400, 400)
@@ -603,3 +609,4 @@ sources/0 = SubResource("TileSetAtlasSource_4xb6x")
 sources/1 = SubResource("TileSetAtlasSource_at8wu")
 sources/2 = SubResource("TileSetAtlasSource_nfxl2")
 sources/7 = SubResource("TileSetAtlasSource_386k6")
+sources/3 = SubResource("TileSetAtlasSource_moufg")

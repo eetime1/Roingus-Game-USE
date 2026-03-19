@@ -46,7 +46,7 @@ anchor_top = 0.34500003
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 0.39996338
-current_tab = 2
+current_tab = 1
 
 [node name="Audio" type="TabBar" parent="SettingsControls/SettingsTabs" unique_id=260204759]
 visible = false
@@ -124,7 +124,6 @@ icon_alignment = 1
 text_direction = 1
 
 [node name="Video" type="TabBar" parent="SettingsControls/SettingsTabs" unique_id=2082657782]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -184,7 +183,6 @@ popup/item_2/text = "1280 x 720"
 popup/item_2/id = 2
 
 [node name="ScreenChoice" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=1882932780]
-visible = false
 layout_mode = 2
 
 [node name="Text" type="Label" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenChoice" unique_id=874509430]
@@ -198,6 +196,14 @@ selected = 0
 item_count = 1
 popup/item_0/text = "First Screen (0)"
 popup/item_0/id = 0
+
+[node name="QuitWindow" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=1849002224]
+layout_mode = 2
+
+[node name="Quit" type="Button" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/QuitWindow" unique_id=126255335]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Quit To Change Window"
 
 [node name="ShowFps" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=1032640814]
 layout_mode = 2
@@ -224,6 +230,7 @@ layout_mode = 2
 flat = true
 
 [node name="Controls" type="TabBar" parent="SettingsControls/SettingsTabs" unique_id=403467471]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -287,61 +294,48 @@ grow_vertical = 2
 [node name="Play" type="Button" parent="Menu" unique_id=624645716]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.77800006
-anchor_top = 0.693
-anchor_right = 0.77800006
-anchor_bottom = 0.693
-offset_left = -55.840088
-offset_top = -129.96002
-offset_right = 56.159912
-offset_bottom = -98.96002
+anchor_left = 0.781
+anchor_top = 0.57900006
+anchor_right = 0.781
+anchor_bottom = 0.57900006
+offset_left = -55.712036
+offset_top = -15.192047
+offset_right = 56.287964
+offset_bottom = 15.807953
 text = "Squeak (Play)"
-
-[node name="Tutorial (Recommended)" type="Button" parent="Menu" unique_id=271293431]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.77800006
-anchor_top = 0.694
-anchor_right = 0.77800006
-anchor_bottom = 0.694
-offset_left = -55.840088
-offset_top = -93.67999
-offset_right = 56.159912
-offset_bottom = -62.679993
-text = "Tutorial"
 
 [node name="Settings" type="Button" parent="Menu" unique_id=995171476]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.77800006
-anchor_top = 0.69600004
+anchor_top = 0.64000005
 anchor_right = 0.77800006
-anchor_bottom = 0.69600004
-offset_left = -55.840088
-offset_top = -55.120026
-offset_right = 56.159912
-offset_bottom = -24.120026
+anchor_bottom = 0.64000005
+offset_left = -56.256042
+offset_top = -15.720032
+offset_right = 55.743958
+offset_bottom = 15.279968
 text = "Settings"
 
 [node name="Exit" type="Button" parent="Menu" unique_id=589776239]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.77800006
+anchor_left = 0.77900004
 anchor_top = 0.69500005
-anchor_right = 0.77800006
+anchor_right = 0.77900004
 anchor_bottom = 0.69500005
-offset_left = -55.840088
-offset_top = -15.360016
-offset_right = 56.159912
-offset_bottom = 15.640015
+offset_left = -56.40808
+offset_top = -15.360046
+offset_right = 55.59192
+offset_bottom = 15.639954
 text = "Exit"
 
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton" to="." method="_setMode"]
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton" to="." method="_setSize"]
+[connection signal="pressed" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/QuitWindow/Quit" to="." method="_restart_window"]
 [connection signal="toggled" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton" to="." method="_toggles" binds= ["showFPS"]]
 [connection signal="toggled" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/NoMycelium/CheckButton" to="." method="_toggles" binds= ["noMycelium"]]
 [connection signal="pressed" from="SettingsControls/ExitSettings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Menu/Play" to="." method="_open_scene"]
-[connection signal="pressed" from="Menu/Tutorial (Recommended)" to="." method="_open_tutorial"]
 [connection signal="pressed" from="Menu/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Menu/Exit" to="." method="_quit_window"]
