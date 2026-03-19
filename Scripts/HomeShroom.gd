@@ -20,9 +20,8 @@ func _physics_process(delta: float) -> void:
 	
 	if changeDet <= 0 || Global.data["gemCount"] <= 0:
 		print("game over goes here. this msg is in HomeShroom.gd")
+		get_tree().change_scene_to_file("res://Scenes/Levels/game_over.tscn")
 	
 	if timer >= 1:
 		timer -= 1
 		Global.data["gemCount"] -= 1
-
-	

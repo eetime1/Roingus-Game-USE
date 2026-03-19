@@ -3,7 +3,6 @@ extends CharacterBody2D
 @export var fireHealth = 10.0
 var timer = 0
 var turretsInRange = []
-var detChangeHP = 10.0
 var animTimer = 0.0
 
 func _ready() -> void:
@@ -29,7 +28,7 @@ func raycastAndRandomize(angle:Vector2) -> float:
 
 func _process(delta: float) -> void:
 	if fireHealth <= 0:
-		queue_free()
+		fireHealth = 10.0
 	
 	timer += delta
 	animTimer += delta
@@ -53,9 +52,6 @@ func _process(delta: float) -> void:
 			$Fire3.visible = true
 		animTimer -= 0.25
 	
-	if detChangeHP != fireHealth:
-		detChangeHP = fireHealth
-	
 	
 	
 	if timer >= 1 && turretsInRange != []:
@@ -77,7 +73,7 @@ func _process(delta: float) -> void:
 		for i in range(59):
 			var newSpaceCheck = raycastAndRandomize(randomAngleVector)
 			if newSpaceCheck != 0:
-				var dup = load("res://Scenes/Characters/Fire.tscn")
+				var dup = load("res://Scenes/Characters/Fire.tscn").instantiate()
 				dup.fireHealth = randf_range(1, 20)
 				dup.visible = false
 				get_parent().add_child(dup)
@@ -92,7 +88,6 @@ func _process(delta: float) -> void:
 	if timer >= 1:
 		timer -= 1
 		fireHealth += 10
-
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
