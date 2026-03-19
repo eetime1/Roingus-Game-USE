@@ -7,6 +7,7 @@
 radius = 400.0
 
 [node name="RoingusCivilian" type="CharacterBody2D" unique_id=1256185320]
+collision_layer = 4
 script = ExtResource("1_llytl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=484284862]
@@ -20,6 +21,7 @@ offset = Vector2(0, -640)
 path_desired_distance = 200.0
 target_desired_distance = 700.0
 path_max_distance = 500.0
+navigation_layers = 2
 path_postprocessing = 1
 debug_enabled = true
 debug_use_custom = true

@@ -4,8 +4,20 @@ extends CharacterBody2D
 var turretHealth = 200
 var changeDet = 200
 var distFromHome = 0
+var bakeTimer = 0
+
+func _ready():
+	add_to_group("navigation")
+	add_to_group("mycelium")
+	$NavMycelium.bake_navigation_polygon()
+	pass
 
 func _physics_process(delta: float) -> void:
+	bakeTimer += delta
+	if bakeTimer >= 1.5:
+		bakeTimer -= 1.5
+		$NavMycelium.bake_navigation_polygon()
+	
 	if changeDet != turretHealth:
 		changeDet = turretHealth
 		Global.data["health"] = changeDet

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mpjhwxyemula"]
 
 [ext_resource type="Texture2D" uid="uid://dqewuo4ac6vdm" path="res://Assets/Sprites/RoingusUnit.png" id="1_4fxe1"]
-[ext_resource type="Script" uid="uid://bcia757i5sbox" path="res://Scripts/RoingusUnit.gd" id="1_266xe"]
+[ext_resource type="Script" uid="uid://eu5wprttrshr" path="res://Scripts/RoingusUnit2.gd" id="1_s47ru"]
 [ext_resource type="Script" uid="uid://dgs5yflq6ea2w" path="res://Scripts/Bouncing.gd" id="3_qe76c"]
 [ext_resource type="Texture2D" uid="uid://dv5kqr6ul3cxn" path="res://Assets/Sprites/RoingusUnitFull.png" id="4_s47ru"]
 
@@ -10,8 +10,7 @@ radius = 400.0
 
 [node name="RoingusUnit" type="CharacterBody2D" unique_id=357388380]
 collision_layer = 4
-collision_mask = 9
-script = ExtResource("1_266xe")
+script = ExtResource("1_s47ru")
 
 [node name="Sprite2DEmpty" type="Sprite2D" parent="." unique_id=1012876932]
 texture = ExtResource("1_4fxe1")
@@ -24,7 +23,7 @@ shape = SubResource("CircleShape2D_g67gc")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1858068583]
 path_desired_distance = 200.0
-target_desired_distance = 700.0
+target_desired_distance = 600.0
 path_max_distance = 500.0
 path_postprocessing = 1
 debug_enabled = true

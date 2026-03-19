@@ -2,57 +2,66 @@ extends CharacterBody2D
 
 const movement_speed = 2000.0
 @onready var nav_agent : Node  = $NavigationAgent2D
-@onready var movementPaused = false
+var movementPaused = false
 var timer = 0.0
 
 @onready var burrow = $"../Burrow1"
 @onready var home = $"../HomeShroom"
 @onready var navmesh = $"../NavigationRegion2D"
 
+var first = true
 @onready var diffGoal = nav_agent.get_next_path_position()
 @onready var nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
 
 func _ready() -> void:
-	nav_agent.target_position = burrow.global_position
+	pass
+	
 
 func _physics_process(delta: float) -> void:
-	
-	if timer >= 1:
+	if first:
+		first = false
+		nav_agent.target_position = burrow.global_position
 		navmesh.bake_navigation_polygon()
-		timer -=1
-	else:
-		timer += delta
 	
-	if !nav_agent.is_navigation_finished() && !movementPaused:
-		if nav_point_direction != diffGoal:
-			nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
+	nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
+	velocity = nav_point_direction * movement_speed
+	move_and_slide()
 		
-		velocity = nav_point_direction * movement_speed
-		move_and_slide()
-		
-	elif nav_agent.target_position == burrow.global_position && !movementPaused:
+	if nav_agent.is_target_reachable() && nav_agent.target_position == burrow.global_position && !movementPaused:
 		$Sprite2DEmpty.visible = false
+		print('madetoburrow')
 		nav_agent.target_position = home.global_position
 		movementPaused = true
 		await get_tree().create_timer(1).timeout
 		$Sprite2DFull.visible = true
 		movementPaused = false
 	
-	elif nav_agent.target_position == home.global_position && !movementPaused:
+	elif nav_agent.is_target_reachable() && nav_agent.target_position == home.global_position && !movementPaused:
 		$Sprite2DFull.visible = false
 		Global.data["gemCount"] += 50
+		print('gemGET')
 		
 		nav_agent.target_position = burrow.global_position
 		movementPaused = true
 		await get_tree().create_timer(1).timeout
 		$Sprite2DEmpty.visible = true
 		movementPaused = false
+	#print(nav_point_direction)
 	
 	if !nav_agent.is_target_reachable():
+		print(nav_agent.get_next_path_position())
+		print('unreachable')
 		$Sprite2DFull.visible = false
 		$Sprite2DEmpty.visible = true
 		nav_agent.target_position = burrow.global_position
 		movementPaused = false
 		position = home.global_position
+		nav_agent.get_next_path_position()
 		
 	
+
+
+func _on_child_entered_tree(node: Node) -> void:
+	if diffGoal:
+		navmesh.bake_navigation_polygon()
+	pass # Replace with function body.

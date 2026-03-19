@@ -75,7 +75,9 @@ scrolldown={
 [layer_names]
 
 2d_physics/layer_1="Terrain (impassable by roingus)"
+2d_navigation/layer_1="Units"
 2d_physics/layer_2="Fireproof Terrain (may be passable by roingus)"
+2d_navigation/layer_2="Civilians"
 2d_physics/layer_3="Roingus"
 2d_physics/layer_4="Fire"
 2d_physics/layer_5="Turrets"
