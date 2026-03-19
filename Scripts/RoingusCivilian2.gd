@@ -42,6 +42,7 @@ func _physics_process(delta: float) -> void:
 		elif !movementPaused:
 			if goal.distFromHome == 0:
 				emit_signal("roingusHome")
+				Global.data["roingusCount"] += 1
 				queue_free()
 			else:
 				

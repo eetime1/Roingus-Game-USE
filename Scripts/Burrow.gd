@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		$BurrowSaved.visible = false
 		$BurrowSOS.visible = true
 	
-	if timer >= 5 && !isolated && civGenned < civInside:
+	if timer >= 5 && lowerNodes != [] && civGenned < civInside:
 		timer -= 5
 		var a = load("res://Scenes/Characters/RoingusCivilian.tscn").instantiate()
 		get_parent().add_child(a)
@@ -27,6 +27,8 @@ func _physics_process(delta: float) -> void:
 		a.burrow = self
 		a.roingusHome.connect(savedFella)
 		civGenned += 1
+	elif timer >= 5:
+		timer -=5
 	
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

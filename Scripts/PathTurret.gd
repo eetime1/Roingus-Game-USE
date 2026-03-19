@@ -13,13 +13,8 @@ func _ready():
 	add_to_group("turrets")
 	add_to_group("mycelium")
 	add_to_group('navigation')
-	$NavMycelium.bake_navigation_polygon()
 
 func _process(delta: float) -> void:
-	bakeTimer += delta
-	if bakeTimer >= 1.5:
-		bakeTimer -= 1.5
-		$NavMycelium.bake_navigation_polygon()
 	
 	if turretHealth <= 0:
 		#$"../NavigationRegion2DCIV".NavigationMeshSourceGeometryData2D.clear()
