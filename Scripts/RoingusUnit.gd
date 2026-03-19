@@ -13,11 +13,11 @@ var timer = 0.0
 @onready var nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
 
 func _ready() -> void:
-	if (get_parent().name !="TutorialGame"):
+	if (get_parent().name != "TutorialGame"):
 		nav_agent.target_position = burrow.global_position
 
 func _physics_process(delta: float) -> void:
-	if (get_parent().name !="TutorialGame"):
+	if (get_parent().name != "TutorialGame"):
 		if timer >= 1:
 			navmesh.bake_navigation_polygon()
 			timer -=1

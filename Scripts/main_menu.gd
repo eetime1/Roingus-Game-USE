@@ -90,7 +90,10 @@ func _quit_window() -> void:
 func _open_scene():
 	get_tree().change_scene_to_file("res://Scenes/Screen/game_screen.tscn")
 	pass
-
+	
+func _open_tutorial():
+	get_tree().change_scene_to_file("res://Scenes/Levels/TutorialGame.tscn")
+	
 func _restart_global() -> void:
 	if newResolution != null:
 		Global.write("screenX", newResolution[0], txtFile)
@@ -106,8 +109,3 @@ func _toggles(toggled_on: bool, what = "string") -> void:
 		Global.write(what, true, txtFile)
 	elif toggled_on == false:
 		Global.write(what, false, txtFile)
-
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		Global.write("currentScreen", DisplayServer.window_get_current_screen(), txtFile)
-		get_tree().quit()
