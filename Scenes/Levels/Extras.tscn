@@ -1,0 +1,415 @@
+[gd_scene format=3 uid="uid://bq8u7o3ae3tsv"]
+
+[ext_resource type="Texture2D" uid="uid://0esa7w7lm0cw" path="res://Assets/Sprites/PathShroom.png" id="1_as821"]
+[ext_resource type="Texture2D" uid="uid://uin8ooe61em6" path="res://Assets/Sprites/PlainShroomDR.png" id="2_jjyat"]
+[ext_resource type="Texture2D" uid="uid://cyy3mhiju5bn5" path="res://Assets/Sprites/WallShroom.png" id="3_l6bht"]
+[ext_resource type="Texture2D" uid="uid://c55ep0m1ysb65" path="res://Assets/Sprites/HealShroom.png" id="4_uot5e"]
+[ext_resource type="Texture2D" uid="uid://kpng34auuof0" path="res://Assets/Sprites/Roingus2.png" id="5_d7ncv"]
+[ext_resource type="Texture2D" uid="uid://bpjofc5a3gdfp" path="res://Assets/Sprites/RoingusCivilian.png" id="6_asfqc"]
+[ext_resource type="Texture2D" uid="uid://dv5kqr6ul3cxn" path="res://Assets/Sprites/RoingusUnitFull.png" id="7_ocr0s"]
+[ext_resource type="Texture2D" uid="uid://co5686wg0n5m2" path="res://Assets/Sprites/HomeShroom.png" id="8_33rxr"]
+[ext_resource type="Texture2D" uid="uid://b6h54mnc4fdo6" path="res://Assets/Sprites/BurrowSaved.png" id="9_6fadx"]
+[ext_resource type="Texture2D" uid="uid://cki4damo8t14h" path="res://Assets/Sprites/MyceliumPathRemade.png" id="10_2d0ui"]
+[ext_resource type="Texture2D" uid="uid://dka7llv7kubeu" path="res://Assets/Sprites/Settlement.png" id="11_c6lwa"]
+[ext_resource type="Texture2D" uid="uid://cbo1pfrp1naty" path="res://Assets/Sprites/Building_Icon.png" id="12_ivs3j"]
+[ext_resource type="Texture2D" uid="uid://dhkar414niqcq" path="res://Assets/Sprites/no_mycelium.png" id="13_205sr"]
+[ext_resource type="Texture2D" uid="uid://dypixqgb4qb1t" path="res://Assets/Sprites/roingusICON.png" id="14_780pa"]
+[ext_resource type="Texture2D" uid="uid://didea4ff5ub4y" path="res://Assets/Backgrounds/Level1DraftFixed.png" id="15_mu635"]
+[ext_resource type="Texture2D" uid="uid://cv6f01ga4q6cq" path="res://Assets/Backgrounds/MiceliumT.png" id="16_xw40e"]
+[ext_resource type="Texture2D" uid="uid://b24v2ccircr4a" path="res://Assets/Placeholders/MagiCrystal.png" id="17_f1ct2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5nli"]
+bg_color = Color(0, 0, 0, 0.105882354)
+
+[node name="Extras" type="Control" unique_id=602071259]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Grey" type="Panel" parent="." unique_id=684605532]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="MarginContainer" type="MarginContainer" parent="Grey" unique_id=1950455747]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 636.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="Grey/MarginContainer" unique_id=763923079]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x5nli")
+
+[node name="MarginContainer" type="MarginContainer" parent="Grey/MarginContainer/Panel" unique_id=290220224]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.5
+anchor_right = 0.25
+anchor_bottom = 0.5
+offset_left = -310.0
+offset_top = -298.0
+offset_right = 310.0
+offset_bottom = 298.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 10
+
+[node name="Items" type="Panel" parent="Grey/MarginContainer/Panel/MarginContainer" unique_id=1019413666]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x5nli")
+
+[node name="ShroomsGrid" type="GridContainer" parent="Grey/MarginContainer/Panel/MarginContainer/Items" unique_id=923859946]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 3
+
+[node name="PathShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid" unique_id=1655023596]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("1_as821")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/PathShroom" unique_id=1808162059]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "PathShroom"
+
+[node name="TurretShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid" unique_id=635275236]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("2_jjyat")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/TurretShroom" unique_id=1083362739]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "TurretShroom"
+
+[node name="SporeShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid" unique_id=792218127]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/SporeShroom" unique_id=1175019663]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "SporeShroom"
+
+[node name="WallShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid" unique_id=309290145]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("3_l6bht")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/WallShroom" unique_id=1978094148]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "WallShroom"
+
+[node name="HealShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid" unique_id=1149987526]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("4_uot5e")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/HealShroom" unique_id=345487820]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "HealShroom"
+
+[node name="PlainShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid" unique_id=2109048458]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/PlainShroom" unique_id=1871253576]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "PlainShroom"
+
+[node name="RoingusGrid" type="GridContainer" parent="Grey/MarginContainer/Panel/MarginContainer/Items" unique_id=2069260724]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 3
+
+[node name="Roingus2" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/RoingusGrid" unique_id=1063230831]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("5_d7ncv")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/RoingusGrid/Roingus2" unique_id=776562795]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Roingus2"
+
+[node name="RoingusCivilian" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/RoingusGrid" unique_id=1523486385]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("6_asfqc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/RoingusGrid/RoingusCivilian" unique_id=1436123713]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "RoingusCivilian"
+
+[node name="RoingusUnitFull" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/RoingusGrid" unique_id=801805433]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("7_ocr0s")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/RoingusGrid/RoingusUnitFull" unique_id=457457235]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "RoingusUnitFull"
+
+[node name="Landmarks" type="GridContainer" parent="Grey/MarginContainer/Panel/MarginContainer/Items" unique_id=1632287164]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 3
+
+[node name="HomeShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks" unique_id=1329695532]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("8_33rxr")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks/HomeShroom" unique_id=203494890]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "HomeShroom"
+
+[node name="Burrow" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks" unique_id=1881137282]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("9_6fadx")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks/Burrow" unique_id=2065692983]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "BurrowShroom"
+
+[node name="Mycelium" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks" unique_id=1957137074]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("10_2d0ui")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks/Mycelium" unique_id=1114728520]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Mycelium"
+
+[node name="Settlement" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks" unique_id=1235954148]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("11_c6lwa")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks/Settlement" unique_id=1756118174]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Settlement"
+
+[node name="ShroomsGrid4" type="GridContainer" parent="Grey/MarginContainer/Panel/MarginContainer/Items" unique_id=1264179023]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+columns = 3
+
+[node name="DevProcess" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=1179596560]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("12_ivs3j")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4/DevProcess" unique_id=300606603]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Dev Process"
+
+[node name="NoMycelium" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=2140570155]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("13_205sr")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4/NoMycelium" unique_id=72897224]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "NoMycelium?"
+
+[node name="RoingusVision" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=1533157968]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("14_780pa")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4/RoingusVision" unique_id=1198021510]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Roingus Vision"
+
+[node name="MapsAndDesign" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=233134139]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("15_mu635")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4/MapsAndDesign" unique_id=692641405]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Maps And Design"
+
+[node name="Title" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=1123806415]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("16_xw40e")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4/Title" unique_id=1983750875]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Title"
+
+[node name="OldTexture" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=830234445]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource("17_f1ct2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4/OldTexture" unique_id=1692802802]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Old Textures"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Grey/MarginContainer/Panel" unique_id=41159638]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75000006
+anchor_top = 0.5
+anchor_right = 0.75000006
+anchor_bottom = 0.5
+offset_left = -310.00006
+offset_top = -298.0
+offset_right = 309.99994
+offset_bottom = 298.0
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Descriptions" type="Panel" parent="Grey/MarginContainer/Panel/MarginContainer2" unique_id=1441000364]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x5nli")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=968344233]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.864
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -0.08001709
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Shrooms" type="Button" parent="HBoxContainer" unique_id=918209533]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Shrooms"
+
+[node name="Roingus" type="Button" parent="HBoxContainer" unique_id=329926672]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Roingus"
+
+[node name="Spaces" type="Button" parent="HBoxContainer" unique_id=1156328959]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "Landmarks"
+
+[node name="DevExtras" type="Button" parent="HBoxContainer" unique_id=854055191]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 40
+text = "DevExtras"

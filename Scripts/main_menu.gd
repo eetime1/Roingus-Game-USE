@@ -7,7 +7,7 @@ var incrWindow = Vector2(5, 20)
 
 func _ready() -> void:
 	var file = FileAccess.open(txtFile, FileAccess.READ)
-	var dataFromFile = JSON.parse_string(file.get_as_text())
+	dataFromFile = JSON.parse_string(file.get_as_text())
 	get_tree().set_auto_accept_quit(false)
 	# To make sure it actually detects something smh || Fix later
 	if dataFromFile.size() < 10:
@@ -38,8 +38,8 @@ func _ready() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		get_tree().root.borderless = true
 		
-	var centerPositioningX = DisplayServer.screen_get_position().x + incrWindow.x + (DisplayServer.screen_get_size().x / 2 - DisplayServer.window_get_size().x / 2)
-	var centerPositioningY = DisplayServer.screen_get_position().y + incrWindow.y + (DisplayServer.screen_get_size().y / 2 - DisplayServer.window_get_size().y / 2)
+	var centerPositioningX = DisplayServer.screen_get_position().x + incrWindow.x + (DisplayServer.screen_get_size().x / 2.0 - DisplayServer.window_get_size().x / 2.0)
+	var centerPositioningY = DisplayServer.screen_get_position().y + incrWindow.y + (DisplayServer.screen_get_size().y / 2.0 - DisplayServer.window_get_size().y / 2.0)
 	get_tree().root.position = Vector2i(centerPositioningX, centerPositioningY)
 	
 	# Sets up the options button to be accurate to current screen
@@ -93,7 +93,7 @@ func _setMode(this) -> void:
 			get_tree().root.borderless = true
 	_restart_global()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("setting"):
 		if name == "MainMenu":
 			$SettingsControls.visible = !$SettingsControls.visible
