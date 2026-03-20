@@ -1,11 +1,12 @@
 {
 	"borderless": false,
-	"buttonNo": 2.0,
+	"buttonNo": 1.0,
 	"currentScreen": 1,
 	"mode": "windowed",
 	"modeNo": 1.0,
 	"noMycelium": true,
 	"screenX": 1920.0,
 	"screenY": 1080.0,
-	"showFPS": true
+	"showFPS": true,
+	"squeak": true
 }
