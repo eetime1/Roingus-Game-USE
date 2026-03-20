@@ -17,9 +17,9 @@ func _process(delta: float) -> void:
 	$ProgressBar.value = turretHealth
 	timer += delta
 	
-	if timer >= 1 && closestFire != []:
-		Global.data["gemCount"] -= 1
-		timer -= 1
+	if timer >= 3 && closestFire != []:
+		Global.data["gemCount"] -= 3
+		timer -= 3
 		var deleted = 0
 		
 		for i in range(closestFire.size()):
@@ -33,14 +33,15 @@ func _process(delta: float) -> void:
 			print(allFires)
 			for i in range(allFires.size()):
 				print('hurt')
-				allFires[i].fireHealth -= 30
+				allFires[i].fireHealth -= 40
 			$AOE.global_position = Vector2(0,0)
 			print('shoot and recall')
 		
 	
-	elif timer >= 1:
-		Global.data["gemCount"] -= 1
-		timer -= 1
+	elif timer >= 3:
+		
+		Global.data["gemCount"] -= 3
+		timer -= 3
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	closestFire.append(body)

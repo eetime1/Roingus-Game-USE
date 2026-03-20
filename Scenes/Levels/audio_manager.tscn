@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c4t6ssem0ol8c"]
+
+[ext_resource type="Script" uid="uid://d6enhtnvqpfe" path="res://Scripts/audio/audio_manager.gd" id="1_1cx5f"]
+[ext_resource type="PackedScene" uid="uid://oxh2j162wkfw" path="res://Scenes/Levels/audio_oneshot.tscn" id="2_58gta"]
+[ext_resource type="AudioStream" uid="uid://7nds07h6qgfn" path="res://Assets/Music/defeat.ogg" id="2_w003c"]
+[ext_resource type="AudioStream" uid="uid://bye4be7ta2s1b" path="res://Assets/Music/game.ogg" id="3_3ykm4"]
+[ext_resource type="AudioStream" uid="uid://ccycy2mt0c4xx" path="res://Assets/Music/menus.ogg" id="4_eao54"]
+
+[node name="Audio Manager" type="Node" unique_id=993254553 node_paths=PackedStringArray("clips", "oneshots")]
+script = ExtResource("1_1cx5f")
+clips = NodePath("Clips")
+oneshots = NodePath("Oneshots")
+audio_oneshot_scene = ExtResource("2_58gta")
+
+[node name="Clips" type="Node" parent="." unique_id=778294216]
+
+[node name="Defeat" type="AudioStreamPlayer" parent="Clips" unique_id=1731223047]
+stream = ExtResource("2_w003c")
+
+[node name="Game" type="AudioStreamPlayer" parent="Clips" unique_id=109294398]
+stream = ExtResource("3_3ykm4")
+
+[node name="Menus" type="AudioStreamPlayer" parent="Clips" unique_id=1361263982]
+stream = ExtResource("4_eao54")
+
+[node name="Oneshots" type="Node" parent="." unique_id=512211524]
