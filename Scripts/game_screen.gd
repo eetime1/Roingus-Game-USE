@@ -18,7 +18,7 @@ func instance(mushroom = null) -> void:
 		"heal":
 			shroom = load("res://Scenes/Characters/TurretHeal.tscn")
 		"spore":
-			shroom = null
+			shroom = load("res://Scenes/Characters/TurretSpore.tscn")
 		_:
 			shroom = null
 			
