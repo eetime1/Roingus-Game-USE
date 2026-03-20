@@ -71,6 +71,10 @@ func _ready() -> void:
 	elif name == "InGameSettings":
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/DisplayMode/Panel/WindowControls/OptionButton.selected = int(dataFromFile["modeNo"])
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/DisplayResolution/Panel/ScreenSize/OptionButton.selected = int(dataFromFile["screenButtonNo"])
+		$CanvasLayer/CenterContainer/Panel/VBoxContainer/TotalVolume/Panel/hVol/MasterSlider.value = float(dataFromFile["Master"])
+		$CanvasLayer/CenterContainer/Panel/VBoxContainer/SFXVolume/Panel/hVol/SFXSlider.value = float(dataFromFile["SFX"])
+		$CanvasLayer/CenterContainer/Panel/VBoxContainer/MusicVolume/Panel/hVol/MusicSlider.value = float(dataFromFile["Music"])
+		$CanvasLayer/CenterContainer/Panel/VBoxContainer/squeakContainer/HBoxContainer/CheckButton.button_pressed = bool(dataFromFile["squeak"])
 
 func _on_settings_pressed() -> void:
 	if name == "MainMenu":
@@ -155,13 +159,18 @@ func _restart_global() -> void:
 	Global.write("currentScreen", DisplayServer.window_get_current_screen(), txtFile)
 	#prints(dataFromFile["screenX"],dataFromFile["screenY"],DisplayServer.window_get_size(),get_tree().root.content_scale_size,DisplayServer.window_get_mode())
 
-func _toggles(toggled_on: bool, what = "string") -> void:
+func _toggles(toggled_on: bool, what: String) -> void:
 	if toggled_on == true:
 		Global.write(what, true, txtFile)
 	elif toggled_on == false:
 		Global.write(what, false, txtFile)
+		
+	if what == "squeak" && toggled_on:
+		soundy()
+		
 
 func _returnToMenu():
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
 	
 func _extras() -> void:

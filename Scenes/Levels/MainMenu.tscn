@@ -353,9 +353,27 @@ offset_right = 30.079998
 offset_bottom = -17.720032
 text = "Extras"
 
+[node name="Disclosure" type="Control" parent="." unique_id=422835340]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Disclosure" unique_id=781239623]
+layout_mode = 0
+offset_left = 428.0
+offset_top = 683.0
+offset_right = 1280.0
+offset_bottom = 720.0
+theme_override_font_sizes/font_size = 12
+text = "Disclosure* - FullScreen swapping bug is known, and unfixable. It's a godot game engine bug. Sorry for inconvenience!"
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 2
+
 [connection signal="value_changed" from="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/TotalVolume/Total" to="." method="_musicStuff" binds= ["Master"]]
 [connection signal="value_changed" from="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/SFXVolume/SFX" to="." method="_musicStuff" binds= ["SFX"]]
 [connection signal="value_changed" from="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/MusicVolume/Music" to="." method="_musicStuff" binds= ["Music"]]
+[connection signal="toggled" from="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/HBoxContainer/CheckButton" to="." method="_toggles" binds= ["squeak"]]
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton" to="." method="_setMode"]
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton" to="." method="_setSize"]
 [connection signal="toggled" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton" to="." method="_toggles" binds= ["showFPS"]]

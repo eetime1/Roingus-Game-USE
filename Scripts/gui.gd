@@ -21,7 +21,10 @@ func _process(_delta: float) -> void:
 		$CanvasLayer/Panel2/Secret.modulate.a = 0
 
 	if Global.read("showFPS"):
+		$CanvasLayer/FpsCounts.visible = true
 		$CanvasLayer/FpsCounts.text = "FPS: " + str(Engine.get_frames_per_second())
+	if !Global.read("showFPS"):
+		$CanvasLayer/FpsCounts.visible = false
 
 
 func _input(event):
