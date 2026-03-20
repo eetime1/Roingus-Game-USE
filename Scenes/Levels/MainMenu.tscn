@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1r3ntbb0hlt8" path="res://Scripts/main_menu.gd" id="1_hr4vk"]
 [ext_resource type="Texture2D" uid="uid://bvcyy3ginpylb" path="res://Assets/Backgrounds/Start_screen.png" id="1_yw2i3"]
-[ext_resource type="AudioStream" uid="uid://cyklpmqphf7g8" path="res://Assets/Music/intro.mp3" id="3_d2tbo"]
+[ext_resource type="AudioStream" uid="uid://buvwgrvqxjdl0" path="res://Assets/SFX/squeak.mp3" id="2_d2tbo"]
 
 [node name="MainMenu" type="Control" unique_id=657747432]
 layout_mode = 3
@@ -12,6 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hr4vk")
+squeak = ExtResource("2_d2tbo")
+metadata/_edit_use_anchors_ = true
 
 [node name="Image" type="AspectRatioContainer" parent="." unique_id=422678049]
 layout_mode = 1
@@ -29,6 +31,29 @@ layout_mode = 2
 texture = ExtResource("1_yw2i3")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="Image2" type="Panel" parent="." unique_id=1847930008]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0046875
+anchor_top = 0.0027777778
+anchor_right = 0.0046875
+anchor_bottom = 0.0027777778
+offset_right = 261.0
+offset_bottom = 101.000015
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="Label" parent="Image2" unique_id=2007821008]
+layout_mode = 0
+offset_right = 261.0
+offset_bottom = 101.0
+text = "Code: eetime, CorrectMC and Dan
+Art: Spirit and Grubious
+Audio: Dan
+Level Design: Grubious"
 
 [node name="SettingsControls" type="Control" parent="." unique_id=955759610]
 visible = false
@@ -322,9 +347,6 @@ offset_right = 30.079998
 offset_bottom = -17.720032
 text = "Extras"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=397372708]
-stream = ExtResource("3_d2tbo")
-
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton" to="." method="_setMode"]
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton" to="." method="_setSize"]
 [connection signal="toggled" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton" to="." method="_toggles" binds= ["showFPS"]]
@@ -334,5 +356,5 @@ stream = ExtResource("3_d2tbo")
 [connection signal="pressed" from="Menu/Tutorial (Recommended)" to="." method="_open_tutorial"]
 [connection signal="pressed" from="Menu/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Menu/Exit" to="." method="_quit_window"]
+[connection signal="button_down" from="Menu/Credits" to="." method="_on_credits_button_down"]
 [connection signal="pressed" from="Menu/Extras" to="." method="_extras"]
-[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

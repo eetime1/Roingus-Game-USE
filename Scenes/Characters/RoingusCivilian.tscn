@@ -2,6 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://bpjofc5a3gdfp" path="res://Assets/Sprites/RoingusCivilian.png" id="1_2xtyf"]
 [ext_resource type="Script" uid="uid://c1xwfqbf7lgwk" path="res://Scripts/RoingusCivilian.gd" id="1_llytl"]
+[ext_resource type="AudioStream" uid="uid://be47ov84k0sie" path="res://Assets/SFX/victory.wav" id="2_dnqfn"]
+[ext_resource type="Script" uid="uid://dgs5yflq6ea2w" path="res://Scripts/Bouncing.gd" id="4_prxw2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_llytl"]
 radius = 400.0
@@ -9,6 +11,7 @@ radius = 400.0
 [node name="RoingusCivilian" type="CharacterBody2D" unique_id=1256185320]
 collision_layer = 4
 script = ExtResource("1_llytl")
+victory = ExtResource("2_dnqfn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=484284862]
 shape = SubResource("CircleShape2D_llytl")
@@ -16,6 +19,7 @@ shape = SubResource("CircleShape2D_llytl")
 [node name="RoingusCivilian" type="Sprite2D" parent="." unique_id=891032787]
 texture = ExtResource("1_2xtyf")
 offset = Vector2(0, -640)
+script = ExtResource("4_prxw2")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1087472231]
 path_desired_distance = 200.0

@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	timer += delta
 	
 	if timer >= 1 && closestFire != []:
+		$Hitmarker.visible = true
 		Global.data["gemCount"] -= 1
 		
 		var deleted = 0
@@ -106,7 +107,7 @@ func _process(delta: float) -> void:
 			
 		
 	elif timer >= 1:
-		$Hitmarker.global_position = Vector2(0,0)
+		$Hitmarker.visible = false
 		timer -= 1
 		Global.data["gemCount"] -= 1
 		

@@ -4,6 +4,7 @@ var newResolution
 var newMode
 var incrWindow = Vector2(5, 20)
 @onready var txtFile = './Data/configs/config.json'
+@export var squeak: AudioStream
 
 # This one should check for if anything thats calling it has audiostreamplayer
 @onready var sound = $AudioStreamPlayer
@@ -58,7 +59,8 @@ func _ready() -> void:
 			$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.disabled = true
 		else:
 			$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.disabled = false
-		$AudioStreamPlayer.play()
+		
+		AudioManager.play("Menus")
 		$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.selected = int(dataFromFile["screenButtonNo"])
 		$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton.selected = int(dataFromFile["modeNo"])
 		$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton.button_pressed = bool(dataFromFile["showFPS"])
@@ -138,7 +140,8 @@ func _open_scene():
 	# Use threading https://docs.godotengine.org/en/stable/tutorials/performance/using_multiple_threads.html
 
 func soundy():
-	sound.play()
+	AudioManager.play_audio_oneshot(squeak)
+	
 
 func _open_tutorial():
 	get_tree().change_scene_to_file("res://Scenes/Levels/TutorialGame.tscn")
@@ -169,8 +172,11 @@ func _returnToMenu():
 func _extras() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Extras.tscn")
 	
-func _on_audio_stream_player_finished() -> void:
-	$AudioStreamPlayer.play()
+	
+
+
+func _on_credits_button_down() -> void:
+	$Image2.visible = !$Image2.visible
+	
+	
 	pass # Replace with function body.
-	
-	

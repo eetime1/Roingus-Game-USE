@@ -15,7 +15,7 @@ of turmoil.
 Plainshroom: 
 "I am... the night." the Plainshroom said, looking out over the forest. "An unsung hero -  
 a warrior who fights for what is right, whenever the world needs me." The Plainshroom 
-peeked back over his shoulder to make sure his parents hadn\'t noticed that he was out 
+peeked back over his shoulder to make sure nobody had noticed that he was out 
 of bed at this hour. He continued, "and today... it really needs me."  
 He paused. 
 "And today... the world needs a… savior?"  

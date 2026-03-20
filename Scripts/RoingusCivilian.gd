@@ -4,6 +4,7 @@ const movement_speed = 2000.0
 @onready var nav_agent : Node  = $NavigationAgent2D
 var movementPaused = false
 var timer = 0.0
+@export var victory : AudioStream
 
 var burrow
 var goal
@@ -50,7 +51,11 @@ func _physics_process(delta: float) -> void:
 				emit_signal("roingusHome")
 				Global.data["roingusCount"] += 1
 				if Global.data["roingusCount"] >= Global.data["winningRoinguses"]:
-					print('wincon in RoingusCivilian2.gd')
+					print('wincon in RoingusCivilian.gd')
+					AudioManager.stop("Game")
+					AudioManager.play_audio_oneshot(victory)
+					Global.currentLevel = get_parent().level
+					
 					get_tree().change_scene_to_file("res://Scenes/Levels/WinScreen.tscn")
 				queue_free()
 			else:

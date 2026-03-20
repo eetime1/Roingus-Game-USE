@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bq8u7o3ae3tsv"]
 
 [ext_resource type="Texture2D" uid="uid://0esa7w7lm0cw" path="res://Assets/Sprites/PathShroom.png" id="1_as821"]
-[ext_resource type="Script" uid="uid://cr3hc7sru1v1g" path="res://Scripts/Extras.gd" id="1_asfqc"]
+[ext_resource type="Script" path="res://Scripts/Extras.gd" id="1_asfqc"]
 [ext_resource type="Texture2D" uid="uid://uin8ooe61em6" path="res://Assets/Sprites/PlainShroomDR.png" id="2_jjyat"]
 [ext_resource type="Texture2D" uid="uid://cyy3mhiju5bn5" path="res://Assets/Sprites/WallShroom.png" id="3_l6bht"]
 [ext_resource type="Texture2D" uid="uid://ct2edtup4sjgl" path="res://Assets/Sprites/SporeShroom.png" id="4_ocr0s"]
