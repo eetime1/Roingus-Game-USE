@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dxrwciulmjoj8"]
 
 [ext_resource type="Texture2D" uid="uid://lnx1dxhafonu" path="res://Assets/Backgrounds/world_mapT.png" id="1_xuf0a"]
+[ext_resource type="Script" uid="uid://wobkxiv3340l" path="res://Scripts/WorldMap.gd" id="1_xyrkb"]
 
 [node name="Control" type="Control" unique_id=1834192749]
 layout_mode = 3
@@ -9,22 +10,42 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_xyrkb")
 
-[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=886152874]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 746.5901
-offset_bottom = 419.9569
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(0.72002065, 0.72002065)
-alignment_horizontal = 0
-alignment_vertical = 0
-
-[node name="TextureRect" type="TextureRect" parent="AspectRatioContainer" unique_id=1755041838]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1755041838]
 layout_direction = 2
-layout_mode = 2
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
 texture = ExtResource("1_xuf0a")
-stretch_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Button" type="Button" parent="TextureRect" unique_id=770361943]
+layout_mode = 0
+offset_left = 307.0
+offset_top = 435.0
+offset_right = 365.0
+offset_bottom = 466.0
+text = "Level1
+"
+
+[node name="Button2" type="Button" parent="TextureRect" unique_id=1313388057]
+layout_mode = 0
+offset_left = 594.0
+offset_top = 313.0
+offset_right = 652.0
+offset_bottom = 344.0
+text = "Level2"
+
+[node name="Button3" type="Button" parent="TextureRect" unique_id=2141852445]
+layout_mode = 0
+offset_left = 981.0
+offset_top = 252.0
+offset_right = 1039.0
+offset_bottom = 283.0
+text = "Level3"
+
+[connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed" binds= ["0"]]
+[connection signal="pressed" from="TextureRect/Button2" to="." method="_on_button_pressed" binds= [1]]
+[connection signal="pressed" from="TextureRect/Button3" to="." method="_on_button_pressed" binds= [2]]

@@ -34,6 +34,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Grey" unique_id=1950455747]
 layout_mode = 0
@@ -74,6 +76,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 3
 
 [node name="PathShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid" unique_id=1655023596]
@@ -161,6 +165,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 3
 
 [node name="Roingus2" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/RoingusGrid" unique_id=1063230831]
@@ -211,6 +217,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 3
 
 [node name="HomeShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks" unique_id=1329695532]
@@ -274,6 +282,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 3
 
 [node name="DevProcess" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=1179596560]

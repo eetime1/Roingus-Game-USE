@@ -4,8 +4,11 @@ var newResolution
 var newMode
 var incrWindow = Vector2(5, 20)
 @onready var txtFile = './Data/configs/config.json'
-
+@onready var sound = $AudioStreamPlayer
+var thread
 func _ready() -> void:
+	thread = Thread.new()
+	
 	var file = FileAccess.open(txtFile, FileAccess.READ)
 	dataFromFile = JSON.parse_string(file.get_as_text())
 	get_tree().set_auto_accept_quit(false)
@@ -106,9 +109,12 @@ func _quit_window() -> void:
 	get_tree().quit()
 
 func _open_scene():
-	#$AudioStreamPlayer2D.play()
-	get_tree().change_scene_to_file("res://Scenes/Screen/game_screen.tscn")
+	soundy()
+	get_tree().change_scene_to_file("res://Scenes/Levels/WorldMap.tscn")
 	# Use threading https://docs.godotengine.org/en/stable/tutorials/performance/using_multiple_threads.html
+
+func soundy():
+	sound.play()
 
 func _open_tutorial():
 	get_tree().change_scene_to_file("res://Scenes/Levels/TutorialGame.tscn")
@@ -128,3 +134,13 @@ func _toggles(toggled_on: bool, what = "string") -> void:
 		Global.write(what, true, txtFile)
 	elif toggled_on == false:
 		Global.write(what, false, txtFile)
+
+func _igSToggle():
+	pass
+	
+
+func _extras() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Levels/Extras.tscn")
+	
+func _exit_tree() -> void:
+	thread.wait_to_finish()

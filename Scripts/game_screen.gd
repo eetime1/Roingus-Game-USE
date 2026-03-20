@@ -6,7 +6,7 @@ var shroom
 func _ready() -> void:
 	$GUI.turret_instantiate.connect(instance)
 	pass # Replace with function body.
-	
+
 func instance(mushroom = null) -> void:
 	match (mushroom):
 		"turret":

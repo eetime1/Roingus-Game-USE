@@ -17,6 +17,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [node name="InGameSettings" type="Control" unique_id=1765833303]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -26,7 +27,7 @@ grow_vertical = 2
 script = ExtResource("1_qcusr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=48841050]
-visible = false
+follow_viewport_enabled = true
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=1611832963]
 anchors_preset = -1

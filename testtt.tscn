@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://dmcmrs1bf7tjw"]
+
+[ext_resource type="Script" uid="uid://8hrl4sydtsrt" path="res://Scripts/test.gd" id="1_j0v5d"]
+
+[node name="Control" type="Control" unique_id=663425432]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_j0v5d")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1287061147]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 402.0
+offset_right = 932.0
+offset_bottom = 616.0
+
+[node name="Button" type="Button" parent="." unique_id=459467900]
+layout_mode = 0
+offset_right = 981.0
+offset_bottom = 353.0
+
+[node name="ProgressBar2" type="ProgressBar" parent="." unique_id=248950343]
+layout_mode = 0
+offset_left = 34.0
+offset_top = 629.0
+offset_right = 943.0
+offset_bottom = 843.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1101644299]
+
+[connection signal="pressed" from="Button" to="." method="_pressedLol"]

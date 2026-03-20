@@ -4,10 +4,13 @@
 [ext_resource type="Script" uid="uid://bv7ae7rvepmmy" path="res://Scripts/game_screen.gd" id="1_jegvc"]
 [ext_resource type="PackedScene" uid="uid://dtdfd2564flbq" path="res://Scenes/Levels/LevelOne.tscn" id="4_m0upi"]
 [ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Scenes/Characters/Player.tscn" id="5_ol1ve"]
+[ext_resource type="PackedScene" uid="uid://xxsa8otaedl1" path="res://Scenes/Levels/InGameSettings.tscn" id="5_vo4su"]
 
 [node name="GameScreen" type="Node2D" unique_id=809576985]
 y_sort_enabled = true
 script = ExtResource("1_jegvc")
+
+[node name="InGameSettings" parent="." unique_id=1765833303 instance=ExtResource("5_vo4su")]
 
 [node name="Level" parent="." unique_id=363940844 instance=ExtResource("4_m0upi")]
 position = Vector2(-99, -143)
