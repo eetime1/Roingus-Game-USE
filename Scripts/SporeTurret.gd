@@ -28,7 +28,7 @@ func _process(delta: float) -> void:
 				deleted += 1
 		
 		if closestFire != []:
-			$AOE/CollisionShape2D.position = closestFire[0].position
+			$AOE/CollisionShape2D.global_position = closestFire[0].global_position
 			var allFires = $AOE.get_overlapping_bodies()
 			print(allFires)
 			for i in range(allFires.size()):

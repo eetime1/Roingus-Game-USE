@@ -46,16 +46,16 @@ func _physics_process(delta: float) -> void:
 			velocity = nav_point_direction * movement_speed
 			move_and_slide()
 			
-		elif !movementPaused:
+		elif !movementPaused && is_instance_valid(goal):
+			
 			if goal.distFromHome == 0:
 				emit_signal("roingusHome")
 				Global.data["roingusCount"] += 1
 				if Global.data["roingusCount"] >= Global.data["winningRoinguses"]:
 					print('wincon in RoingusCivilian.gd')
 					AudioManager.stop("Game")
-					AudioManager.play_audio_oneshot(victory)
-					Global.currentLevel = get_parent().level
-					
+					AudioManager.play('Victory')
+					Global.write("level", get_parent().level)
 					get_tree().change_scene_to_file("res://Scenes/Levels/WinScreen.tscn")
 				queue_free()
 			else:
@@ -76,9 +76,16 @@ func _physics_process(delta: float) -> void:
 					movementPaused = true
 					await get_tree().create_timer(1).timeout
 					movementPaused = false
-			
+		elif !movementPaused:
+			for i in range(burrow.lowerNodes.size()):
+				if burrow.lowerNodes[i].distFromHome < burrow.lowerNodes[lowestIndex].distFromHome:
+					lowestIndex = i
+			goal = burrow.lowerNodes[lowestIndex]
+			nav_agent.target_position = goal.global_position
+			movementPaused = false
+			position = burrow.global_position
 		
-		if !nav_agent.is_target_reachable() || goal == null:
+		if !nav_agent.is_target_reachable():
 			for i in range(burrow.lowerNodes.size()):
 				if burrow.lowerNodes[i].distFromHome < burrow.lowerNodes[lowestIndex].distFromHome:
 					lowestIndex = i

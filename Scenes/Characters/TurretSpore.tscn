@@ -73,7 +73,6 @@ collision_mask = 8
 shape = SubResource("CircleShape2D_67cjo")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AOE/CollisionShape2D" unique_id=1352970833]
-visible = false
 z_index = 1
 position = Vector2(30, -300)
 scale = Vector2(1.1, 1.1)

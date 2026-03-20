@@ -33,12 +33,13 @@ func _process(delta: float) -> void:
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	var newDist = area.get_parent().distFromHome
+	var newDist
+	newDist = area.get_parent().distFromHome
+	#print('newDist' + str(self))
 	if newDist < distFromHome:
-		#print('newDist' + str(self))
 		distFromHome = newDist + 1
-		lowerNodes.append(area.get_parent())
-		isolated = false
+	lowerNodes.append(area.get_parent())
+	isolated = false
 	pass # Replace with function body.
 
 func _on_area_2d_area_exited(area: Area2D) -> void:
@@ -46,7 +47,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	if lostDist in lowerNodes:
 		lowerNodes.erase(lostDist)
 		if lowerNodes == []:
-			print('resetDist' + str(self))
+			print('resetDist: ' + str(self))
 			distFromHome = 999999999
 			isolated = true
 		else:

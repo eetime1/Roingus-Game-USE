@@ -7,7 +7,6 @@ var incrWindow = Vector2(5, 20)
 @export var squeak: AudioStream
 
 # This one should check for if anything thats calling it has audiostreamplayer
-@onready var sound = $AudioStreamPlayer
 
 func _ready() -> void:
 	

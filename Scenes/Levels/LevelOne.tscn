@@ -54,7 +54,7 @@ position = Vector2(3002, -11260)
 position = Vector2(9987, -1865)
 
 [node name="FireSpawner2" parent="." unique_id=1177035403 instance=ExtResource("9_202xy")]
-position = Vector2(12743, -6067)
+position = Vector2(3362, -9194)
 
 [node name="Burrow2" parent="." unique_id=1531954552 instance=ExtResource("5_2yxij")]
 position = Vector2(24801, -18327)

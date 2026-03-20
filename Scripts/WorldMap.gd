@@ -25,7 +25,16 @@ func _ready() -> void:
 func _quit_button():
 	get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
 
-func _on_button_pressed(_shot) -> void:
-	get_tree().change_scene_to_file("res://Scenes/Screen/game_screen.tscn")
+func _on_button_pressed(_shot, level) -> void:
+	match(level):
+		0:
+			get_tree().change_scene_to_file("res://Scenes/Screen/L1.tscn")
+		1:
+			get_tree().change_scene_to_file("res://Scenes/Screen/L2.tscn")
+		2:
+			get_tree().change_scene_to_file("res://Scenes/Screen/L3.tscn")
+		_:
+			pass
+	
 	
 	pass # Replace with function body.
