@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 				$PlainShroomRight.visible = true
 				$PlainShroomRight.flip_h = false
 				$PlainShroomRight.offset.x = 150
-				
+				$Hitmarker.rotation = 0
 				$PlainShroomDown.visible = false
 				$PlainShroomDr.visible = false
 				$PlainShroomUp.visible = false
@@ -47,7 +47,7 @@ func _process(delta: float) -> void:
 				$PlainShroomDr.visible = true
 				$PlainShroomDr.flip_h = false
 				$PlainShroomDr.offset.x = 40
-				
+				$Hitmarker.rotation = PI/4
 				$PlainShroomUp.visible = false
 				$PlainShroomUr.visible = false
 			elif xoff > 200 && yoff < -200:
@@ -55,7 +55,7 @@ func _process(delta: float) -> void:
 				$PlainShroomDown.visible = false
 				$PlainShroomDr.visible = false
 				$PlainShroomUp.visible = false
-				
+				$Hitmarker.rotation = -PI/4
 				$PlainShroomUr.visible = true
 				$PlainShroomUr.flip_h = false
 			elif abs(xoff) <= 200 && yoff < -200:
@@ -64,13 +64,13 @@ func _process(delta: float) -> void:
 				$PlainShroomDr.visible = false
 				
 				$PlainShroomUp.visible = true
-				
+				$Hitmarker.rotation = -PI/2
 				$PlainShroomUr.visible = false
 			elif abs(xoff) <= 200 && yoff < -200:
 				$PlainShroomRight.visible = false
 				
 				$PlainShroomDown.visible = true
-				
+				$Hitmarker.rotation = PI/2
 				$PlainShroomDr.visible = false
 				$PlainShroomUp.visible = false
 				$PlainShroomUr.visible = false
@@ -79,7 +79,7 @@ func _process(delta: float) -> void:
 				$PlainShroomDown.visible = false
 				$PlainShroomDr.visible = false
 				$PlainShroomUp.visible = false
-				
+				$Hitmarker.rotation = -3*PI/4
 				$PlainShroomUr.visible = true
 				$PlainShroomUr.flip_h = true
 			elif xoff < -200 && yoff > 200:
@@ -89,26 +89,28 @@ func _process(delta: float) -> void:
 				$PlainShroomDr.visible = true
 				$PlainShroomDr.flip_h = true
 				$PlainShroomDr.offset.x = -40
-				
+				$Hitmarker.rotation = 3*PI/4
 				$PlainShroomUp.visible = false
 				$PlainShroomUr.visible = false
 			elif xoff < -200 && abs(yoff) <= 200:
 				$PlainShroomRight.visible = true
 				$PlainShroomRight.flip_h = true
 				$PlainShroomRight.offset.x = -150
-				
+				$Hitmarker.rotation = PI
 				$PlainShroomDown.visible = false
 				$PlainShroomDr.visible = false
 				$PlainShroomUp.visible = false
 				$PlainShroomUr.visible = false
-			
+			$Hitmarker.global_position = closestFire[0].global_position
 			closestFire[0].fireHealth -= 50
 			
 		
 	elif timer >= 1:
+		$Hitmarker.global_position = Vector2(0,0)
 		timer -= 1
 		Global.data["gemCount"] -= 1
 		
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	closestFire.append(body)
+	if body is CharacterBody2D:
+		closestFire.append(body)
