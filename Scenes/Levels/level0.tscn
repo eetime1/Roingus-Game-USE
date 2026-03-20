@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://icfjcmiwklnj"]
 
 [ext_resource type="TileSet" uid="uid://cefhh0b670jia" path="res://The Fuckers/TileSet.tres" id="1_kfc6s"]
-[ext_resource type="Script" uid="uid://hn40ldy0i76i" path="res://Scenes/Levels/level_one.gd" id="1_lrtd2"]
+[ext_resource type="Script" uid="uid://hn40ldy0i76i" path="res://Scripts/level_one.gd" id="1_lrtd2"]
 [ext_resource type="PackedScene" uid="uid://cqgnsssexewa8" path="res://Scenes/Characters/HomeShroom.tscn" id="2_lrtd2"]
 [ext_resource type="PackedScene" uid="uid://gwuh4mkx5i87" path="res://Scenes/Characters/Burrow.tscn" id="3_q5j4n"]
 [ext_resource type="PackedScene" uid="uid://c1h2h81wksbr1" path="res://Scenes/Characters/Settlement.tscn" id="4_qbsss"]

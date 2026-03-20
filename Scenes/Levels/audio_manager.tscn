@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d6enhtnvqpfe" path="res://Scripts/audio/audio_manager.gd" id="1_1cx5f"]
 [ext_resource type="PackedScene" uid="uid://oxh2j162wkfw" path="res://Scenes/Levels/audio_oneshot.tscn" id="2_58gta"]
 [ext_resource type="AudioStream" uid="uid://7nds07h6qgfn" path="res://Assets/Music/defeat.ogg" id="2_w003c"]
-[ext_resource type="AudioStream" uid="uid://bye4be7ta2s1b" path="res://Assets/Music/game.ogg" id="3_3ykm4"]
+[ext_resource type="AudioStream" uid="uid://dri73plwkfq5a" path="res://Assets/Music/game.ogg" id="3_3ykm4"]
 [ext_resource type="AudioStream" uid="uid://ccycy2mt0c4xx" path="res://Assets/Music/menus.ogg" id="4_eao54"]
 
 [node name="Audio Manager" type="Node" unique_id=993254553 node_paths=PackedStringArray("clips", "oneshots")]

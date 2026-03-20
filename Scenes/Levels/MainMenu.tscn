@@ -99,10 +99,12 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 text = "Total Volume! Control the games *loudness*: "
 
-[node name="HSlider" type="HSlider" parent="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/TotalVolume" unique_id=1460392734]
+[node name="Total" type="HSlider" parent="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/TotalVolume" unique_id=1460392734]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 1.5
+step = 0.001
 
 [node name="SFXVolume" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio" unique_id=594741625]
 layout_mode = 2
@@ -113,10 +115,12 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 text = "SFX Volume! Control the Sound Effects aggression:"
 
-[node name="HSlider" type="HSlider" parent="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/SFXVolume" unique_id=812007340]
+[node name="SFX" type="HSlider" parent="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/SFXVolume" unique_id=812007340]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 1.5
+step = 0.001
 
 [node name="MusicVolume" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio" unique_id=1595768578]
 layout_mode = 2
@@ -127,10 +131,12 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 text = "Music Volume! Control the musics volume: "
 
-[node name="HSlider" type="HSlider" parent="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/MusicVolume" unique_id=617219505]
+[node name="Music" type="HSlider" parent="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/MusicVolume" unique_id=617219505]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
+max_value = 1.5
+step = 0.001
 
 [node name="HBoxContainer" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio" unique_id=627351712]
 layout_mode = 2
@@ -347,6 +353,9 @@ offset_right = 30.079998
 offset_bottom = -17.720032
 text = "Extras"
 
+[connection signal="value_changed" from="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/TotalVolume/Total" to="." method="_musicStuff" binds= ["Master"]]
+[connection signal="value_changed" from="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/SFXVolume/SFX" to="." method="_musicStuff" binds= ["SFX"]]
+[connection signal="value_changed" from="SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/MusicVolume/Music" to="." method="_musicStuff" binds= ["Music"]]
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton" to="." method="_setMode"]
 [connection signal="item_selected" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton" to="." method="_setSize"]
 [connection signal="toggled" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton" to="." method="_toggles" binds= ["showFPS"]]

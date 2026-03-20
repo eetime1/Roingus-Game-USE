@@ -1,10 +1,11 @@
 [gd_scene format=4 uid="uid://c6fasn70rcojk"]
 
-[ext_resource type="Script" uid="uid://hn40ldy0i76i" path="res://Scenes/Levels/level_one.gd" id="1_ov3rk"]
+[ext_resource type="Script" uid="uid://hn40ldy0i76i" path="res://Scripts/level_one.gd" id="1_ov3rk"]
 [ext_resource type="TileSet" uid="uid://cefhh0b670jia" path="res://The Fuckers/TileSet.tres" id="1_qxkdu"]
 [ext_resource type="PackedScene" uid="uid://cqgnsssexewa8" path="res://Scenes/Characters/HomeShroom.tscn" id="3_x0tam"]
 [ext_resource type="PackedScene" uid="uid://gwuh4mkx5i87" path="res://Scenes/Characters/Burrow.tscn" id="4_vfl4p"]
 [ext_resource type="PackedScene" uid="uid://c1h2h81wksbr1" path="res://Scenes/Characters/Settlement.tscn" id="5_wlbe4"]
+
 
 [node name="Level3" type="Node2D" unique_id=162407257]
 y_sort_enabled = true

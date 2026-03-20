@@ -6,10 +6,8 @@ var incrWindow = Vector2(5, 20)
 @onready var txtFile = './Data/configs/config.json'
 @export var squeak: AudioStream
 
-# This one should check for if anything thats calling it has audiostreamplayer
-@onready var sound = $AudioStreamPlayer
-
 func _ready() -> void:
+	Global.write("currentScreen", DisplayServer.window_get_current_screen(), txtFile)
 	
 	var file = FileAccess.open(txtFile, FileAccess.READ)
 	dataFromFile = JSON.parse_string(file.get_as_text())
@@ -27,9 +25,9 @@ func _ready() -> void:
 		Global.write("noMycelium", false, txtFile)
 		Global.write("squeak", true, txtFile)
 		Global.write("level", 0, txtFile)
-		Global.write("totalVolume", 50, txtFile)
-		Global.write("sFXVolume", 100, txtFile)
-		Global.write("musicVolume", 100, txtFile)
+		Global.write("Master", 0.75, txtFile)
+		Global.write("SFX", 1.5, txtFile)
+		Global.write("Music", 1.5, txtFile)
 		dataFromFile = JSON.parse_string(file.get_as_text())
 		
 	# Sets current screen and size
@@ -66,15 +64,13 @@ func _ready() -> void:
 		$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton.button_pressed = bool(dataFromFile["showFPS"])
 		$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/NoMycelium/CheckButton.button_pressed = bool(dataFromFile["noMycelium"])
 		$SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/HBoxContainer/CheckButton.button_pressed = bool(dataFromFile["squeak"])
-		$SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/TotalVolume/HSlider.value = int(dataFromFile["totalVolume"])
-		$SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/SFXVolume/HSlider.value = int(dataFromFile["sFXVolume"])
-		$SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/MusicVolume/HSlider.value = int(dataFromFile["musicVolume"])
+		$SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/TotalVolume/Total.value = float(dataFromFile["Master"])
+		$SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/SFXVolume/SFX.value = float(dataFromFile["SFX"])
+		$SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/MusicVolume/Music.value = float(dataFromFile["Music"])
 
 	elif name == "InGameSettings":
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/DisplayMode/Panel/WindowControls/OptionButton.selected = int(dataFromFile["modeNo"])
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/DisplayResolution/Panel/ScreenSize/OptionButton.selected = int(dataFromFile["screenButtonNo"])
-
-
 
 func _on_settings_pressed() -> void:
 	if name == "MainMenu":
@@ -83,6 +79,10 @@ func _on_settings_pressed() -> void:
 	elif name == "InGameSettings":
 		$CanvasLayer.visible = !$CanvasLayer.visible
 	_restart_global()
+
+func _musicStuff(nValue, slider) -> void:
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(slider), linear_to_db(nValue))
+	Global.write(slider, nValue, txtFile)
 
 func _setSize(this) -> void:
 	# [2560 x 1440], [1920 x 1080], [1280 x 720], [640, 360]
@@ -122,7 +122,6 @@ func _setMode(this) -> void:
 				$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.disabled = false
 			get_tree().root.borderless = true
 			
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("setting"):
 		if name == "MainMenu":
@@ -141,7 +140,6 @@ func _open_scene():
 
 func soundy():
 	AudioManager.play_audio_oneshot(squeak)
-	
 
 func _open_tutorial():
 	get_tree().change_scene_to_file("res://Scenes/Levels/TutorialGame.tscn")
@@ -154,8 +152,8 @@ func _restart_global() -> void:
 	if newMode != null:
 		Global.write("mode", newMode[0], txtFile)
 		Global.write("modeNo", newMode[1], txtFile)
-	prints(dataFromFile["screenX"],dataFromFile["screenY"],DisplayServer.window_get_size(),get_tree().root.content_scale_size,DisplayServer.window_get_mode())
-
+	Global.write("currentScreen", DisplayServer.window_get_current_screen(), txtFile)
+	#prints(dataFromFile["screenX"],dataFromFile["screenY"],DisplayServer.window_get_size(),get_tree().root.content_scale_size,DisplayServer.window_get_mode())
 
 func _toggles(toggled_on: bool, what = "string") -> void:
 	if toggled_on == true:
@@ -163,20 +161,12 @@ func _toggles(toggled_on: bool, what = "string") -> void:
 	elif toggled_on == false:
 		Global.write(what, false, txtFile)
 
-func _igSToggle():
-	pass
-
 func _returnToMenu():
 	get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
-
+	
 func _extras() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Extras.tscn")
-	
-	
-
 
 func _on_credits_button_down() -> void:
 	$Image2.visible = !$Image2.visible
 	
-	
-	pass # Replace with function body.

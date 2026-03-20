@@ -13,7 +13,7 @@ var max_sounds = 6
 var current_sounds = 0
 
 # For music - add song track to a node in Audio Manager tree - ensures music plays over scenes
-func play(audio_name: String, from_position: float = 0.0) -> void:
+func play(audio_name: String, from_position: float = 0.0, volume_db : float = 1.0) -> void:
 	if active_music_stream:
 		if active_music_stream.name == audio_name:
 			return
