@@ -144,3 +144,6 @@ position = Vector2(20514, -7071)
 [node name="Tree3" parent="Level_Objects" unique_id=1060632518 instance=ExtResource("13_f8if4")]
 position = Vector2(22446, 6913)
 scale = Vector2(0.6, 0.6)
+
+[node name="BridgeHorizontal" parent="." unique_id=109810102 instance=ExtResource("16_j5o2p")]
+position = Vector2(-546, -10672)

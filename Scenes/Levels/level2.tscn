@@ -1,6 +1,6 @@
-[gd_scene format=4 uid="uid://ql45bstqqe3o"]
+[gd_scene format=4 uid="uid://cyokeqt62d83"]
 
-[ext_resource type="Script" uid="uid://hn40ldy0i76i" path="res://Scenes/Levels/level_one.gd" id="1_d15yg"]
+[ext_resource type="Script" path="res://Scenes/Levels/level_one.gd" id="1_d15yg"]
 [ext_resource type="TileSet" uid="uid://cefhh0b670jia" path="res://The Fuckers/TileSet.tres" id="1_tnuy3"]
 [ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Scenes/Characters/Player.tscn" id="3_hrj3c"]
 [ext_resource type="PackedScene" uid="uid://gwuh4mkx5i87" path="res://Scenes/Characters/Burrow.tscn" id="4_16px4"]
