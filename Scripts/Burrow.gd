@@ -50,7 +50,7 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 			for i in range(lowerNodes.size()):
 				if lowerNodes[i].distFromHome < distFromHome:
 					distFromHome = lowerNodes[i].distFromHome + 1
-	
+
 
 func savedFella() -> void:
 	civSaved += 1

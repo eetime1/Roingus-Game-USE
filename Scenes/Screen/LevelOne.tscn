@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bid4frkmcfvf0"]
+
+[ext_resource type="PackedScene" uid="uid://xxsa8otaedl1" path="res://Scenes/Levels/InGameSettings.tscn" id="1_ehd5y"]
+[ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Scenes/Characters/Player.tscn" id="2_1dd0l"]
+[ext_resource type="PackedScene" uid="uid://sgw5r5vrip1c" path="res://Scenes/Levels/Gui.tscn" id="3_w0rdj"]
+[ext_resource type="PackedScene" path="res://Scenes/Levels/level1.tscn" id="4_bqy4w"]
+
+[node name="GameScreen" type="Node2D" unique_id=1262343091]
+
+[node name="InGameSettings" parent="." unique_id=1765833303 instance=ExtResource("1_ehd5y")]
+
+[node name="Player" parent="." unique_id=1372272007 instance=ExtResource("2_1dd0l")]
+position = Vector2(14099, -4385)
+
+[node name="GUI" parent="." unique_id=314829441 instance=ExtResource("3_w0rdj")]
+
+[node name="Level" parent="." unique_id=1891521369 instance=ExtResource("4_bqy4w")]
