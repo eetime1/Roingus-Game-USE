@@ -52,7 +52,7 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AOE" unique_id=1867439041]
 shape = SubResource("CircleShape2D_67cjo")
 
-[node name="SporeShroom" type="Sprite2D" parent="AOE" unique_id=117908058]
+[node name="SporeShroom" type="Sprite2D" parent="." unique_id=117908058]
 texture = ExtResource("2_67cjo")
 offset = Vector2(0, -300)
 

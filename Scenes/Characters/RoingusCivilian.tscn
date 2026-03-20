@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://hls48302uny4"]
 
 [ext_resource type="Texture2D" uid="uid://bpjofc5a3gdfp" path="res://Assets/Sprites/RoingusCivilian.png" id="1_2xtyf"]
-[ext_resource type="Script" uid="uid://c1xwfqbf7lgwk" path="res://Scripts/RoingusCivilian2.gd" id="1_llytl"]
+[ext_resource type="Script" uid="uid://c1xwfqbf7lgwk" path="res://Scripts/RoingusCivilian.gd" id="1_llytl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_llytl"]
 radius = 400.0

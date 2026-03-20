@@ -29,10 +29,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	var newDist = area.get_parent().distFromHome
 	if newDist < distFromHome:
 		distFromHome = newDist + 1
-		print('added')
+		#print('added')
 		lowerNodes.append(area.get_parent())
-		print(self)
-		print(lowerNodes)
+		#print(self)
+		#print(lowerNodes)
 		isolated = false
 	pass # Replace with function body.
 
@@ -41,10 +41,10 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 	var lostDist = area.get_parent()
 	if lostDist in lowerNodes:
 		lowerNodes.erase(lostDist)
+		distFromHome = 999999999
 		if lowerNodes == []:
 			isolated = true
 		else:
-			distFromHome = 999999999
 			for i in range(lowerNodes.size()):
 				if lowerNodes[i].distFromHome < distFromHome:
 					distFromHome = lowerNodes[i].distFromHome + 1
@@ -53,10 +53,12 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 func savedFella() -> void:
 	civSaved += 1
 	if civSaved >= civInside:
-		$BurrowSaved.visible = true
-		$BurrowSOS.visible = false
-		var a = load("res://Scenes/Characters/RoingusUnit.tscn").instantiate()
-		a.global_position = $"../HomeShroom".global_position
-		a.burrow = self
-		get_parent().add_child(a)
+		for i in range(2):
+			$BurrowSaved.visible = true
+			$BurrowSOS.visible = false
+			var a = load("res://Scenes/Characters/RoingusUnit.tscn").instantiate()
+			a.global_position = $"../HomeShroom".global_position
+			a.burrow = self
+			get_parent().add_child(a)
+			await get_tree().create_timer(3).timeout
 	

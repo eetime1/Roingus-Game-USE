@@ -1,10 +1,30 @@
 [gd_scene format=3 uid="uid://c1h2h81wksbr1"]
 
 [ext_resource type="Texture2D" uid="uid://dka7llv7kubeu" path="res://Assets/Sprites/Settlement.png" id="1_da04f"]
+[ext_resource type="Script" uid="uid://bmfhpumea25hq" path="res://Scripts/Burrow.gd" id="1_ueemn"]
 
-[node name="Settlement" type="Node2D" unique_id=1886421436]
+[sub_resource type="CircleShape2D" id="CircleShape2D_da04f"]
+radius = 2000.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ueemn"]
+radius = 2000.0
+
+[node name="Settlement" type="CharacterBody2D" unique_id=427630778]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource("1_ueemn")
 
 [node name="Settlement" type="Sprite2D" parent="." unique_id=481019761]
 scale = Vector2(3, 3)
 texture = ExtResource("1_da04f")
-offset = Vector2(0, -1200)
+offset = Vector2(0, -600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1571979278]
+shape = SubResource("CircleShape2D_da04f")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1941174424]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=786849329]
+shape = SubResource("CircleShape2D_ueemn")

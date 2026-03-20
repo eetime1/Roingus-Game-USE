@@ -41,19 +41,18 @@ texture = ExtResource("3_xfqfw")
 
 [node name="Burrow1" parent="." unique_id=1058059735 instance=ExtResource("5_2yxij")]
 position = Vector2(22650, -5830)
-civInside = 0
 
 [node name="Settlement" parent="." unique_id=1886421436 instance=ExtResource("6_2yxij")]
-position = Vector2(51832, -4989)
+position = Vector2(51525, -6573)
 
 [node name="Fire" parent="." unique_id=188389518 groups=["navigation"] instance=ExtResource("8_1bf4a")]
-position = Vector2(21181, -15861)
+position = Vector2(33599, -16347)
 
 [node name="HomeShroom" parent="." unique_id=1160796152 groups=["mycelium"] instance=ExtResource("7_xrkai")]
 position = Vector2(9987, -1865)
 
 [node name="FireSpawner2" parent="." unique_id=1177035403 instance=ExtResource("9_202xy")]
-position = Vector2(14557, -8452)
+position = Vector2(31389, -12828)
 
 [node name="Burrow2" parent="." unique_id=1531954552 instance=ExtResource("5_2yxij")]
 position = Vector2(24801, -18327)
