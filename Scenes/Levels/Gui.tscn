@@ -323,6 +323,7 @@ offset_left = -454.32007
 offset_top = -40.120056
 offset_right = 0.67993164
 offset_bottom = -0.12005615
+current_tab = 1
 tabs_position = 1
 deselect_enabled = true
 
@@ -344,13 +345,12 @@ text = "PathShroom
 Cost: 25 gems"
 
 [node name="OffensiveShrooms" type="TabBar" parent="CanvasLayer/BuildMenu2" unique_id=1939561391]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/BuildMenu2/OffensiveShrooms" unique_id=1353106617]
 layout_mode = 0
-offset_top = -108.0
+offset_top = -220.0
 offset_right = 455.0
 
 [node name="TurretShroom" type="Button" parent="CanvasLayer/BuildMenu2/OffensiveShrooms/VBoxContainer" unique_id=2051702323]
@@ -358,6 +358,12 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 36
 text = "TurretShroom
 Cost: 50 gems"
+
+[node name="SporeShroom" type="Button" parent="CanvasLayer/BuildMenu2/OffensiveShrooms/VBoxContainer" unique_id=1504399571]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "SporeShroom
+Cost: 200 gems"
 
 [node name="DefensiveShrooms" type="TabBar" parent="CanvasLayer/BuildMenu2" unique_id=619961688]
 visible = false
@@ -419,6 +425,7 @@ shape = SubResource("CircleShape2D_2k5ak")
 [connection signal="pressed" from="CanvasLayer/BuildMenu1/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/HealShroom" to="." method="_summoning_mushroom" binds= ["heal"]]
 [connection signal="pressed" from="CanvasLayer/BuildMenu2/TileShrooms/VBoxContainer/PathShroom" to="." method="_summoning_mushroom" binds= ["path"]]
 [connection signal="pressed" from="CanvasLayer/BuildMenu2/OffensiveShrooms/VBoxContainer/TurretShroom" to="." method="_summoning_mushroom" binds= ["turret"]]
+[connection signal="pressed" from="CanvasLayer/BuildMenu2/OffensiveShrooms/VBoxContainer/SporeShroom" to="." method="_summoning_mushroom" binds= ["spore"]]
 [connection signal="pressed" from="CanvasLayer/BuildMenu2/DefensiveShrooms/VBoxContainer/WallShroom" to="." method="_summoning_mushroom" binds= ["wall"]]
 [connection signal="pressed" from="CanvasLayer/BuildMenu2/DefensiveShrooms/VBoxContainer/HealShroom" to="." method="_summoning_mushroom" binds= ["heal"]]
 [connection signal="body_entered" from="OnMouse" to="." method="_on_on_mouse_body_entered"]
