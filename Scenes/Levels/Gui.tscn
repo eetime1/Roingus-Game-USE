@@ -92,10 +92,10 @@ anchor_left = 0.010000001
 anchor_top = 0.98100007
 anchor_right = 0.010000001
 anchor_bottom = 0.98100007
-offset_left = -0.5600014
-offset_top = -118.440125
-offset_right = 129.44
-offset_bottom = -64.440125
+offset_left = 366.2
+offset_top = -55.32007
+offset_right = 496.2
+offset_bottom = -1.3200684
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "Return"
@@ -399,6 +399,18 @@ offset_right = -0.60009766
 offset_bottom = 23.08
 horizontal_alignment = 2
 
+[node name="DeleteShroom" type="Button" parent="CanvasLayer" unique_id=617162725]
+anchors_preset = -1
+anchor_left = 0.012
+anchor_top = 0.98100007
+anchor_right = 0.012
+anchor_bottom = 0.98100007
+offset_left = 0.6399994
+offset_top = -115.32007
+offset_right = 100.64
+offset_bottom = -65.32007
+text = "Delete"
+
 [node name="OnMouse" type="Area2D" parent="." unique_id=1755619586]
 collision_layer = 0
 collision_mask = 188
@@ -416,6 +428,16 @@ collision_mask = 64
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OnMouse/Area2D" unique_id=1331974410]
 shape = SubResource("CircleShape2D_2k5ak")
 
+[node name="TurretDetector" type="Area2D" parent="OnMouse" unique_id=1491081357]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OnMouse/TurretDetector" unique_id=409938585]
+shape = SubResource("CircleShape2D_2k5ak")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OnMouse/TurretDetector" unique_id=1993551749]
+shape = SubResource("CircleShape2D_2k5ak")
+
 [connection signal="changeHeld" from="." to="OnMouse" method="_on_gui_change_held"]
 [connection signal="pressed" from="CanvasLayer/Return" to="." method="_quit_button"]
 [connection signal="pressed" from="CanvasLayer/BuildMenu1/Build Menu" to="." method="_open_build_menu"]
@@ -428,7 +450,10 @@ shape = SubResource("CircleShape2D_2k5ak")
 [connection signal="pressed" from="CanvasLayer/BuildMenu2/OffensiveShrooms/VBoxContainer/SporeShroom" to="." method="_summoning_mushroom" binds= ["spore"]]
 [connection signal="pressed" from="CanvasLayer/BuildMenu2/DefensiveShrooms/VBoxContainer/WallShroom" to="." method="_summoning_mushroom" binds= ["wall"]]
 [connection signal="pressed" from="CanvasLayer/BuildMenu2/DefensiveShrooms/VBoxContainer/HealShroom" to="." method="_summoning_mushroom" binds= ["heal"]]
+[connection signal="pressed" from="CanvasLayer/DeleteShroom" to="." method="_summoning_mushroom" binds= ["delete"]]
 [connection signal="body_entered" from="OnMouse" to="." method="_on_on_mouse_body_entered"]
 [connection signal="body_exited" from="OnMouse" to="." method="_on_on_mouse_body_exited"]
 [connection signal="area_entered" from="OnMouse/Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="area_exited" from="OnMouse/Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="OnMouse/TurretDetector" to="." method="_on_turret_detector_body_entered"]
+[connection signal="body_exited" from="OnMouse/TurretDetector" to="." method="_on_turret_detector_body_exited"]

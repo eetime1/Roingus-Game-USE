@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bonhqwvr0tsul"]
 
 [ext_resource type="Script" uid="uid://dd4e8me1d3twu" path="res://Scripts/SporeTurret.gd" id="1_67cjo"]
-[ext_resource type="Texture2D" uid="uid://n8ysew12cvqc" path="res://Assets/Placeholders/PlainShroomPlaceholder.png" id="2_2dach"]
+[ext_resource type="Texture2D" uid="uid://ct2edtup4sjgl" path="res://Assets/Sprites/SporeShroom.png" id="2_67cjo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dix6s"]
 radius = 646.0279
@@ -17,10 +17,6 @@ radius = 1280.0
 
 [node name="TurretSpore" type="CharacterBody2D" unique_id=1848655097]
 script = ExtResource("1_67cjo")
-
-[node name="PlainShroomPlaceholder" type="Sprite2D" parent="." unique_id=1838709766]
-texture = ExtResource("2_2dach")
-offset = Vector2(0, -640)
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=634491441]
 anchors_preset = -1
@@ -55,5 +51,9 @@ collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AOE" unique_id=1867439041]
 shape = SubResource("CircleShape2D_67cjo")
+
+[node name="SporeShroom" type="Sprite2D" parent="AOE" unique_id=117908058]
+texture = ExtResource("2_67cjo")
+offset = Vector2(0, -300)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

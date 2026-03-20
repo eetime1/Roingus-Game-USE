@@ -9,10 +9,10 @@
 y_sort_enabled = true
 script = ExtResource("1_jegvc")
 
-[node name="Player" parent="." unique_id=1372272007 instance=ExtResource("5_ol1ve")]
-position = Vector2(24722, -3935)
-
 [node name="Level" parent="." unique_id=363940844 instance=ExtResource("4_m0upi")]
 position = Vector2(-99, -143)
+
+[node name="Player" parent="." unique_id=1372272007 instance=ExtResource("5_ol1ve")]
+position = Vector2(14099, -4385)
 
 [node name="GUI" parent="." unique_id=314829441 instance=ExtResource("1_bedem")]

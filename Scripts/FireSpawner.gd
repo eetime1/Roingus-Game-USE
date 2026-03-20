@@ -63,7 +63,7 @@ func _process(delta: float) -> void:
 				turretsInRange.remove_at(i - deleted)
 				deleted += 1
 		
-		if fireHealth >= 20:
+		if fireHealth >= 20 && turretsInRange != []:
 			turretsInRange[0].turretHealth -= 25
 			fireHealth -= 10
 	

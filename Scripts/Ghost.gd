@@ -25,9 +25,13 @@ func _on_gui_change_held() -> void:
 			$CollisionShape2D.shape.radius = 400
 			$Area2D/CollisionShape2D.shape.radius = 400
 		"spore":
-			$Sprite2D.texture = load("res://Assets/Sprites/HealShroom.png")
+			$Sprite2D.texture = load("res://Assets/Sprites/SporeShroom.png")
 			$CollisionShape2D.shape.radius = 400
 			$Area2D/CollisionShape2D.shape.radius = 400
+		"delete":
+			$Sprite2D.texture = load("res://Assets/Sprites/Building_Icon.png")
+			$CollisionShape2D.shape.radius = 10
+			$Area2D/CollisionShape2D.shape.radius = 10
 		_:
 			$Sprite2D.texture = null
 	$Sprite2D.modulate = Color(255, 0, 0, 0.5)

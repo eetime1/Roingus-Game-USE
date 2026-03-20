@@ -6,6 +6,7 @@ signal turret_instantiate_tutorial
 signal changeHeld
 var blockedNum = 0
 var myceliumNum = 0
+var deletable
 
 func _process(_delta: float) -> void:
 	$CanvasLayer/Health.value = int(Global.data["health"])
@@ -25,11 +26,21 @@ func _process(_delta: float) -> void:
 
 func _input(event):
 	if event is InputEventMouseButton:
+		
 		if event.button_index == 2 && isHoldingWhat != null:
 			isHoldingWhat = null
 			emit_signal("changeHeld")
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 			print('cancelled')
+		
+		if event.button_index == 1 && isHoldingWhat == "delete" && deletable != null:
+			#print("delete", deletable)
+			
+			deletable.queue_free()
+			isHoldingWhat = null
+			emit_signal("changeHeld")
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			pass
 		
 		if event.button_index == 1 && isHoldingWhat != null && blockedNum == 0 && myceliumNum > 0:
 			if get_parent().name == "TutorialGame":
@@ -63,7 +74,6 @@ func _input(event):
 ⠀⠀⠀⡟⡾⣿⢿⢿⢵⣽⣾⣼⣘⢸⢸⣞⡟⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ⠀⠀⠀⠀⠁⠇⠡⠩⡫⢿⣝⡻⡮⣒⢽⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
 ----------no mycelium???????----------')
-
 			else:
 				print("Not on mycelium")
 
@@ -83,33 +93,60 @@ func _summoning_mushroom(extra_arg_0: String) -> void:
 		isHoldingWhat = extra_arg_0
 		emit_signal("changeHeld")
 		Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+		
 	else:
 		print("broke")
 
 
 
-func _on_on_mouse_body_entered(_body: Node2D) -> void:
+func _on_on_mouse_body_entered(body: Node2D) -> void:
+	#print('detected body')
 	blockedNum += 1
-	$OnMouse/Sprite2D.modulate = Color(255,0,0,0.5)
+	if isHoldingWhat != "delete":
+		
+		$OnMouse/Sprite2D.modulate = Color(255,0,0,0.5)
 	pass # Replace with function body.
 
-func _on_on_mouse_body_exited(_body: Node2D) -> void:
+func _on_on_mouse_body_exited(body: Node2D) -> void:
 	blockedNum -= 1
-	if myceliumNum > 0 && blockedNum == 0:
-		$OnMouse/Sprite2D.modulate = Color(0,255,0,0.5)
-		pass
+	if isHoldingWhat != "delete":
+		
+		if myceliumNum > 0 && blockedNum == 0:
+			$OnMouse/Sprite2D.modulate = Color(0,255,0,0.5)
+			pass
 	pass # Replace with function body.
 
 
 
 func _on_area_2d_area_entered(_area: Area2D) -> void:
 	myceliumNum += 1
-	if blockedNum == 0:
-		$OnMouse/Sprite2D.modulate = Color(0,255,0,0.5)
+	if isHoldingWhat != "delete":
+		
+		if blockedNum == 0:
+			$OnMouse/Sprite2D.modulate = Color(0,255,0,0.5)
 	pass # Replace with function body.
 
 func _on_area_2d_area_exited(_area: Area2D) -> void:
 	myceliumNum -= 1
-	if myceliumNum == 0:
+	if isHoldingWhat != "delete":
+		
+		if myceliumNum == 0:
+			$OnMouse/Sprite2D.modulate = Color(255,0,0,0.5)
+	pass # Replace with function body.
+
+
+func _on_turret_detector_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D && isHoldingWhat == "delete" && body.name != "HomeShroom":
+		#print('turret detected')
 		$OnMouse/Sprite2D.modulate = Color(255,0,0,0.5)
+		deletable = body
+	else:
+		deletable = null
+	pass # Replace with function body.
+
+func _on_turret_detector_body_exited(body: Node2D) -> void:
+	if body is CharacterBody2D && isHoldingWhat == "delete":
+		#print('turret undetected')
+		$OnMouse/Sprite2D.modulate = Color(0,0,0,0.5)
+		deletable = null
 	pass # Replace with function body.

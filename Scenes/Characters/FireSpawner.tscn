@@ -9,7 +9,7 @@
 radius = 400.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rgc5e"]
-radius = 2560.0
+radius = 1280.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sqptm"]
 radius = 400.0
