@@ -54,8 +54,7 @@ func _physics_process(delta: float) -> void:
 					print('wincon in RoingusCivilian.gd')
 					AudioManager.stop("Game")
 					AudioManager.play_audio_oneshot(victory)
-					if 
-					Global.currentLevel = 1
+					Global.currentLevel = get_parent().level
 					
 					get_tree().change_scene_to_file("res://Scenes/Levels/WinScreen.tscn")
 				queue_free()
