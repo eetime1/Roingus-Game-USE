@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://uin8ooe61em6" path="res://Assets/Sprites/PlainShroomDR.png" id="4_j6k1q"]
 [ext_resource type="Texture2D" uid="uid://cxr3la8nr48vo" path="res://Assets/Sprites/PlainShroomUp.png" id="5_0svxo"]
 [ext_resource type="Texture2D" uid="uid://d3qmghomxb32p" path="res://Assets/Sprites/PlainShroomUR.png" id="6_gtnrr"]
+[ext_resource type="Texture2D" uid="uid://dvbcwmhukjjcs" path="res://Assets/Sprites/Hitmarker.png" id="8_j6k1q"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jxsxp"]
 radius = 2560.0
@@ -68,5 +69,8 @@ offset = Vector2(0, -600)
 visible = false
 texture = ExtResource("6_gtnrr")
 offset = Vector2(0, -600)
+
+[node name="Hitmarker" type="Sprite2D" parent="." unique_id=1999302885]
+texture = ExtResource("8_j6k1q")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
