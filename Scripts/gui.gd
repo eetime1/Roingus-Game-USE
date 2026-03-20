@@ -8,7 +8,7 @@ var blockedNum = 0
 var myceliumNum = 0
 
 func _process(_delta: float) -> void:
-	$CanvasLayer/Health.value = Global.data["health"]
+	$CanvasLayer/Health.value = int(Global.data["health"])
 	$CanvasLayer/Crystals/Label2.text = str(Global.data["gemCount"])
 	$CanvasLayer/Roingus/Label2.text = str(Global.data["roingusCount"])
 	

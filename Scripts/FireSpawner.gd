@@ -27,26 +27,28 @@ func raycastAndRandomize(angle:Vector2) -> float:
 	return randf_range(1280,longestDistance)
 
 func _process(delta: float) -> void:
+	
 	if fireHealth <= 0:
-		fireHealth = 10.0
+		fireHealth = 10
 	
 	timer += delta
 	animTimer += delta
 	
 	if animTimer >= 0.25:
+		#print(fireHealth)
 		var random = randi() % 3
 		if random == 0:
-			$Fire1.scale = Vector2(fireHealth / 100, fireHealth / 100)
+			$Fire1.scale = Vector2(2 * fireHealth / 100, 2 * fireHealth / 100)
 			$Fire1.visible = true
 			$Fire2.visible = false
 			$Fire3.visible = false
 		elif random == 1:
-			$Fire2.scale = Vector2(fireHealth / 100, fireHealth / 100)
+			$Fire2.scale = Vector2(2 * fireHealth / 100, 2 * fireHealth / 100)
 			$Fire1.visible = false
 			$Fire2.visible = true
 			$Fire3.visible = false
 		elif random == 2:
-			$Fire3.scale = Vector2(fireHealth / 100, fireHealth / 100)
+			$Fire3.scale = Vector2(2 * fireHealth / 100, 2 * fireHealth / 100)
 			$Fire1.visible = false
 			$Fire2.visible = false
 			$Fire3.visible = true
@@ -61,7 +63,7 @@ func _process(delta: float) -> void:
 				turretsInRange.remove_at(i - deleted)
 				deleted += 1
 		
-		if turretsInRange != []:
+		if fireHealth >= 20:
 			turretsInRange[0].turretHealth -= 25
 			fireHealth -= 10
 	

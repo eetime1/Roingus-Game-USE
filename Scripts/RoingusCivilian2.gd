@@ -5,8 +5,8 @@ const movement_speed = 2000.0
 var movementPaused = false
 var timer = 0.0
 
-@onready var burrow = $"../Burrow1"
-@onready var goal = burrow.lowerNodes[0]
+var burrow
+var goal
 @onready var home = $"../HomeShroom"
 @onready var navmesh = $"../NavigationRegion2D"
 var lowestIndex = 0
@@ -17,10 +17,13 @@ var first = true
 @onready var nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
 
 func _ready() -> void:
+	print('this')
+	print(burrow)
+	print(burrow.lowerNodes)
 	for i in range(burrow.lowerNodes.size()):
 		if burrow.lowerNodes[i].distFromHome < burrow.lowerNodes[lowestIndex].distFromHome:
 			lowestIndex = i
-	goal = goal.lowerNodes[lowestIndex]
+	goal = burrow.lowerNodes[lowestIndex]
 	if (get_parent().name != "TutorialGame"):
 		nav_agent.target_position = goal.global_position
 
@@ -43,6 +46,8 @@ func _physics_process(delta: float) -> void:
 			if goal.distFromHome == 0:
 				emit_signal("roingusHome")
 				Global.data["roingusCount"] += 1
+				if Global.data["roingusCount"] >= Global.data["roingusCount"]:
+					get_tree().change_scene_to_file("res://Scenes/Levels/WinScreen.tscn")
 				queue_free()
 			else:
 				

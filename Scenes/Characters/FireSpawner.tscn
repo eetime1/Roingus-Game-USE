@@ -14,7 +14,7 @@ radius = 2560.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_sqptm"]
 radius = 400.0
 
-[node name="FireSpawner" type="CharacterBody2D" unique_id=1726283708]
+[node name="FireSpawner" type="CharacterBody2D" unique_id=1726283708 groups=["navigation"]]
 collision_layer = 9
 collision_mask = 8
 script = ExtResource("1_ngilg")
@@ -36,18 +36,23 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_sqptm")
 
 [node name="Fire1" type="Sprite2D" parent="." unique_id=1878682493]
+modulate = Color(0.08627451, 0.8666667, 1, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_vxgij")
 offset = Vector2(0, -600)
 
 [node name="Fire2" type="Sprite2D" parent="." unique_id=1833786677]
 visible = false
+modulate = Color(0.08627451, 0.8666667, 1, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("3_wxjn4")
 offset = Vector2(0, -600)
 
 [node name="Fire3" type="Sprite2D" parent="." unique_id=2108904881]
 visible = false
+modulate = Color(0.08627451, 0.8666667, 1, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("4_0radm")
 offset = Vector2(0, -600)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
