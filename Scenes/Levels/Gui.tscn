@@ -268,7 +268,7 @@ Cost: 25 gems"
 [node name="TurretShroom" type="Button" parent="CanvasLayer/BuildMenu1/MarginContainer/VScrollBar/ClipContainer/VBoxContainer" unique_id=332265586]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "TurretShroom
+text = "PlainShroom
 Cost: 50 gems"
 
 [node name="WallShroom" type="Button" parent="CanvasLayer/BuildMenu1/MarginContainer/VScrollBar/ClipContainer/VBoxContainer" unique_id=1420681356]
@@ -356,7 +356,7 @@ offset_right = 455.0
 [node name="TurretShroom" type="Button" parent="CanvasLayer/BuildMenu2/OffensiveShrooms/VBoxContainer" unique_id=2051702323]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "TurretShroom
+text = "PlainShroom
 Cost: 50 gems"
 
 [node name="SporeShroom" type="Button" parent="CanvasLayer/BuildMenu2/OffensiveShrooms/VBoxContainer" unique_id=1504399571]

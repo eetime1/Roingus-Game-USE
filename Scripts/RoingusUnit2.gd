@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 const movement_speed = 2000.0
 @onready var home = get_node("../HomeShroom").global_position
-@onready var burrow = get_node("../Burrow1").global_position
+@export var burrow = get_node("../Burrow1").global_position
 @onready var navmesh = get_node("../NavigationRegion2D")
 var toBurrow = true
 var movementPaused = false

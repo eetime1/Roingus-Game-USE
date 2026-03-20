@@ -10,14 +10,8 @@ radius = 512.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_ceu4c"]
 radius = 5120.0
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_reu5w"]
-vertices = PackedVector2Array(926.1094, 0, 802.03906, -463.04688, 5085.008, -1329.4766, 4965.3984, 1440.3594, 3784.1484, 3591.0313, 802.03906, 463.04688, 1367.4609, 5083.1484, 463.04688, 802.03906, -1551.2969, 5035.7734, 0, 926.1094, -3695.2813, 3764.1406, -463.04688, 802.03906, -5069.258, 1395.3672, -802.03906, 463.04688, -5021.789, -1552.8984, -926.1094, 0, -3625.1719, -3847.8828, -802.03906, -463.04688, -1338.9609, -5121.0703, -463.04688, -802.03906, 1713.7422, -4977.3125, 0, -926.1094, 4004.6719, -3560.961, 463.04688, -802.03906)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3, 4), PackedInt32Array(5, 0, 4, 6), PackedInt32Array(7, 5, 6, 8), PackedInt32Array(9, 7, 8, 10), PackedInt32Array(11, 9, 10, 12), PackedInt32Array(13, 11, 12, 14), PackedInt32Array(15, 13, 14, 16), PackedInt32Array(17, 15, 16, 18), PackedInt32Array(19, 17, 18, 20), PackedInt32Array(21, 19, 20, 22), PackedInt32Array(23, 21, 22, 2), PackedInt32Array(1, 23, 2)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-3912, -4146, -1434, -5526, 1836, -5372, 4314, -3840, 5489, -1413, 5361, 1551, 4084, 3876, 1478, 5485, -1664, 5434, -3989, 4055, -5471, 1500, -5420, -1668)])
-parsed_collision_mask = 4294967065
-source_geometry_mode = 1
-source_geometry_group_name = &"navigation"
-agent_radius = 400.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_reu5w"]
+bg_color = Color(0.07058824, 0.3372549, 0.078431375, 1)
 
 [node name="HomeShroom" type="CharacterBody2D" unique_id=1160796152 groups=["navigation"]]
 collision_layer = 18
@@ -44,14 +38,23 @@ modulate = Color(1, 1, 1, 0.3019608)
 z_index = -1
 texture = ExtResource("4_ceu4c")
 
-[node name="NavMycelium" type="NavigationRegion2D" parent="." unique_id=1589738396]
-navigation_polygon = SubResource("NavigationPolygon_reu5w")
-use_edge_connections = false
-navigation_layers = 2
-
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1870712765]
 collision_layer = 18
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1744484501]
 shape = SubResource("CircleShape2D_audn5")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1059776902]
+anchors_preset = -1
+anchor_top = -0.37300003
+anchor_right = 1.0
+offset_left = -355.0
+offset_top = -4637.0
+offset_right = 2545.0
+offset_bottom = -4437.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_reu5w")
+max_value = 200.0
+step = 0.1
+value = 200.0
+show_percentage = false

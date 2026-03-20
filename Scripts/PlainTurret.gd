@@ -103,8 +103,7 @@ func _process(delta: float) -> void:
 				$PlainShroomUr.visible = false
 			
 			closestFire[0].fireHealth -= 50
-			if closestFire[0].fireHealth <= 0:
-				closestFire[0].queue_free()
+			
 		
 	elif timer >= 1:
 		timer -= 1

@@ -17,11 +17,11 @@ func _on_gui_change_held() -> void:
 			$CollisionShape2D.shape.radius = 400
 			$Area2D/CollisionShape2D.shape.radius = 400
 		"wall":
-			$Sprite2D.texture = load("res://Assets/Placeholders/PlainShroomPlaceholder.png")
-			$CollisionShape2D.shape.radius = 1280
-			$Area2D/CollisionShape2D.shape.radius = 1280
+			$Sprite2D.texture = load("res://Assets/Sprites/WallShroom.png")
+			$CollisionShape2D.shape.radius = 1200
+			$Area2D/CollisionShape2D.shape.radius = 1200
 		"heal":
-			$Sprite2D.texture = load("res://Assets/Placeholders/PlainShroomPlaceholder.png")
+			$Sprite2D.texture = load("res://Assets/Sprites/HealShroom.png")
 			$CollisionShape2D.shape.radius = 400
 			$Area2D/CollisionShape2D.shape.radius = 400
 		_:

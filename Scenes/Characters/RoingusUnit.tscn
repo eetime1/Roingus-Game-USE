@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://mpjhwxyemula"]
 
 [ext_resource type="Texture2D" uid="uid://dqewuo4ac6vdm" path="res://Assets/Sprites/RoingusUnit.png" id="1_4fxe1"]
-[ext_resource type="Script" uid="uid://eu5wprttrshr" path="res://Scripts/RoingusUnit2.gd" id="1_s47ru"]
+[ext_resource type="Script" uid="uid://bcia757i5sbox" path="res://Scripts/RoingusUnit.gd" id="1_s47ru"]
 [ext_resource type="Script" uid="uid://dgs5yflq6ea2w" path="res://Scripts/Bouncing.gd" id="3_qe76c"]
 [ext_resource type="Texture2D" uid="uid://dv5kqr6ul3cxn" path="res://Assets/Sprites/RoingusUnitFull.png" id="4_s47ru"]
 

@@ -37,4 +37,5 @@ func _process(delta: float) -> void:
 		timer -= 1
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	closestTurret.append(body)
+	if body is CharacterBody2D:
+		closestTurret.append(body)
