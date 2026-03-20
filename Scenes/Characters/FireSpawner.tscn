@@ -23,13 +23,14 @@ script = ExtResource("1_ngilg")
 shape = SubResource("CircleShape2D_ttb2u")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=220621169]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=884007048]
 shape = SubResource("CircleShape2D_rgc5e")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=274922753]
+collision_layer = 9
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1802638139]
