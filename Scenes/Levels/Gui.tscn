@@ -28,6 +28,8 @@ offset_right = 2.0
 offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_pw6eg")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=292494668]
@@ -85,21 +87,6 @@ visible = false
 offset_right = 1916.4445
 offset_bottom = 1078.0
 texture = ExtResource("2_uhjjm")
-
-[node name="Return" type="Button" parent="CanvasLayer" unique_id=1855642045]
-anchors_preset = -1
-anchor_left = 0.010000001
-anchor_top = 0.98100007
-anchor_right = 0.010000001
-anchor_bottom = 0.98100007
-offset_left = 366.2
-offset_top = -55.32007
-offset_right = 496.2
-offset_bottom = -1.3200684
-size_flags_horizontal = 8
-size_flags_vertical = 8
-text = "Return"
-metadata/_edit_use_anchors_ = true
 
 [node name="Crystals" type="TextureRect" parent="CanvasLayer" unique_id=1031532788]
 custom_minimum_size = Vector2(75, 75)
@@ -164,25 +151,24 @@ metadata/_edit_use_anchors_ = true
 [node name="Health" type="ProgressBar" parent="CanvasLayer" unique_id=64851755]
 anchors_preset = -1
 anchor_left = 0.011000001
-anchor_top = 0.98100007
-anchor_right = 0.011000001
+anchor_top = 0.89300007
+anchor_right = 0.29500002
 anchor_bottom = 0.98100007
 offset_left = -0.12000084
-offset_top = -63.32007
-offset_right = 363.92
+offset_top = 0.039978027
+offset_right = 0.39996338
 offset_bottom = 0.51989746
 theme_override_styles/fill = SubResource("StyleBoxFlat_uhjjm")
 show_percentage = false
 
 [node name="Label" type="Label" parent="CanvasLayer/Health" unique_id=1615760650]
 layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
+anchors_preset = 15
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -63.839966
-offset_right = 364.04
 offset_bottom = 0.16003418
-grow_vertical = 0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Health"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -315,14 +301,17 @@ Costs [] Crystal"
 
 [node name="BuildMenu2" type="TabContainer" parent="CanvasLayer" unique_id=2128386021]
 anchors_preset = -1
-anchor_left = 0.994
-anchor_top = 0.99600005
+anchor_left = 0.74200004
+anchor_top = 0.96800005
 anchor_right = 0.994
 anchor_bottom = 0.99600005
-offset_left = -454.32007
-offset_top = -40.120056
+offset_left = -131.76007
+offset_top = -19.960022
 offset_right = 0.67993164
 offset_bottom = -0.12005615
+size_flags_horizontal = 0
+size_flags_stretch_ratio = 0.0
+tab_alignment = 2
 tabs_position = 1
 deselect_enabled = true
 
@@ -402,13 +391,13 @@ horizontal_alignment = 2
 [node name="DeleteShroom" type="Button" parent="CanvasLayer" unique_id=617162725]
 anchors_preset = -1
 anchor_left = 0.012
-anchor_top = 0.98100007
-anchor_right = 0.012
-anchor_bottom = 0.98100007
+anchor_top = 0.82100004
+anchor_right = 0.091000006
+anchor_bottom = 0.89000005
 offset_left = 0.6399994
-offset_top = -115.32007
-offset_right = 100.64
-offset_bottom = -65.32007
+offset_top = -0.12005615
+offset_right = -0.480011
+offset_bottom = 0.19995117
 text = "Delete"
 
 [node name="OnMouse" type="Area2D" parent="." unique_id=1755619586]
@@ -439,7 +428,6 @@ shape = SubResource("CircleShape2D_2k5ak")
 shape = SubResource("CircleShape2D_2k5ak")
 
 [connection signal="changeHeld" from="." to="OnMouse" method="_on_gui_change_held"]
-[connection signal="pressed" from="CanvasLayer/Return" to="." method="_quit_button"]
 [connection signal="pressed" from="CanvasLayer/BuildMenu1/Build Menu" to="." method="_open_build_menu"]
 [connection signal="pressed" from="CanvasLayer/BuildMenu1/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/PathShroom" to="." method="_summoning_mushroom" binds= ["path"]]
 [connection signal="pressed" from="CanvasLayer/BuildMenu1/MarginContainer/VScrollBar/ClipContainer/VBoxContainer/TurretShroom" to="." method="_summoning_mushroom" binds= ["turret"]]

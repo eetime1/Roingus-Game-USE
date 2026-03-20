@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://bq8u7o3ae3tsv"]
 
 [ext_resource type="Texture2D" uid="uid://0esa7w7lm0cw" path="res://Assets/Sprites/PathShroom.png" id="1_as821"]
+[ext_resource type="Script" uid="uid://cr3hc7sru1v1g" path="res://Scripts/Extras.gd" id="1_asfqc"]
 [ext_resource type="Texture2D" uid="uid://uin8ooe61em6" path="res://Assets/Sprites/PlainShroomDR.png" id="2_jjyat"]
 [ext_resource type="Texture2D" uid="uid://cyy3mhiju5bn5" path="res://Assets/Sprites/WallShroom.png" id="3_l6bht"]
+[ext_resource type="Texture2D" uid="uid://ct2edtup4sjgl" path="res://Assets/Sprites/SporeShroom.png" id="4_ocr0s"]
 [ext_resource type="Texture2D" uid="uid://c55ep0m1ysb65" path="res://Assets/Sprites/HealShroom.png" id="4_uot5e"]
 [ext_resource type="Texture2D" uid="uid://kpng34auuof0" path="res://Assets/Sprites/Roingus2.png" id="5_d7ncv"]
 [ext_resource type="Texture2D" uid="uid://bpjofc5a3gdfp" path="res://Assets/Sprites/RoingusCivilian.png" id="6_asfqc"]
@@ -28,6 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_asfqc")
 
 [node name="Grey" type="Panel" parent="." unique_id=684605532]
 layout_mode = 1
@@ -38,9 +41,11 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Grey" unique_id=1950455747]
-layout_mode = 0
-offset_right = 1280.0
-offset_bottom = 636.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.883
+offset_bottom = 0.23999023
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
@@ -53,14 +58,8 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_x5nli")
 [node name="MarginContainer" type="MarginContainer" parent="Grey/MarginContainer/Panel" unique_id=290220224]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.25
-anchor_top = 0.5
-anchor_right = 0.25
-anchor_bottom = 0.5
-offset_left = -310.0
-offset_top = -298.0
-offset_right = 310.0
-offset_bottom = 298.0
+anchor_right = 0.5
+anchor_bottom = 1.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 5
@@ -71,7 +70,6 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x5nli")
 
 [node name="ShroomsGrid" type="GridContainer" parent="Grey/MarginContainer/Panel/MarginContainer/Items" unique_id=923859946]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -81,7 +79,6 @@ grow_vertical = 2
 columns = 3
 
 [node name="PathShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid" unique_id=1655023596]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -95,7 +92,7 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "PathShroom"
 
-[node name="TurretShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid" unique_id=635275236]
+[node name="PlainShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid" unique_id=635275236]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -103,16 +100,19 @@ texture_normal = ExtResource("2_jjyat")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/TurretShroom" unique_id=1083362739]
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/PlainShroom" unique_id=1083362739]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "TurretShroom"
+text = "PlainShroom"
 
 [node name="SporeShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid" unique_id=792218127]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture_normal = ExtResource("4_ocr0s")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/SporeShroom" unique_id=1175019663]
 layout_mode = 0
@@ -148,17 +148,6 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "HealShroom"
 
-[node name="PlainShroom" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid" unique_id=2109048458]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/PlainShroom" unique_id=1871253576]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-text = "PlainShroom"
-
 [node name="RoingusGrid" type="GridContainer" parent="Grey/MarginContainer/Panel/MarginContainer/Items" unique_id=2069260724]
 visible = false
 layout_mode = 1
@@ -181,7 +170,7 @@ stretch_mode = 5
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Roingus2"
+text = "Roingus"
 
 [node name="RoingusCivilian" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/RoingusGrid" unique_id=1523486385]
 layout_mode = 2
@@ -247,7 +236,7 @@ stretch_mode = 5
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
-text = "BurrowShroom"
+text = "Burrow"
 
 [node name="Mycelium" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks" unique_id=1957137074]
 layout_mode = 2
@@ -277,7 +266,8 @@ offset_right = 40.0
 offset_bottom = 23.0
 text = "Settlement"
 
-[node name="ShroomsGrid4" type="GridContainer" parent="Grey/MarginContainer/Panel/MarginContainer/Items" unique_id=1264179023]
+[node name="DevExtras" type="GridContainer" parent="Grey/MarginContainer/Panel/MarginContainer/Items" unique_id=1264179023]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -286,7 +276,7 @@ grow_horizontal = 2
 grow_vertical = 2
 columns = 3
 
-[node name="DevProcess" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=1179596560]
+[node name="DevProcess" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras" unique_id=1179596560]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -294,13 +284,13 @@ texture_normal = ExtResource("12_ivs3j")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4/DevProcess" unique_id=300606603]
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras/DevProcess" unique_id=300606603]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Dev Process"
 
-[node name="NoMycelium" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=2140570155]
+[node name="NoMycelium" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras" unique_id=2140570155]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -308,13 +298,13 @@ texture_normal = ExtResource("13_205sr")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4/NoMycelium" unique_id=72897224]
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras/NoMycelium" unique_id=72897224]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "NoMycelium?"
 
-[node name="RoingusVision" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=1533157968]
+[node name="RoingusVision" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras" unique_id=1533157968]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -322,13 +312,13 @@ texture_normal = ExtResource("14_780pa")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4/RoingusVision" unique_id=1198021510]
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras/RoingusVision" unique_id=1198021510]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Roingus Vision"
 
-[node name="MapsAndDesign" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=233134139]
+[node name="MapsAndDesign" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras" unique_id=233134139]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -336,13 +326,13 @@ texture_normal = ExtResource("15_mu635")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4/MapsAndDesign" unique_id=692641405]
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras/MapsAndDesign" unique_id=692641405]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Maps And Design"
 
-[node name="Title" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=1123806415]
+[node name="Title" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras" unique_id=1123806415]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -350,13 +340,13 @@ texture_normal = ExtResource("16_xw40e")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4/Title" unique_id=1983750875]
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras/Title" unique_id=1983750875]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 text = "Title"
 
-[node name="OldTexture" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4" unique_id=830234445]
+[node name="OldTexture" type="TextureButton" parent="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras" unique_id=830234445]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -364,7 +354,7 @@ texture_normal = ExtResource("17_f1ct2")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid4/OldTexture" unique_id=1692802802]
+[node name="Label" type="Label" parent="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras/OldTexture" unique_id=1692802802]
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
@@ -373,14 +363,9 @@ text = "Old Textures"
 [node name="MarginContainer2" type="MarginContainer" parent="Grey/MarginContainer/Panel" unique_id=41159638]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.75000006
-anchor_top = 0.5
-anchor_right = 0.75000006
-anchor_bottom = 0.5
-offset_left = -310.00006
-offset_top = -298.0
-offset_right = 309.99994
-offset_bottom = 298.0
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -389,6 +374,12 @@ theme_override_constants/margin_bottom = 10
 [node name="Descriptions" type="Panel" parent="Grey/MarginContainer/Panel/MarginContainer2" unique_id=1441000364]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x5nli")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Grey/MarginContainer/Panel/MarginContainer2/Descriptions" unique_id=532838946]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=968344233]
 layout_mode = 1
@@ -423,3 +414,32 @@ layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 40
 text = "DevExtras"
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=1767771302]
+layout_mode = 2
+text = "Go back to
+Menu"
+
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/PathShroom" to="." method="_deeperButtonCall" binds= [0]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/PlainShroom" to="." method="_deeperButtonCall" binds= [1]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/SporeShroom" to="." method="_deeperButtonCall" binds= [2]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/WallShroom" to="." method="_deeperButtonCall" binds= [3]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/ShroomsGrid/HealShroom" to="." method="_deeperButtonCall" binds= [4]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/RoingusGrid/Roingus2" to="." method="_deeperButtonCall" binds= [0]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/RoingusGrid/RoingusCivilian" to="." method="_deeperButtonCall" binds= [1]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/RoingusGrid/RoingusUnitFull" to="." method="_deeperButtonCall" binds= [2]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks/HomeShroom" to="." method="_deeperButtonCall" binds= [0]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks/Burrow" to="." method="_deeperButtonCall" binds= [1]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks/Mycelium" to="." method="_deeperButtonCall" binds= [2]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/Landmarks/Settlement" to="." method="_deeperButtonCall" binds= [3]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras/DevProcess" to="." method="_deeperButtonCall" binds= [0]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras/NoMycelium" to="." method="_deeperButtonCall" binds= [1]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras/RoingusVision" to="." method="_deeperButtonCall" binds= [2]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras/MapsAndDesign" to="." method="_deeperButtonCall" binds= [3]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras/Title" to="." method="_deeperButtonCall" binds= [4]]
+[connection signal="pressed" from="Grey/MarginContainer/Panel/MarginContainer/Items/DevExtras/OldTexture" to="." method="_deeperButtonCall" binds= [5]]
+[connection signal="pressed" from="HBoxContainer/Shrooms" to="." method="_buttonCall" binds= ["shrooms"]]
+[connection signal="pressed" from="HBoxContainer/Roingus" to="." method="_buttonCall" binds= ["roingus"]]
+[connection signal="pressed" from="HBoxContainer/Spaces" to="." method="_buttonCall" binds= ["spaces"]]
+[connection signal="pressed" from="HBoxContainer/DevExtras" to="." method="_buttonCall" binds= ["devextras"]]
+[connection signal="pressed" from="HBoxContainer/Button" to="." method="_returnToMenu"]

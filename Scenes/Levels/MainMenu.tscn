@@ -224,45 +224,6 @@ text = "NoMycelium? : "
 layout_mode = 2
 flat = true
 
-[node name="Controls" type="TabBar" parent="SettingsControls/SettingsTabs" unique_id=403467471]
-visible = false
-layout_mode = 2
-metadata/_tab_index = 2
-
-[node name="MarginContainer" type="MarginContainer" parent="SettingsControls/SettingsTabs/Controls" unique_id=2019822664]
-layout_mode = 1
-anchors_preset = 10
-anchor_right = 1.0
-offset_bottom = 137.20001
-grow_horizontal = 2
-theme_override_constants/margin_left = 20
-theme_override_constants/margin_right = 20
-metadata/_edit_use_anchors_ = true
-
-[node name="VControls" type="VBoxContainer" parent="SettingsControls/SettingsTabs/Controls/MarginContainer" unique_id=949357878]
-layout_mode = 2
-
-[node name="Button" type="Button" parent="SettingsControls/SettingsTabs/Controls/MarginContainer/VControls" unique_id=1229886815]
-layout_mode = 2
-text = "Change Keyboard Controls / Keybinds"
-
-[node name="WindowControls" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Controls/MarginContainer/VControls" unique_id=927633336]
-layout_mode = 2
-
-[node name="Text" type="Label" parent="SettingsControls/SettingsTabs/Controls/MarginContainer/VControls/WindowControls" unique_id=1200290565]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "I'm tired grandpa"
-
-[node name="OptionButton" type="OptionButton" parent="SettingsControls/SettingsTabs/Controls/MarginContainer/VControls/WindowControls" unique_id=710860631]
-layout_mode = 2
-selected = 0
-item_count = 2
-popup/item_0/text = "Take a break"
-popup/item_0/id = 0
-popup/item_1/text = "Too dang bad!"
-popup/item_1/id = 1
-
 [node name="ExitSettings" type="Button" parent="SettingsControls" unique_id=2019117859]
 layout_mode = 1
 anchors_preset = -1
@@ -375,4 +336,5 @@ stream = ExtResource("3_d2tbo")
 [connection signal="pressed" from="Menu/Tutorial (Recommended)" to="." method="_open_tutorial"]
 [connection signal="pressed" from="Menu/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Menu/Exit" to="." method="_quit_window"]
+[connection signal="pressed" from="Menu/Extras" to="." method="_extras"]
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

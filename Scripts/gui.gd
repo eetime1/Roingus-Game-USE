@@ -79,8 +79,7 @@ func _input(event):
 				#print("Not on mycelium")
 				pass
 
-func _quit_button():
-	get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
+
 
 func _open_build_menu():
 	var positionChange = 350
@@ -102,7 +101,7 @@ func _summoning_mushroom(extra_arg_0: String) -> void:
 
 
 
-func _on_on_mouse_body_entered(body: Node2D) -> void:
+func _on_on_mouse_body_entered(_body: Node2D) -> void:
 	#print('detected body')
 	blockedNum += 1
 	if isHoldingWhat != "delete":
@@ -110,7 +109,7 @@ func _on_on_mouse_body_entered(body: Node2D) -> void:
 		$OnMouse/Sprite2D.modulate = Color(255,0,0,0.5)
 	pass # Replace with function body.
 
-func _on_on_mouse_body_exited(body: Node2D) -> void:
+func _on_on_mouse_body_exited(_body: Node2D) -> void:
 	blockedNum -= 1
 	if isHoldingWhat != "delete":
 		

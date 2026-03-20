@@ -245,6 +245,16 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 
+[node name="Return" type="MarginContainer" parent="CanvasLayer/CenterContainer/Panel/VBoxContainer" unique_id=792972272]
+custom_minimum_size = Vector2(0, 41.095)
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="ReturnMenu" type="Button" parent="CanvasLayer/CenterContainer/Panel/VBoxContainer/Return" unique_id=300126103]
+layout_mode = 2
+text = "Return to Menu"
+
 [node name="Button" type="Button" parent="CanvasLayer" unique_id=1621515073]
 anchors_preset = -1
 anchor_left = 0.5
@@ -260,4 +270,5 @@ text = "Exit Pause Menu"
 
 [connection signal="item_selected" from="CanvasLayer/CenterContainer/Panel/VBoxContainer/DisplayMode/Panel/WindowControls/OptionButton" to="." method="_setMode"]
 [connection signal="item_selected" from="CanvasLayer/CenterContainer/Panel/VBoxContainer/DisplayResolution/Panel/ScreenSize/OptionButton" to="." method="_setSize"]
+[connection signal="pressed" from="CanvasLayer/CenterContainer/Panel/VBoxContainer/Return/ReturnMenu" to="." method="_returnToMenu"]
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_settings_pressed"]

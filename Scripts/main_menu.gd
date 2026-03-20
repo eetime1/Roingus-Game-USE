@@ -4,19 +4,20 @@ var newResolution
 var newMode
 var incrWindow = Vector2(5, 20)
 @onready var txtFile = './Data/configs/config.json'
+
+# This one should check for if anything thats calling it has audiostreamplayer
 @onready var sound = $AudioStreamPlayer
-var thread
+
 func _ready() -> void:
-	$AudioStreamPlayer.play()
 	
 	var file = FileAccess.open(txtFile, FileAccess.READ)
 	dataFromFile = JSON.parse_string(file.get_as_text())
 	get_tree().set_auto_accept_quit(false)
 	# To make sure it actually detects something smh || Fix later
-	if dataFromFile.size() < 10:
+	if dataFromFile.size() < 11:
 		Global.write("screenX", 1280, txtFile)
 		Global.write("screenY", 720, txtFile)
-		Global.write("buttonNo", 2, txtFile)
+		Global.write("screenButtonNo", 2, txtFile)
 		Global.write("borderless", false, txtFile)
 		Global.write("currentScreen", 0, txtFile)
 		Global.write("mode", "windowed", txtFile)
@@ -24,10 +25,12 @@ func _ready() -> void:
 		Global.write("showFPS", false, txtFile)
 		Global.write("noMycelium", false, txtFile)
 		Global.write("squeak", true, txtFile)
+		Global.write("level", 0, txtFile)
 		dataFromFile = JSON.parse_string(file.get_as_text())
 		
 	# Sets current screen and size
 	DisplayServer.window_set_size(Vector2i(dataFromFile["screenX"], dataFromFile["screenY"]))
+	get_tree().root.content_scale_size = Vector2i(dataFromFile["screenX"],dataFromFile["screenY"])
 	DisplayServer.window_set_current_screen(dataFromFile["currentScreen"])
 	get_tree().root.unresizable = true
 	
@@ -46,8 +49,14 @@ func _ready() -> void:
 	get_tree().root.position = Vector2i(centerPositioningX, centerPositioningY)
 	
 	# Sets up the options button to be accurate to current screen
+	
 	if name == "MainMenu":
-		$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.selected = int(dataFromFile["buttonNo"])
+		if DisplayServer.window_get_mode() == 3:
+			$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.disabled = true
+		else:
+			$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.disabled = false
+		$AudioStreamPlayer.play()
+		$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.selected = int(dataFromFile["screenButtonNo"])
 		$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/WindowControls/OptionButton.selected = int(dataFromFile["modeNo"])
 		$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton.button_pressed = bool(dataFromFile["showFPS"])
 		$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/NoMycelium/CheckButton.button_pressed = bool(dataFromFile["noMycelium"])
@@ -55,7 +64,7 @@ func _ready() -> void:
 
 	elif name == "InGameSettings":
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/DisplayMode/Panel/WindowControls/OptionButton.selected = int(dataFromFile["modeNo"])
-		$CanvasLayer/CenterContainer/Panel/VBoxContainer/DisplayResolution/Panel/ScreenSize/OptionButton.selected = int(dataFromFile["buttonNo"])
+		$CanvasLayer/CenterContainer/Panel/VBoxContainer/DisplayResolution/Panel/ScreenSize/OptionButton.selected = int(dataFromFile["screenButtonNo"])
 
 
 
@@ -79,8 +88,9 @@ func _setSize(this) -> void:
 			newResolution = [1280,720,2]
 		3:
 			newResolution = [640,360,3]
-	DisplayServer.window_set_size(Vector2i(newResolution[0],newResolution[1]))
+
 	get_tree().root.content_scale_size = Vector2i(newResolution[0],newResolution[1])
+	DisplayServer.window_set_size(get_tree().root.content_scale_size)
 	_restart_global()
 	
 func _setMode(this) -> void:
@@ -88,15 +98,22 @@ func _setMode(this) -> void:
 		0:
 			newMode = ["fullscreen", 0]
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			if name == "MainMenu":
+				$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.disabled = true
+			get_tree().root.borderless = false
 		1:
 			newMode = ["windowed", 1]
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			if name == "MainMenu":
+				$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.disabled = false
 			get_tree().root.borderless = false
 		2:
 			newMode = ["windowed-borderless", 2]
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			if name == "MainMenu":
+				$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.disabled = false
 			get_tree().root.borderless = true
-	_restart_global()
+			
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("setting"):
@@ -105,7 +122,6 @@ func _process(_delta: float) -> void:
 			$Menu.visible = !$Menu.visible
 		elif name == "InGameSettings":
 			$CanvasLayer.visible = !$CanvasLayer.visible
-		_restart_global()
 
 func _quit_window() -> void:
 	get_tree().quit()
@@ -125,11 +141,12 @@ func _restart_global() -> void:
 	if newResolution != null:
 		Global.write("screenX", newResolution[0], txtFile)
 		Global.write("screenY", newResolution[1], txtFile)
-		Global.write("buttonNo", newResolution[2], txtFile)
+		Global.write("screenButtonNo", newResolution[2], txtFile)
 	if newMode != null:
 		Global.write("mode", newMode[0], txtFile)
 		Global.write("modeNo", newMode[1], txtFile)
-	Global.write("currentScreen", DisplayServer.window_get_current_screen(), txtFile)
+	prints(dataFromFile["screenX"],dataFromFile["screenY"],DisplayServer.window_get_size(),get_tree().root.content_scale_size,DisplayServer.window_get_mode())
+
 
 func _toggles(toggled_on: bool, what = "string") -> void:
 	if toggled_on == true:
@@ -139,13 +156,15 @@ func _toggles(toggled_on: bool, what = "string") -> void:
 
 func _igSToggle():
 	pass
-	
+
+func _returnToMenu():
+	get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
 
 func _extras() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Extras.tscn")
 	
-func _exit_tree() -> void:
-	thread.wait_to_finish()
 func _on_audio_stream_player_finished() -> void:
-	$AudioStreamPlayer2D.play()
+	$AudioStreamPlayer.play()
 	pass # Replace with function body.
+	
+	
