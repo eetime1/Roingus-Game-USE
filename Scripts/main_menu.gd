@@ -7,7 +7,7 @@ var incrWindow = Vector2(5, 20)
 @onready var sound = $AudioStreamPlayer
 var thread
 func _ready() -> void:
-	thread = Thread.new()
+	$AudioStreamPlayer.play()
 	
 	var file = FileAccess.open(txtFile, FileAccess.READ)
 	dataFromFile = JSON.parse_string(file.get_as_text())
@@ -56,6 +56,8 @@ func _ready() -> void:
 	elif name == "InGameSettings":
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/DisplayMode/Panel/WindowControls/OptionButton.selected = int(dataFromFile["modeNo"])
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/DisplayResolution/Panel/ScreenSize/OptionButton.selected = int(dataFromFile["buttonNo"])
+
+
 
 func _on_settings_pressed() -> void:
 	if name == "MainMenu":
@@ -144,3 +146,6 @@ func _extras() -> void:
 	
 func _exit_tree() -> void:
 	thread.wait_to_finish()
+func _on_audio_stream_player_finished() -> void:
+	$AudioStreamPlayer2D.play()
+	pass # Replace with function body.

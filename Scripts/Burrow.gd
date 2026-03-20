@@ -5,7 +5,9 @@ var civSaved = 0
 var civGenned = 0
 var isolated = true
 var distFromHome = 9999999999
-	
+@export var civTimer = 5
+@export var workerReward = 1
+
 var lowerNodes = []
 var timer = 0
 
@@ -13,16 +15,16 @@ func _physics_process(delta: float) -> void:
 	timer += delta
 	
 	
-	if timer >= 5 && lowerNodes != [] && civGenned < civInside:
-		timer -= 5
+	if timer >= civTimer && lowerNodes != [] && civGenned < civInside:
+		timer -= civTimer
 		var a = load("res://Scenes/Characters/RoingusCivilian.tscn").instantiate()
 		a.global_position = global_position
 		a.burrow = self
 		get_parent().add_child(a)
 		a.roingusHome.connect(savedFella)
 		civGenned += 1
-	elif timer >= 5:
-		timer -=5
+	elif timer >= civTimer:
+		timer -=civTimer
 	
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -53,12 +55,13 @@ func _on_area_2d_area_exited(area: Area2D) -> void:
 func savedFella() -> void:
 	civSaved += 1
 	if civSaved >= civInside:
-		for i in range(2):
+		if name != "Settlement":
 			$BurrowSaved.visible = true
 			$BurrowSOS.visible = false
-			var a = load("res://Scenes/Characters/RoingusUnit.tscn").instantiate()
-			a.global_position = $"../HomeShroom".global_position
-			a.burrow = self
+		var a = load("res://Scenes/Characters/RoingusUnit.tscn").instantiate()
+		a.global_position = $"../HomeShroom".global_position
+		a.burrow = self
+		for i in range(workerReward):
 			get_parent().add_child(a)
 			await get_tree().create_timer(3).timeout
 	
