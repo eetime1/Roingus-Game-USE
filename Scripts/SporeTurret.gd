@@ -8,6 +8,7 @@ var closestFire = []
 func _ready():
 	add_to_group("turrets")
 	add_to_group('navigation')
+	$AOE.global_position = Vector2(0,0)
 
 func _process(delta: float) -> void:
 	if turretHealth <= 0:

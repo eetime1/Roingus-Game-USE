@@ -5,7 +5,7 @@ const movement_speed = 2000.0
 var movementPaused = false
 var timer = 0.0
 
-@onready var burrow = $"../Burrow1"
+var burrow
 @onready var home = $"../HomeShroom"
 @onready var navmesh = $"../NavigationRegion2D"
 

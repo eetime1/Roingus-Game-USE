@@ -46,13 +46,13 @@ position = Vector2(22650, -5830)
 position = Vector2(51525, -6573)
 
 [node name="Fire" parent="." unique_id=188389518 groups=["navigation"] instance=ExtResource("8_1bf4a")]
-position = Vector2(33599, -16347)
+position = Vector2(3002, -11260)
 
 [node name="HomeShroom" parent="." unique_id=1160796152 groups=["mycelium"] instance=ExtResource("7_xrkai")]
 position = Vector2(9987, -1865)
 
 [node name="FireSpawner2" parent="." unique_id=1177035403 instance=ExtResource("9_202xy")]
-position = Vector2(31389, -12828)
+position = Vector2(2363, -14175)
 
 [node name="Burrow2" parent="." unique_id=1531954552 instance=ExtResource("5_2yxij")]
 position = Vector2(24801, -18327)
