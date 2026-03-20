@@ -1,3 +1,38 @@
 [gd_scene format=3 uid="uid://d2jd5cyy210am"]
 
-[node name="WinScreen" type="Node2D" unique_id=461107356]
+[ext_resource type="Script" uid="uid://c03a6gdfc2avs" path="res://Scripts/WinScreen.gd" id="1_wye4t"]
+[ext_resource type="Texture2D" uid="uid://co3tnkuof024e" path="res://Assets/Backgrounds/VictoryPanel.png" id="2_ukpgg"]
+
+[node name="WinScreen" type="Control" unique_id=1858669938]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wye4t")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1157972264]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ukpgg")
+expand_mode = 1
+
+[node name="Return" type="Button" parent="." unique_id=1453079906]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28300002
+anchor_top = 0.71000004
+anchor_right = 0.69600004
+anchor_bottom = 0.89300007
+offset_left = -0.24002075
+offset_top = -0.2000122
+offset_right = 0.11993408
+offset_bottom = 0.039978027
+flat = true
+
+[connection signal="pressed" from="Return" to="." method="_on_return_pressed"]
