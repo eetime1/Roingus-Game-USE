@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://7nds07h6qgfn" path="res://Assets/Music/defeat.ogg" id="2_w003c"]
 [ext_resource type="AudioStream" uid="uid://dri73plwkfq5a" path="res://Assets/Music/game.ogg" id="3_3ykm4"]
 [ext_resource type="AudioStream" uid="uid://ccycy2mt0c4xx" path="res://Assets/Music/menus.ogg" id="4_eao54"]
+[ext_resource type="AudioStream" uid="uid://dxgmtj7bok5fu" path="res://Assets/Music/victory.ogg" id="6_w003c"]
 
 [node name="Audio Manager" type="Node" unique_id=993254553 node_paths=PackedStringArray("clips", "oneshots")]
 script = ExtResource("1_1cx5f")
@@ -22,5 +23,8 @@ stream = ExtResource("3_3ykm4")
 
 [node name="Menus" type="AudioStreamPlayer" parent="Clips" unique_id=1361263982]
 stream = ExtResource("4_eao54")
+
+[node name="Victory" type="AudioStreamPlayer" parent="Clips" unique_id=370935071]
+stream = ExtResource("6_w003c")
 
 [node name="Oneshots" type="Node" parent="." unique_id=512211524]

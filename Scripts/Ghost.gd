@@ -35,4 +35,6 @@ func _on_gui_change_held() -> void:
 		_:
 			$Sprite2D.texture = null
 	$Sprite2D.modulate = Color(255, 0, 0, 0.5)
+	if heldShroom == 'delete':
+		$Sprite2D.modulate = Color(0, 0, 0, 0.5)
 	

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs0j228w002h1"]
 
-[ext_resource type="Texture2D" uid="uid://vjn433db344u" path="res://Assets/Sprites/Terrain/BridgeVertical.png" id="1_xct3w"]
+[ext_resource type="Texture2D" uid="uid://c3thrnfku3gpc" path="res://Assets/Sprites/Terrain/BridgeVerticalNew.png" id="1_xct3w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xct3w"]
 size = Vector2(3078, 6932)
@@ -9,9 +9,9 @@ size = Vector2(3078, 6932)
 collision_layer = 0
 collision_mask = 0
 
-[node name="BridgeVertical" type="Sprite2D" parent="." unique_id=847372642]
+[node name="BridgeVerticalNew" type="Sprite2D" parent="." unique_id=69188023]
 texture = ExtResource("1_xct3w")
-offset = Vector2(0, 3600)
+offset = Vector2(0, 3300)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=15242960]
 visible = false

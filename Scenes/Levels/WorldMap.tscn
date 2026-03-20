@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://dxrwciulmjoj8"]
 
-[ext_resource type="Script" path="res://Scripts/WorldMap.gd" id="1_xyrkb"]
+[ext_resource type="Script" uid="uid://wobkxiv3340l" path="res://Scripts/WorldMap.gd" id="1_xyrkb"]
 [ext_resource type="Texture2D" uid="uid://b7a20dd5o1bxs" path="res://Assets/Backgrounds/MapLevel1.png" id="2_xyrkb"]
-
 
 [node name="Control" type="Control" unique_id=1834192749]
 layout_mode = 3
@@ -84,7 +83,7 @@ offset_right = 86.87999
 offset_bottom = 15.839966
 text = "Return to Main Menu"
 
-[connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed" binds= ["0"]]
+[connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed" binds= ["0", 0]]
 [connection signal="pressed" from="TextureRect/Button2" to="." method="_on_button_pressed" binds= [1]]
 [connection signal="pressed" from="TextureRect/Button3" to="." method="_on_button_pressed" binds= [2]]
 [connection signal="pressed" from="TextureRect/Return" to="." method="_quit_button"]
