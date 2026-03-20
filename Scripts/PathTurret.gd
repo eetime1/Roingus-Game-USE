@@ -35,7 +35,7 @@ func _process(delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	var newDist = area.get_parent().distFromHome
 	if newDist < distFromHome:
-		print('newDist' + str(self))
+		#print('newDist' + str(self))
 		distFromHome = newDist + 1
 		lowerNodes.append(area.get_parent())
 		isolated = false

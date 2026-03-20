@@ -1,7 +1,8 @@
 [gd_scene format=3 uid="uid://dxrwciulmjoj8"]
 
-[ext_resource type="Script" uid="uid://wobkxiv3340l" path="res://Scripts/WorldMap.gd" id="1_xyrkb"]
+[ext_resource type="Script" path="res://Scripts/WorldMap.gd" id="1_xyrkb"]
 [ext_resource type="Texture2D" uid="uid://b7a20dd5o1bxs" path="res://Assets/Backgrounds/MapLevel1.png" id="2_xyrkb"]
+
 
 [node name="Control" type="Control" unique_id=1834192749]
 layout_mode = 3

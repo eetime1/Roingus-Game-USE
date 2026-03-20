@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bbwly8tlpewnt"]
+
+[ext_resource type="Texture2D" uid="uid://clleed4ys8xtp" path="res://Assets/Sprites/Terrain/BridgeHorizontalBroken.png" id="1_2ppp0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ammy4"]
+size = Vector2(984, 1949.25)
+
+[node name="BridgeHorizontalBroken" type="StaticBody2D" unique_id=1555063075]
+collision_layer = 129
+collision_mask = 0
+
+[node name="BridgeHorizontalBroken" type="Sprite2D" parent="." unique_id=553534912]
+texture = ExtResource("1_2ppp0")
+offset = Vector2(0, -1900)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=41664327]
+position = Vector2(127, -798)
+shape = SubResource("RectangleShape2D_ammy4")

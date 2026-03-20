@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bseth7h8hjqjo"]
+
+[ext_resource type="Texture2D" uid="uid://wcw7mmsqu7i2" path="res://Assets/Sprites/Terrain/RockPillar.png" id="1_0keil"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_458aq"]
+radius = 1042.8693
+
+[node name="RockPillar" type="StaticBody2D" unique_id=1369378009]
+collision_layer = 131
+
+[node name="RockPillar" type="Sprite2D" parent="." unique_id=1117044050]
+texture = ExtResource("1_0keil")
+offset = Vector2(0, -2400)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1047368095]
+position = Vector2(-85, -824)
+shape = SubResource("CircleShape2D_458aq")

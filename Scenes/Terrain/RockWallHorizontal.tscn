@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bh1ukitgbu13p"]
+
+[ext_resource type="Texture2D" uid="uid://dowidui2654gh" path="res://Assets/Sprites/Terrain/RockWallHorizontal.png" id="1_r4pns"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdoet"]
+size = Vector2(9070, 1459)
+
+[node name="RockWallHorizontal" type="StaticBody2D" unique_id=2004887775]
+collision_layer = 131
+
+[node name="RockWallHorizontal" type="Sprite2D" parent="." unique_id=169802931]
+texture = ExtResource("1_r4pns")
+offset = Vector2(0, -1900)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1731966701]
+position = Vector2(24, -739.5)
+shape = SubResource("RectangleShape2D_wdoet")

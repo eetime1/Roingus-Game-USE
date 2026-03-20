@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://divaunpow5qsi"]
+
+[ext_resource type="Texture2D" uid="uid://chkrsbu407fs1" path="res://Assets/Sprites/Terrain/RockWallVertical.png" id="1_xqr5q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fe36k"]
+size = Vector2(1015, 6847)
+
+[node name="RockWallVertical" type="StaticBody2D" unique_id=1893547204]
+collision_layer = 131
+
+[node name="RockWallVertical" type="Sprite2D" parent="." unique_id=989019975]
+texture = ExtResource("1_xqr5q")
+offset = Vector2(0, -3600)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=87685589]
+position = Vector2(74.5, -3433.5)
+shape = SubResource("RectangleShape2D_fe36k")

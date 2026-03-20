@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://sncfrxi1lq7h"]
+
+[ext_resource type="Texture2D" uid="uid://tq0esinuwwy" path="res://Assets/Sprites/Terrain/LogHorizontal.png" id="1_4adoc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ktsib"]
+size = Vector2(8847, 3036)
+
+[node name="LogHorizontal" type="StaticBody2D" unique_id=1302695258]
+collision_layer = 129
+
+[node name="LogHorizontal" type="Sprite2D" parent="." unique_id=83021439]
+texture = ExtResource("1_4adoc")
+offset = Vector2(0, -1700)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2106738477]
+position = Vector2(83.5, -1678)
+shape = SubResource("RectangleShape2D_ktsib")
