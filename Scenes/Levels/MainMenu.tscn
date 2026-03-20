@@ -12,7 +12,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hr4vk")
-metadata/_edit_use_anchors_ = true
 
 [node name="Image" type="AspectRatioContainer" parent="." unique_id=422678049]
 layout_mode = 1
@@ -24,7 +23,6 @@ grow_vertical = 2
 stretch_mode = 3
 alignment_horizontal = 0
 alignment_vertical = 0
-metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="Image" unique_id=710665765]
 layout_mode = 2

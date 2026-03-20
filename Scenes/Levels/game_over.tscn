@@ -1,25 +1,38 @@
 [gd_scene format=3 uid="uid://v5xog6hk83m6"]
 
+[ext_resource type="Script" uid="uid://dovys73bvtu46" path="res://Scripts/GameOver.gd" id="1_aqwrb"]
 [ext_resource type="Texture2D" uid="uid://cp0dh4yuc2gi6" path="res://Assets/Backgrounds/DefeatPanel.png" id="1_jw20l"]
 
-[node name="GameOver" type="Control" unique_id=1520345534]
+[node name="GameOver" type="Control" unique_id=597840956]
 layout_mode = 3
-anchors_preset = 0
-
-[node name="Image" type="AspectRatioContainer" parent="." unique_id=751508946]
-layout_mode = 1
-anchors_preset = -1
-offset_right = 1280.0
-offset_bottom = 1000.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-stretch_mode = 3
-alignment_horizontal = 0
-alignment_vertical = 0
-metadata/_edit_use_anchors_ = true
+script = ExtResource("1_aqwrb")
 
-[node name="TextureRect" type="TextureRect" parent="Image" unique_id=960638138]
-layout_mode = 2
+[node name="TextureRect" type="TextureRect" parent="." unique_id=462702558]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 0
 texture = ExtResource("1_jw20l")
 expand_mode = 1
 stretch_mode = 4
+
+[node name="TryAgain" type="Button" parent="." unique_id=1067842434]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.30100003
+anchor_top = 0.67600006
+anchor_right = 0.652
+anchor_bottom = 0.832
+offset_left = -0.2800293
+offset_top = 0.27996826
+offset_right = -0.55999756
+offset_bottom = -0.040039063
+flat = true
+
+[connection signal="pressed" from="TryAgain" to="." method="_on_try_again_pressed"]

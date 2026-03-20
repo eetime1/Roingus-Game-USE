@@ -14,7 +14,7 @@ func _ready() -> void:
 	dataFromFile = JSON.parse_string(file.get_as_text())
 	get_tree().set_auto_accept_quit(false)
 	# To make sure it actually detects something smh || Fix later
-	if dataFromFile.size() < 11:
+	if dataFromFile.size() < 14:
 		Global.write("screenX", 1280, txtFile)
 		Global.write("screenY", 720, txtFile)
 		Global.write("screenButtonNo", 2, txtFile)
@@ -26,6 +26,9 @@ func _ready() -> void:
 		Global.write("noMycelium", false, txtFile)
 		Global.write("squeak", true, txtFile)
 		Global.write("level", 0, txtFile)
+		Global.write("totalVolume", 50, txtFile)
+		Global.write("sFXVolume", 100, txtFile)
+		Global.write("musicVolume", 100, txtFile)
 		dataFromFile = JSON.parse_string(file.get_as_text())
 		
 	# Sets current screen and size
@@ -61,6 +64,9 @@ func _ready() -> void:
 		$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ShowFps/CheckButton.button_pressed = bool(dataFromFile["showFPS"])
 		$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/NoMycelium/CheckButton.button_pressed = bool(dataFromFile["noMycelium"])
 		$SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/HBoxContainer/CheckButton.button_pressed = bool(dataFromFile["squeak"])
+		$SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/TotalVolume/HSlider.value = int(dataFromFile["totalVolume"])
+		$SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/SFXVolume/HSlider.value = int(dataFromFile["sFXVolume"])
+		$SettingsControls/SettingsTabs/Audio/MarginContainer/VAudio/MusicVolume/HSlider.value = int(dataFromFile["musicVolume"])
 
 	elif name == "InGameSettings":
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/DisplayMode/Panel/WindowControls/OptionButton.selected = int(dataFromFile["modeNo"])
