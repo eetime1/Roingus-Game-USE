@@ -83,7 +83,7 @@ offset_right = 86.87999
 offset_bottom = 15.839966
 text = "Return to Main Menu"
 
-[connection signal="pressed" from="TextureRect/Button" to="." method="_on_button_pressed" binds= ["0", 0]]
+[connection signal="button_down" from="TextureRect/Button" to="." method="_on_button_pressed" binds= [0]]
 [connection signal="pressed" from="TextureRect/Button2" to="." method="_on_button_pressed" binds= [1]]
 [connection signal="pressed" from="TextureRect/Button3" to="." method="_on_button_pressed" binds= [2]]
 [connection signal="pressed" from="TextureRect/Return" to="." method="_quit_button"]

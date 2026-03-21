@@ -407,6 +407,7 @@ collision_mask = 188
 script = ExtResource("7_2k5ak")
 
 [node name="Sprite2D" type="Sprite2D" parent="OnMouse" unique_id=706528060]
+z_index = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OnMouse" unique_id=1713425318]
 shape = SubResource("CircleShape2D_iqavc")

@@ -2,7 +2,7 @@ extends Node
 
 var json = JSON.new()
 var mushroomsCost = {"path":25, "turret":50, "wall":100, "heal":150, "spore": 200, "delete": -25}
-var data = {"gemCount": 50000, "health": 200, "roingusCount": 0, "fireIndex": 0, "winningRoinguses": 25}
+var data = {"gemCount": 300, "health": 200, "roingusCount": 0, "fireIndex": 0, "winningRoinguses": 25}
 var globalPosition = Vector2(0,0)
 #func _ready() -> void:
 	#write("gemCount", 300)

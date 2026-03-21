@@ -11,10 +11,9 @@ script = ExtResource("1_dnc6c")
 
 [node name="InGameSettings" parent="." unique_id=1765833303 instance=ExtResource("1_jaht4")]
 
-[node name="Player" parent="." unique_id=1372272007 instance=ExtResource("2_dnc6c")]
-position = Vector2(14099, -4385)
-
 [node name="GUI" parent="." unique_id=314829441 instance=ExtResource("3_6gumh")]
 
 [node name="Level" parent="." unique_id=162407257 instance=ExtResource("4_jn0fu")]
-level = 3
+
+[node name="Player" parent="." unique_id=1372272007 instance=ExtResource("2_dnc6c")]
+position = Vector2(-18792, -9626)
