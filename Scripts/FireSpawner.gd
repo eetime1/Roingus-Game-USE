@@ -83,7 +83,6 @@ func _process(delta: float) -> void:
 				get_parent().add_child(dup)
 				get_parent().get_child(-1).position = position + newSpaceCheck * randomAngleVector
 				get_parent().get_child(-1).fireHealth = randf_range(1, 20)
-				AudioManager.play_audio_oneshot(firegenerated)
 				fireHealth -= 50.0
 				break
 			randomAngle += PI / 30

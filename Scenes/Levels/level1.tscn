@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://c1h2h81wksbr1" path="res://Scenes/Characters/Settlement.tscn" id="3_20uw2"]
 [ext_resource type="PackedScene" uid="uid://cqgnsssexewa8" path="res://Scenes/Characters/HomeShroom.tscn" id="4_i36j2"]
 [ext_resource type="PackedScene" uid="uid://gwuh4mkx5i87" path="res://Scenes/Characters/Burrow.tscn" id="5_hkfpk"]
-[ext_resource type="PackedScene" uid="uid://mpjhwxyemula" path="res://Scenes/Characters/RoingusUnit.tscn" id="7_i36j2"]
 [ext_resource type="PackedScene" uid="uid://bjrgaq0t2irsx" path="res://Scenes/Terrain/Bush.tscn" id="7_u45xj"]
 [ext_resource type="PackedScene" uid="uid://cuihnr5rnqw8v" path="res://Scenes/Terrain/Bush2.tscn" id="8_ay16s"]
 [ext_resource type="PackedScene" uid="uid://sncfrxi1lq7h" path="res://Scenes/Terrain/LogHorizontal.tscn" id="9_6748a"]
@@ -59,9 +58,6 @@ position = Vector2(-819, 2646)
 
 [node name="Burrow3" parent="." unique_id=458178415 instance=ExtResource("5_hkfpk")]
 position = Vector2(-23418, 1711)
-
-[node name="RoingusUnit" parent="." unique_id=357388380 instance=ExtResource("7_i36j2")]
-position = Vector2(-20050, 11657)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=899615581]
 visible = false
@@ -244,11 +240,11 @@ modulate = Color(1, 1, 1, 0.7882353)
 position = Vector2(2349, -626)
 scale = Vector2(0.7, 0.8)
 
-[node name="FireSpawner" parent="Level_Objects" unique_id=1726283708 instance=ExtResource("24_f8if4")]
-position = Vector2(-17489, -7236)
-
 [node name="FireSpawner" parent="." unique_id=187122112 instance=ExtResource("24_f8if4")]
 position = Vector2(17995, -9011)
 
 [node name="FireSpawner2" parent="." unique_id=2090001832 instance=ExtResource("24_f8if4")]
 position = Vector2(-2299, 11184)
+
+[node name="FireSpawner3" parent="." unique_id=1726283708 instance=ExtResource("24_f8if4")]
+position = Vector2(-17489, -7236)
