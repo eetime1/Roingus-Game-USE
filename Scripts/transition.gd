@@ -5,7 +5,7 @@ signal came
 var go = false
 signal went
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	
 	if $HBoxContainer.position.x >= 0 && come == true:
 		come = false
@@ -19,7 +19,8 @@ func _process(delta: float) -> void:
 	if come:
 		$HBoxContainer.position.x += 64
 		$HBoxContainer2.position.x -= 64
-	elif go:
+		print('coming')
+	if go:
 		$HBoxContainer.position.x -= 64
 		$HBoxContainer2.position.x += 64
 	

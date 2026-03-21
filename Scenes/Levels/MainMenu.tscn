@@ -296,7 +296,7 @@ offset_left = -55.840088
 offset_top = -93.67999
 offset_right = 56.159912
 offset_bottom = -62.679993
-text = "Tutorial"
+text = "How to Play"
 
 [node name="Settings" type="Button" parent="Menu" unique_id=995171476]
 layout_mode = 1

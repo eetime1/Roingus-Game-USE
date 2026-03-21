@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://cl5fgosvq6sf0"]
+[gd_scene format=3 uid="uid://denso5048mddj"]
+
+[ext_resource type="Script" uid="uid://dqybes6is86ec" path="res://Scripts/how_to_play_screen.gd" id="1_qwi68"]
 
 [node name="HowToPlayScreen" type="Control" unique_id=950179978]
 layout_mode = 3
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qwi68")
 
 [node name="Panel" type="Panel" parent="." unique_id=1577351961]
 layout_mode = 1
@@ -14,3 +17,13 @@ anchors_preset = -1
 anchor_right = 1.011
 anchor_bottom = 1.0
 offset_right = -14.080078
+
+[node name="Button" type="Button" parent="." unique_id=1235711307]
+layout_mode = 0
+offset_left = 1079.0
+offset_top = 620.0
+offset_right = 1282.0
+offset_bottom = 718.0
+text = "Return to Main Menu"
+
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
