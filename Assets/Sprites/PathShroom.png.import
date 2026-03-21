@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0esa7w7lm0cw"
-path="res://.godot/imported/PathShroom.png-99e51095de729d24b9e535fa7564d00a.ctex"
+uid="uid://dwgb7fermhldt"
+path="res://.godot/imported/Pathshroom.png-8822a40ca21e5ff5ff9638348951845d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/PathShroom.png"
-dest_files=["res://.godot/imported/PathShroom.png-99e51095de729d24b9e535fa7564d00a.ctex"]
+source_file="res://Assets/Sprites/Pathshroom.png"
+dest_files=["res://.godot/imported/Pathshroom.png-8822a40ca21e5ff5ff9638348951845d.ctex"]
 
 [params]
 
