@@ -151,7 +151,7 @@ func soundy():
 func _open_tutorial():
 	Transition.dothething()
 	await Transition.came
-	get_tree().change_scene_to_file("res://Scenes/Levels/TutorialGame.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Levels/HowToPlayScreen.tscn")
 	
 func _restart_global() -> void:
 	if newResolution != null:
