@@ -4,6 +4,7 @@ var maxHealth = 100.0
 var turretHealth = 100.0
 var timer = 0
 var closestFire = []
+var plainfire = load("res://Assets/SFX/plainfire.wav")
 
 func _ready():
 	add_to_group("turrets")
@@ -104,6 +105,7 @@ func _process(delta: float) -> void:
 				$PlainShroomUr.visible = false
 			$Hitmarker.global_position = closestFire[0].global_position
 			closestFire[0].fireHealth -= 50
+			AudioManager.play_audio_oneshot(plainfire)
 			
 		
 	elif timer >= 1:

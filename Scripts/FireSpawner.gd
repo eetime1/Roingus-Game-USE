@@ -5,6 +5,8 @@ var timer = 0
 var turretsInRange = []
 var animTimer = 0.0
 
+var firegenerated = load("res://Assets/SFX/firegenerated.wav")
+
 func _ready() -> void:
 	add_to_group('navigation')
 	$Fire1.scale = Vector2(fireHealth / 100, fireHealth / 100)
@@ -81,6 +83,7 @@ func _process(delta: float) -> void:
 				get_parent().add_child(dup)
 				get_parent().get_child(-1).position = position + newSpaceCheck * randomAngleVector
 				get_parent().get_child(-1).fireHealth = randf_range(1, 20)
+				AudioManager.play_audio_oneshot(firegenerated)
 				fireHealth -= 50.0
 				break
 			randomAngle += PI / 30

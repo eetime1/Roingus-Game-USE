@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://cpcxgjnend87r" path="res://Scripts/audio/audio_oneshot.gd" id="1_qgf0q"]
 
-[node name="AudioOneshot" type="AudioStreamPlayer" unique_id=1955179228]
+[node name="AudioOneshot" type="AudioStreamPlayer" unique_id=996220770]
 script = ExtResource("1_qgf0q")

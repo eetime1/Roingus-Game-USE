@@ -17,6 +17,8 @@ var first = true
 @onready var diffGoal = nav_agent.get_next_path_position()
 @onready var nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
 
+var squeak = load("res://Assets/SFX/squeak.wav")
+
 func _ready() -> void:
 	#print('this')
 	#print(burrow)
@@ -51,11 +53,15 @@ func _physics_process(delta: float) -> void:
 			if goal.distFromHome == 0:
 				emit_signal("roingusHome")
 				Global.data["roingusCount"] += 1
+				AudioManager.play_audio_oneshot(squeak)
 				if Global.data["roingusCount"] >= Global.data["winningRoinguses"]:
 					print('wincon in RoingusCivilian.gd')
 					AudioManager.stop("Game")
 					AudioManager.play('Victory')
 					Global.write("level", get_parent().level)
+					
+					Transition.dothething()
+					await Transition.came
 					get_tree().change_scene_to_file("res://Scenes/Levels/WinScreen.tscn")
 				queue_free()
 			else:

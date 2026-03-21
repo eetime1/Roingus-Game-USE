@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://uglp87n6e4kf"]
 
 [ext_resource type="PackedScene" uid="uid://xxsa8otaedl1" path="res://Scenes/Levels/InGameSettings.tscn" id="1_8ojx7"]
+[ext_resource type="Script" uid="uid://bv7ae7rvepmmy" path="res://Scripts/game_screen.gd" id="1_8yfcb"]
 [ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Scenes/Characters/Player.tscn" id="2_8yfcb"]
 [ext_resource type="PackedScene" uid="uid://sgw5r5vrip1c" path="res://Scenes/Levels/Gui.tscn" id="3_bwt73"]
-[ext_resource type="PackedScene" path="res://Scenes/Levels/level1.tscn" id="4_fwat6"]
+[ext_resource type="PackedScene" uid="uid://cxsidirb1stu7" path="res://Scenes/Levels/level1.tscn" id="4_fwat6"]
 
 [node name="GameScreen" type="Node2D" unique_id=1262343091]
+script = ExtResource("1_8yfcb")
 
 [node name="InGameSettings" parent="." unique_id=1765833303 instance=ExtResource("1_8ojx7")]
 

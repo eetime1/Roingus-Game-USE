@@ -6,6 +6,10 @@ var turretsInRange = []
 var detChangeHP = 10.0
 var animTimer = 0.0
 
+var firegenerated = load("res://Assets/SFX/firegenerated.wav")
+var fireextinguish1 = load("res://Assets/SFX/fireextinguish.wav")
+var fireextinguish2 = load("res://Assets/SFX/fireextinguish2.wav")
+
 func _ready() -> void:
 	add_to_group('navigation')
 	$Fire1.scale = Vector2(fireHealth / 100, fireHealth / 100)
@@ -29,6 +33,10 @@ func raycastAndRandomize(angle:Vector2) -> float:
 
 func _process(delta: float) -> void:
 	if fireHealth <= 0:
+		if randi() % 2:
+			AudioManager.play_audio_oneshot(fireextinguish1)
+		else:
+			AudioManager.play_audio_oneshot(fireextinguish2)
 		queue_free()
 	
 	timer += delta
@@ -84,6 +92,7 @@ func _process(delta: float) -> void:
 				get_parent().add_child(dup)
 				get_parent().get_child(-1).position = position + newSpaceCheck * randomAngleVector
 				get_parent().get_child(-1).fireHealth = randf_range(1, 20)
+				AudioManager.play_audio_oneshot(firegenerated)
 				fireHealth -= 50.0
 				isTrapped = false
 				break

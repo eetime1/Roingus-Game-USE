@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://dgxa710o6fpre"
 
 Global="*uid://bbhtaswvlkplk"
 AudioManager="*uid://c4t6ssem0ol8c"
+Transition="*uid://bdlckbkqmi556"
 
 [display]
 

@@ -13,6 +13,8 @@ var first = true
 @onready var diffGoal = nav_agent.get_next_path_position()
 @onready var nav_point_direction = to_local(nav_agent.get_next_path_position()).normalized()
 
+var roinguscircuit = load("res://Assets/SFX/roinguscircuit.wav")
+
 func _ready() -> void:
 	if (get_parent().name != "TutorialGame"):
 		nav_agent.target_position = burrow.global_position
@@ -42,6 +44,7 @@ func _physics_process(delta: float) -> void:
 		
 		elif nav_agent.target_position == home.global_position && !movementPaused:
 			$Sprite2DFull.visible = false
+			AudioManager.play_audio_oneshot(roinguscircuit)
 			Global.data["gemCount"] += 50
 			
 			nav_agent.target_position = burrow.global_position

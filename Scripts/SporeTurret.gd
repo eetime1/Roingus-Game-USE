@@ -4,6 +4,7 @@ var maxHealth = 100.0
 var turretHealth = 100.0
 var timer = 0
 var closestFire = []
+var sporefire = load("res://Assets/SFX/sporefire.wav")
 
 func _ready():
 	add_to_group("turrets")
@@ -33,6 +34,7 @@ func _process(delta: float) -> void:
 			print(allFires)
 			for i in range(allFires.size()):
 				print('hurt')
+				AudioManager.play_audio_oneshot(sporefire)
 				allFires[i].fireHealth -= 40
 			$AOE.global_position = Vector2(0,0)
 			print('shoot and recall')
