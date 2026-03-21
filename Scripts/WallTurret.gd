@@ -15,7 +15,7 @@ func _process(delta: float) -> void:
 	$ProgressBar.value = turretHealth
 	timer += delta
 	
-	if timer >= 1:
-		turretHealth += 5
+	if timer >= 4:
+		turretHealth += 50
 		Global.data["gemCount"] -= 1
-		timer -= 1
+		timer -= 4

@@ -35,7 +35,8 @@ func _process(delta: float) -> void:
 			for i in range(allFires.size()):
 				print('hurt')
 				AudioManager.play_audio_oneshot(sporefire)
-				allFires[i].fireHealth -= 40
+				if allFires[i] is CharacterBody2D:
+					allFires[i].fireHealth -= 40
 			$AOE.global_position = Vector2(0,0)
 			print('shoot and recall')
 		

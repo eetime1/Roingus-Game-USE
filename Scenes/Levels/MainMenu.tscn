@@ -50,7 +50,10 @@ offset_bottom = 101.0
 text = "Code: eetime, CorrectMC and Dan
 Art: Spirit and Grubious
 Audio: Dan
-Level Design: Grubious"
+Level Design: Grubious
+
+fireworks_mortar3.wav by Syna-Max
+MatchstickDeath-03 by Wavewire"
 
 [node name="SettingsControls" type="Control" parent="." unique_id=955759610]
 visible = false

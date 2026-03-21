@@ -26,6 +26,7 @@ grow_vertical = 2
 script = ExtResource("1_qcusr")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=48841050]
+visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="CanvasLayer" unique_id=1611832963]
 anchors_preset = -1

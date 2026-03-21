@@ -1,7 +1,7 @@
 extends Control
 
 func _ready():
-	Transition.came
+	Transition.goaway()
 
 func _on_return_pressed() -> void:
 	Transition.dothething()

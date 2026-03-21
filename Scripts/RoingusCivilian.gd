@@ -12,6 +12,7 @@ var goal
 @onready var navmesh = $"../NavigationRegion2D"
 var lowestIndex = 0
 signal roingusHome
+var debugVal = 0
 
 var first = true
 @onready var diffGoal = nav_agent.get_next_path_position()
@@ -56,14 +57,13 @@ func _physics_process(delta: float) -> void:
 				AudioManager.play_audio_oneshot(squeak)
 				if Global.data["roingusCount"] >= Global.data["winningRoinguses"]:
 					print('wincon in RoingusCivilian.gd')
+					
 					AudioManager.stop("Game")
 					AudioManager.play('Victory')
 					Global.write("level", get_parent().level)
-					
-					Transition.dothething()
-					await Transition.came
 					get_tree().change_scene_to_file("res://Scenes/Levels/WinScreen.tscn")
 				queue_free()
+				
 			else:
 				
 				#change goal
