@@ -4,6 +4,7 @@ var maxHealth = 100.0
 var turretHealth = 100.0
 var timer = 0
 var closestTurret = []
+var heal = load("res://Assets/SFX/heal.wav")
 
 func _ready():
 	add_to_group("turrets")
@@ -30,6 +31,7 @@ func _process(delta: float) -> void:
 			for i in range(closestTurret.size()):
 				if closestTurret[i].turretHealth <= closestTurret[i].maxHealth - 25:
 					print('heal')
+					AudioManager.play_audio_oneshot(heal)
 					closestTurret[0].turretHealth += 25
 					break
 	elif timer >= 2:

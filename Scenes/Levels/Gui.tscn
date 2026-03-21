@@ -159,6 +159,7 @@ offset_top = 0.039978027
 offset_right = 0.39996338
 offset_bottom = 0.51989746
 theme_override_styles/fill = SubResource("StyleBoxFlat_uhjjm")
+max_value = 200.0
 show_percentage = false
 
 [node name="Label" type="Label" parent="CanvasLayer/Health" unique_id=1615760650]

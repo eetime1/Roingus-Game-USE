@@ -3,6 +3,7 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Transition.goaway()
 	$TextureRect/Button2.disabled = true
 	$TextureRect/Button3.disabled = true
 	var lvl = Global.read("level")
@@ -23,15 +24,23 @@ func _ready() -> void:
 
 
 func _quit_button():
+	Transition.dothething()
+	await Transition.came
 	get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
 
 func _on_button_pressed(_shot, level) -> void:
 	match(level):
 		0:
+			Transition.dothething()
+			await Transition.came
 			get_tree().change_scene_to_file("res://Scenes/Screen/L1.tscn")
 		1:
+			Transition.dothething()
+			await Transition.came
 			get_tree().change_scene_to_file("res://Scenes/Screen/L2.tscn")
 		2:
+			Transition.dothething()
+			await Transition.came
 			get_tree().change_scene_to_file("res://Scenes/Screen/L3.tscn")
 		_:
 			pass

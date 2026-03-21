@@ -5,6 +5,7 @@ var turretHealth = 200
 var changeDet = 200
 var distFromHome = 0
 var bakeTimer = 0
+var homecrystalgen = load("res://Assets/SFX/homecrystalgen.wav")
 
 func _ready():
 	add_to_group("navigation")
@@ -27,8 +28,11 @@ func _physics_process(delta: float) -> void:
 		print("game over goes here. this msg is in HomeShroom.gd")
 		AudioManager.stop_all_sfx()
 		AudioManager.play("Defeat")
+		Transition.dothething()
+		await Transition.came
 		get_tree().change_scene_to_file("res://Scenes/Levels/game_over.tscn")
 	
 	if timer >= 1:
 		timer -= 1
+		AudioManager.play_audio_oneshot(homecrystalgen, -50)
 		Global.data["gemCount"] += 10

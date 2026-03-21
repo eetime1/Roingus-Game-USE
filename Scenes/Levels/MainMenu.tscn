@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://c1r3ntbb0hlt8" path="res://Scripts/main_menu.gd" id="1_hr4vk"]
 [ext_resource type="Texture2D" uid="uid://bvcyy3ginpylb" path="res://Assets/Backgrounds/Start_screen.png" id="1_yw2i3"]
-[ext_resource type="AudioStream" uid="uid://buvwgrvqxjdl0" path="res://Assets/SFX/squeak.mp3" id="2_d2tbo"]
 
 [node name="MainMenu" type="Control" unique_id=657747432]
 layout_mode = 3
@@ -12,8 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_hr4vk")
-squeak = ExtResource("2_d2tbo")
-metadata/_edit_use_anchors_ = true
 
 [node name="Image" type="AspectRatioContainer" parent="." unique_id=422678049]
 layout_mode = 1

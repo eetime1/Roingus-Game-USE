@@ -128,6 +128,9 @@ var devExtrasText = ['', '', '', '', '', '']
 
 var activeText = textShrooms
 
+func _ready():
+	Transition.goaway()
+
 func _buttonCall(button) -> void:
 	_reset()
 	match (button):
@@ -159,4 +162,6 @@ func _deeperButtonCall(button) -> void:
 
 
 func _returnToMenu() -> void:
+	Transition.dothething()
+	await Transition.came
 	get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")

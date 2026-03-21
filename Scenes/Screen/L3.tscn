@@ -1,11 +1,13 @@
 [gd_scene format=3 uid="uid://duws5xcposi1s"]
 
+[ext_resource type="Script" uid="uid://bv7ae7rvepmmy" path="res://Scripts/game_screen.gd" id="1_dnc6c"]
 [ext_resource type="PackedScene" uid="uid://xxsa8otaedl1" path="res://Scenes/Levels/InGameSettings.tscn" id="1_jaht4"]
 [ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Scenes/Characters/Player.tscn" id="2_dnc6c"]
 [ext_resource type="PackedScene" uid="uid://sgw5r5vrip1c" path="res://Scenes/Levels/Gui.tscn" id="3_6gumh"]
-[ext_resource type="PackedScene" uid="uid://c6fasn70rcojk" path="res://Scenes/Levels/level3.tscn" id="4_jn0fu"]
+[ext_resource type="PackedScene" uid="uid://d0gh6cpdk1qtr" path="res://Scenes/Levels/level3.tscn" id="4_jn0fu"]
 
 [node name="GameScreen" type="Node2D" unique_id=503085674]
+script = ExtResource("1_dnc6c")
 
 [node name="InGameSettings" parent="." unique_id=1765833303 instance=ExtResource("1_jaht4")]
 
@@ -15,3 +17,4 @@ position = Vector2(14099, -4385)
 [node name="GUI" parent="." unique_id=314829441 instance=ExtResource("3_6gumh")]
 
 [node name="Level" parent="." unique_id=162407257 instance=ExtResource("4_jn0fu")]
+level = 3

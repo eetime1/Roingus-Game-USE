@@ -1,6 +1,7 @@
 extends Node2D
 
 var shroom
+var placeshroom := load("res://Assets/SFX/placeshroom.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -26,6 +27,7 @@ func instance(mushroom = null) -> void:
 		Global.data["gemCount"] -= Global.mushroomsCost[mushroom]
 		
 	if shroom:
+		AudioManager.play_audio_oneshot(placeshroom)
 		var a = shroom.instantiate()
 		$Level.add_child(a)
 		a.position = Vector2(get_global_mouse_position() + Vector2(0, 640))

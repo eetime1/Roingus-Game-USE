@@ -5,6 +5,8 @@ var timer = 0
 var turretsInRange = []
 var animTimer = 0.0
 
+var firegenerated = load("res://Assets/SFX/firegenerated.wav")
+
 func _ready() -> void:
 	add_to_group('navigation')
 	$Fire1.scale = Vector2(fireHealth / 100, fireHealth / 100)

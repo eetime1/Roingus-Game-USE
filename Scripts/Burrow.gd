@@ -1,7 +1,7 @@
 extends Node2D
 
 var civSaved = 0
-@export var civInside = 3
+@export var civInside = 5
 var civGenned = 0
 var isolated = true
 var distFromHome = 9999999999

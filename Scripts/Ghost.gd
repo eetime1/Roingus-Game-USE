@@ -9,6 +9,7 @@ func _on_gui_change_held() -> void:
 	heldShroom = get_parent().isHoldingWhat
 	match (heldShroom):
 		"path":
+			print('ghost working')
 			$Sprite2D.texture = load("res://Assets/Sprites/PathShroom.png")
 			$CollisionShape2D.shape.radius = 400
 			$Area2D/CollisionShape2D.shape.radius = 400

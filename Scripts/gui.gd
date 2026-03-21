@@ -7,11 +7,14 @@ signal changeHeld
 var blockedNum = 0
 var myceliumNum = 0
 var deletable
+var deleteshroom = load("res://Assets/SFX/deleteshroom.wav")
+var fail2place = load("res://Assets/SFX/fail2place.wav")
+var fail2place2 = load("res://Assets/SFX/fail2place2.wav")
 
 func _process(_delta: float) -> void:
 	$CanvasLayer/Health.value = int(Global.data["health"])
 	$CanvasLayer/Crystals/Label2.text = str(Global.data["gemCount"])
-	$CanvasLayer/Roingus/Label2.text = str(Global.data["roingusCount"])
+	$CanvasLayer/Roingus/Label2.text = str(Global.data["roingusCount"], " / 25")
 	
 	$OnMouse.global_position = get_global_mouse_position()
 	if $CanvasLayer/Panel2/Secret.modulate.a > 0.02:
@@ -38,6 +41,7 @@ func _input(event):
 		
 		if event.button_index == 1 && isHoldingWhat == "delete" && deletable != null:
 			#print("delete", deletable)
+			AudioManager.play_audio_oneshot(deleteshroom)
 			
 			deletable.queue_free()
 			isHoldingWhat = null
@@ -46,15 +50,21 @@ func _input(event):
 			pass
 		
 		if event.button_index == 1 && isHoldingWhat != null && blockedNum == 0 && myceliumNum > 0:
+			print('gui detect conditions')
 			if get_parent().name == "TutorialGame":
 				turret_instantiate_tutorial.emit(isHoldingWhat)
 			else:
+				print('gui working')
 				turret_instantiate.emit(isHoldingWhat)
 			isHoldingWhat = null
 			emit_signal("changeHeld")
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		elif event.button_index == 1 && isHoldingWhat != null && blockedNum != 0 && event.pressed:
 			#print('blocked')
+			if randi() % 2 == 0:
+				AudioManager.play_audio_oneshot(fail2place)
+			else:
+				AudioManager.play_audio_oneshot(fail2place2)
 			pass
 		elif event.button_index == 1 && isHoldingWhat != null && myceliumNum == 0 && event.pressed:
 			

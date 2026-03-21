@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Micelium"
-run/main_scene="uid://dmi7xsqahdjpi"
+run/main_scene="uid://g47ejvljmxbc"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://dgxa710o6fpre"
 
 Global="*uid://bbhtaswvlkplk"
 AudioManager="*uid://c4t6ssem0ol8c"
+Transition="*uid://bdlckbkqmi556"
 
 [display]
 

@@ -4,9 +4,10 @@ var newResolution
 var newMode
 var incrWindow = Vector2(5, 20)
 @onready var txtFile = './Data/configs/config.json'
-@export var squeak: AudioStream
+@export var squeak: AudioStream = preload("res://Assets/SFX/squeak.wav")
 
 func _ready() -> void:
+	Transition.goaway()
 	Global.write("currentScreen", DisplayServer.window_get_current_screen(), txtFile)
 	
 	var file = FileAccess.open(txtFile, FileAccess.READ)
@@ -139,6 +140,8 @@ func _quit_window() -> void:
 
 func _open_scene():
 	soundy()
+	Transition.dothething()
+	await Transition.came
 	get_tree().change_scene_to_file("res://Scenes/Levels/WorldMap.tscn")
 	# Use threading https://docs.godotengine.org/en/stable/tutorials/performance/using_multiple_threads.html
 
@@ -146,6 +149,8 @@ func soundy():
 	AudioManager.play_audio_oneshot(squeak)
 
 func _open_tutorial():
+	Transition.dothething()
+	await Transition.came
 	get_tree().change_scene_to_file("res://Scenes/Levels/TutorialGame.tscn")
 	
 func _restart_global() -> void:
@@ -171,9 +176,13 @@ func _toggles(toggled_on: bool, what: String) -> void:
 
 func _returnToMenu():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Transition.dothething()
+	await Transition.came
 	get_tree().change_scene_to_file("res://Scenes/Levels/MainMenu.tscn")
 	
 func _extras() -> void:
+	Transition.dothething()
+	await Transition.came
 	get_tree().change_scene_to_file("res://Scenes/Levels/Extras.tscn")
 
 func _on_credits_button_down() -> void:
