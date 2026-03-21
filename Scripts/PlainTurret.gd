@@ -3,6 +3,7 @@ extends CharacterBody2D
 var maxHealth = 100.0
 var turretHealth = 100.0
 var timer = 0
+var gemTimer = 0
 var closestFire = []
 var plainfire = load("res://Assets/SFX/plainfire.wav")
 
@@ -16,10 +17,11 @@ func _process(delta: float) -> void:
 	
 	$ProgressBar.value = turretHealth
 	timer += delta
+	gemTimer += delta
 	
 	if timer >= 1 && closestFire != []:
 		$Hitmarker.visible = true
-		Global.data["gemCount"] -= 1
+		
 		
 		var deleted = 0
 		for i in range(closestFire.size()):
@@ -111,8 +113,10 @@ func _process(delta: float) -> void:
 	elif timer >= 1:
 		$Hitmarker.visible = false
 		timer -= 1
-		Global.data["gemCount"] -= 1
 		
+	if gemTimer >= 5:
+		Global.data["gemCount"] -= 1
+		gemTimer -= 5
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:

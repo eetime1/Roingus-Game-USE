@@ -3,6 +3,7 @@ extends CharacterBody2D
 var maxHealth = 100.0
 var turretHealth = 100.0
 var timer = 0
+var gemTimer = 0
 var closestFire = []
 var sporefire = load("res://Assets/SFX/sporefire.wav")
 
@@ -19,7 +20,6 @@ func _process(delta: float) -> void:
 	timer += delta
 	
 	if timer >= 3 && closestFire != []:
-		Global.data["gemCount"] -= 3
 		timer -= 3
 		var deleted = 0
 		
@@ -42,8 +42,11 @@ func _process(delta: float) -> void:
 	
 	elif timer >= 3:
 		
-		Global.data["gemCount"] -= 3
 		timer -= 3
+		
+	if gemTimer >= 5:
+		Global.data["gemCount"] -= 3
+		gemTimer -= 5
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	closestFire.append(body)

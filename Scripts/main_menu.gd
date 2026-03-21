@@ -149,10 +149,10 @@ func soundy():
 	AudioManager.play_audio_oneshot(squeak)
 
 func _open_tutorial():
-	Transition.dothething()
-	print('did')
-	await Transition.came
-	print('came')
+	#Transition.dothething()
+	#print('did')
+	#await Transition.came
+	#print('came')
 	get_tree().change_scene_to_file("res://Scenes/Levels/HowToPlayScreen.tscn")
 	
 func _restart_global() -> void:

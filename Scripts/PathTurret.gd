@@ -3,6 +3,7 @@ extends CharacterBody2D
 var maxHealth = 50.0
 var turretHealth = 50.0
 var timer = 0
+var gemTimer = 0
 var bakeTimer = 0
 
 var distFromHome = 999999999
@@ -26,10 +27,13 @@ func _process(delta: float) -> void:
 		queue_free()
 	$ProgressBar.value = turretHealth
 	timer += delta
+	gemTimer += delta
 	
 	if timer >= 1:
 		timer -= 1
+	if gemTimer >= 10:
 		Global.data["gemCount"] -= 1
+		gemTimer -= 10
 
 
 func _on_area_2d_area_entered(area: Area2D) -> void:

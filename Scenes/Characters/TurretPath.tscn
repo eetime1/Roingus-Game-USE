@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpsmsdxcuq3nv"]
 
 [ext_resource type="Script" uid="uid://b3822gva84l37" path="res://Scripts/PathTurret.gd" id="1_timno"]
-[ext_resource type="Texture2D" uid="uid://0esa7w7lm0cw" path="res://Assets/Sprites/PathShroom.png" id="3_hsgsg"]
+[ext_resource type="Texture2D" uid="uid://dwgb7fermhldt" path="res://Assets/Sprites/PathShroom.png" id="3_hsgsg"]
 [ext_resource type="Texture2D" uid="uid://cki4damo8t14h" path="res://Assets/Sprites/MyceliumPathRemade.png" id="4_0p6vt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0p6vt"]

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var timer = 0
 var turretHealth = 200
+var maxHealth = 200
 var changeDet = 200
 var distFromHome = 0
 var bakeTimer = 0
@@ -35,4 +36,4 @@ func _physics_process(delta: float) -> void:
 	if timer >= 1:
 		timer -= 1
 		AudioManager.play_audio_oneshot(homecrystalgen, -50)
-		Global.data["gemCount"] += 10
+		Global.data["gemCount"] += 15

@@ -5,6 +5,7 @@ var turretHealth = 100.0
 var timer = 0
 var closestTurret = []
 var heal = load("res://Assets/SFX/heal.wav")
+var gemTimer = 0
 
 func _ready():
 	add_to_group("turrets")
@@ -16,9 +17,9 @@ func _process(delta: float) -> void:
 	
 	$ProgressBar.value = turretHealth
 	timer += delta
+	gemTimer += delta
 	
 	if timer >= 1 && closestTurret != []:
-		Global.data["gemCount"] -= 1
 		timer -= 1
 		
 		var deleted = 0
@@ -37,6 +38,10 @@ func _process(delta: float) -> void:
 	elif timer >= 2:
 		Global.data["gemCount"] -= 1
 		timer -= 1
+	
+	if gemTimer >= 5:
+		Global.data["gemCount"] -= 1
+		gemTimer -= 5
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
