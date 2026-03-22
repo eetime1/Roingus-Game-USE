@@ -3,14 +3,14 @@
 	"Music": 0.75,
 	"SFX": 0.75,
 	"borderless": false,
-	"currentScreen": 0,
+	"currentScreen": 1.0,
 	"level": 0.0,
 	"mode": "windowed",
 	"modeNo": 1.0,
 	"noMycelium": false,
-	"screenButtonNo": 2.0,
-	"screenX": 1280.0,
-	"screenY": 720.0,
+	"screenButtonNo": 1.0,
+	"screenX": 1920.0,
+	"screenY": 1080.0,
 	"showFPS": false,
 	"squeak": true
 }

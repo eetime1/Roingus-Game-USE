@@ -37,6 +37,8 @@ func _ready() -> void:
 	DisplayServer.window_set_current_screen(dataFromFile["currentScreen"])
 	get_tree().root.unresizable = true
 	
+	get_tree().root.current_screen = dataFromFile["currentScreen"]
+	
 	if dataFromFile["mode"] == "windowed":
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		get_tree().root.borderless = false
@@ -51,8 +53,12 @@ func _ready() -> void:
 	var centerPositioningY = DisplayServer.screen_get_position().y + incrWindow.y + (DisplayServer.screen_get_size().y / 2.0 - DisplayServer.window_get_size().y / 2.0)
 	get_tree().root.position = Vector2i(centerPositioningX, centerPositioningY)
 	
-	# Sets up the options button to be accurate to current screen
+	# Sets up all audio to be audio shenanigans
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(int(dataFromFile["Master"])))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(int(dataFromFile["SFX"])))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(int(dataFromFile["Music"])))
 	
+	# Sets up the options button to be accurate to current screen
 	if name == "MainMenu":
 		if DisplayServer.window_get_mode() == 3:
 			$SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize/OptionButton.disabled = true
@@ -76,6 +82,9 @@ func _ready() -> void:
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/SFXVolume/Panel/hVol/SFXSlider.value = float(dataFromFile["SFX"])
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/MusicVolume/Panel/hVol/MusicSlider.value = float(dataFromFile["Music"])
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/squeakContainer/HBoxContainer/CheckButton.button_pressed = bool(dataFromFile["squeak"])
+		$CanvasLayer/CenterContainer/Panel/VBoxContainer/fpsContainer/HBoxContainer/CheckButton.button_pressed = bool(dataFromFile["showFPS"])
+
+	Transition.fixYourself()
 
 func _on_settings_pressed() -> void:
 	if name == "MainMenu":
@@ -102,8 +111,11 @@ func _setSize(this) -> void:
 		3:
 			newResolution = [640,360,3]
 
+	Global.write("screenX", newResolution[0], txtFile)
+	Global.write("screenY", newResolution[1], txtFile)
 	get_tree().root.content_scale_size = Vector2i(newResolution[0],newResolution[1])
 	DisplayServer.window_set_size(get_tree().root.content_scale_size)
+	Transition.fixYourself()
 	_restart_global()
 	
 func _setMode(this) -> void:

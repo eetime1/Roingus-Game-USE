@@ -11,6 +11,9 @@ var deleteshroom = load("res://Assets/SFX/deleteshroom.wav")
 var fail2place = load("res://Assets/SFX/fail2place.wav")
 var fail2place2 = load("res://Assets/SFX/fail2place2.wav")
 
+func _ready():
+	$CanvasLayer/FpsCounts.visible = Global.read("showFPS")
+
 func _process(_delta: float) -> void:
 	$CanvasLayer/Health.value = int(Global.data["health"])
 	$CanvasLayer/Crystals/Label2.text = str(Global.data["gemCount"])
@@ -22,11 +25,11 @@ func _process(_delta: float) -> void:
 		$CanvasLayer/Panel2/Secret.self_modulate.a = (1 -($CanvasLayer/AudioStreamPlayer2D.get_playback_position() / 1.25))
 	else:
 		$CanvasLayer/Panel2/Secret.modulate.a = 0
-
+	
+	$CanvasLayer/FpsCounts.text = "FPS: " + str(Engine.get_frames_per_second())
 	if Global.read("showFPS"):
 		$CanvasLayer/FpsCounts.visible = true
-		$CanvasLayer/FpsCounts.text = "FPS: " + str(Engine.get_frames_per_second())
-	if !Global.read("showFPS"):
+	elif !Global.read("showFPS"):
 		$CanvasLayer/FpsCounts.visible = false
 
 
