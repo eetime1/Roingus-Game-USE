@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://briv6878ct6d6"]
+
+[ext_resource type="Script" uid="uid://djptr3yj742ek" path="res://Scripts/Ghost.gd" id="1_lnp5j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7crxi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_08f87"]
+
+[node name="Ghost" type="Node2D" unique_id=345864602]
+script = ExtResource("1_lnp5j")
+
+[node name="OnMouse" type="Area2D" parent="." unique_id=362575352]
+collision_layer = 0
+collision_mask = 188
+
+[node name="Sprite2D" type="Sprite2D" parent="OnMouse" unique_id=941300344]
+z_index = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OnMouse" unique_id=1847771345]
+shape = SubResource("CircleShape2D_7crxi")
+
+[node name="Area2D" type="Area2D" parent="OnMouse" unique_id=1957512117]
+collision_layer = 0
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OnMouse/Area2D" unique_id=48575973]
+shape = SubResource("CircleShape2D_08f87")
+
+[node name="TurretDetector" type="Area2D" parent="OnMouse" unique_id=1711875760]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OnMouse/TurretDetector" unique_id=1838002423]
+shape = SubResource("CircleShape2D_08f87")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="OnMouse/TurretDetector" unique_id=104840025]
+shape = SubResource("CircleShape2D_08f87")
+
+[connection signal="body_entered" from="OnMouse" to="OnMouse" method="_on_on_mouse_body_entered"]
+[connection signal="body_exited" from="OnMouse" to="OnMouse" method="_on_on_mouse_body_exited"]
+[connection signal="area_entered" from="OnMouse/Area2D" to="OnMouse" method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="OnMouse/Area2D" to="OnMouse" method="_on_area_2d_area_exited"]
+[connection signal="body_entered" from="OnMouse/TurretDetector" to="OnMouse" method="_on_turret_detector_body_entered"]
+[connection signal="body_exited" from="OnMouse/TurretDetector" to="OnMouse" method="_on_turret_detector_body_exited"]

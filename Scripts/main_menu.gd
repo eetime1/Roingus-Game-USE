@@ -34,7 +34,7 @@ func _ready() -> void:
 	# Sets current screen and size
 	DisplayServer.window_set_size(Vector2i(dataFromFile["screenX"], dataFromFile["screenY"]))
 	get_tree().root.content_scale_size = Vector2i(dataFromFile["screenX"],dataFromFile["screenY"])
-	DisplayServer.window_set_current_screen(dataFromFile["currentScreen"])
+	DisplayServer.window_set_current_screen(dataFromFile["currentScreen"], 0)
 	get_tree().root.unresizable = true
 	
 	get_tree().root.current_screen = dataFromFile["currentScreen"]

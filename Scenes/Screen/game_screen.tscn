@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dtdfd2564flbq" path="res://Scenes/Levels/LevelOne.tscn" id="4_m0upi"]
 [ext_resource type="PackedScene" uid="uid://dhd2bjgai6d1f" path="res://Scenes/Characters/Player.tscn" id="5_ol1ve"]
 [ext_resource type="PackedScene" uid="uid://xxsa8otaedl1" path="res://Scenes/Levels/InGameSettings.tscn" id="5_vo4su"]
+[ext_resource type="PackedScene" uid="uid://briv6878ct6d6" path="res://Scenes/Levels/Ghost.tscn" id="6_yjxi7"]
 
 [node name="GameScreen" type="Node2D" unique_id=809576985]
 y_sort_enabled = true
@@ -19,3 +20,5 @@ position = Vector2(-99, -143)
 position = Vector2(14099, -4385)
 
 [node name="GUI" parent="." unique_id=314829441 instance=ExtResource("1_bedem")]
+
+[node name="Ghost" parent="." unique_id=345864602 instance=ExtResource("6_yjxi7")]

@@ -10,11 +10,10 @@ var minimumsY = Global.read("screenY")
 var multiplier = 100
 
 func _ready():
-	$CanvasLayer/TextureRect2.size.x = minimums
-	$CanvasLayer/TextureRect.size.x = minimums
-	
-	$CanvasLayer/TextureRect.size.y = minimumsY 
-	$CanvasLayer/TextureRect2.size.y = minimumsY 
+	#$CanvasLayer/TextureRect2.size.x = minimums
+	#$CanvasLayer/TextureRect.size.x = minimums
+	#$CanvasLayer/TextureRect.size.y = minimumsY 
+	#$CanvasLayer/TextureRect2.size.y = minimumsY 
 	
 	$CanvasLayer/TextureRect2.position.x = minimums
 	$CanvasLayer/TextureRect.position.x = -minimums
@@ -51,10 +50,10 @@ func fixYourself():
 	minimums = Global.read("screenX")
 	minimumsY = Global.read("screenY")
 	
-	$CanvasLayer/TextureRect2.size.x = minimums
-	$CanvasLayer/TextureRect.size.x = minimums
-	$CanvasLayer/TextureRect.size.y = minimumsY 
-	$CanvasLayer/TextureRect2.size.y = minimumsY 
+	#$CanvasLayer/TextureRect2.size.x = minimums
+	#$CanvasLayer/TextureRect.size.x = minimums
+	#$CanvasLayer/TextureRect.size.y = minimumsY 
+	#$CanvasLayer/TextureRect2.size.y = minimumsY 
 	
 	$CanvasLayer/TextureRect2.position.x = minimums
 	$CanvasLayer/TextureRect.position.x = -minimums

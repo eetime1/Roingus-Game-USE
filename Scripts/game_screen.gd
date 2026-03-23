@@ -5,7 +5,7 @@ var placeshroom := load("res://Assets/SFX/placeshroom.wav")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$GUI.turret_instantiate.connect(instance)
+	$Ghost.turret_instantiate.connect(instance)
 	pass # Replace with function body.
 
 func instance(mushroom = null) -> void:
