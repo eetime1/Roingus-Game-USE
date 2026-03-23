@@ -19,15 +19,18 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	$OnMouse.global_position = get_global_mouse_position()
-	if Global.hotfixHeld != null:
 		#print(Global.hotfixHeld)
+	if Global.hotfixHeld != null:
 		_summoning_mushroom(Global.hotfixHeld)
 		#Global.hotfixHeld = null
+	else:
+		_on_gui_change_held()
+		isHoldingWhat = null
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		
 	
 func _input(event):
 	if event is InputEventMouseButton:
-		
 		if event.button_index == 2 && isHoldingWhat != null:
 			isHoldingWhat = null
 			#emit_signal("changeHeld")
@@ -119,7 +122,7 @@ func _on_gui_change_held() -> void:
 			$OnMouse/CollisionShape2D.shape.radius = 10
 			$OnMouse/Area2D/CollisionShape2D.shape.radius = 10
 		_:
-			$SOnMouse/prite2D.texture = null
+			$OnMouse/Sprite2D.texture = null
 	$OnMouse/Sprite2D.modulate = Color(255, 0, 0, 0.5)
 	if heldShroom == 'delete':
 		$OnMouse/Sprite2D.modulate = Color(0, 0, 0, 0.5)
