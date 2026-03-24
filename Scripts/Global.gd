@@ -25,11 +25,12 @@ func write(ourString: String, ourData, filePath: String = "./Data/configs/config
 	var fuckyou = read('all', filePath)
 	var quack = fuckyou.data
 	quack[ourString] = ourData
-	
-	var file = FileAccess.open(filePath, FileAccess.WRITE)
+	var file = FileAccess.open("./Data/configs/config.json", FileAccess.WRITE)
 	
 	var json_string = JSON.stringify(quack, "\t")
-	file.store_string(json_string)
+
+	var e = file.store_string(json_string)
+	print(e)
 	file.close()
 	
 func _notification(what: int) -> void:

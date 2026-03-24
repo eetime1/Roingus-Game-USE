@@ -48,10 +48,6 @@ func _ready() -> void:
 		incrWindow = Vector2(0,0)
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		get_tree().root.borderless = true
-		
-	var centerPositioningX = DisplayServer.screen_get_position().x + incrWindow.x + (DisplayServer.screen_get_size().x / 2.0 - DisplayServer.window_get_size().x / 2.0)
-	var centerPositioningY = DisplayServer.screen_get_position().y + incrWindow.y + (DisplayServer.screen_get_size().y / 2.0 - DisplayServer.window_get_size().y / 2.0)
-	get_tree().root.position = Vector2i(centerPositioningX, centerPositioningY)
 	
 	# Sets up all audio to be audio shenanigans
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(int(dataFromFile["Master"])))
