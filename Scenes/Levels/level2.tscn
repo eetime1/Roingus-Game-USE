@@ -56,6 +56,7 @@ position = Vector2(-22291, 12153)
 [node name="Settlement" parent="." unique_id=1886421436 instance=ExtResource("6_pyd1a")]
 position = Vector2(-23028, -7949)
 scale = Vector2(-1, 1)
+civInside = 10
 
 [node name="Burrow2" parent="." unique_id=425347599 instance=ExtResource("4_16px4")]
 position = Vector2(11533, 1506)
