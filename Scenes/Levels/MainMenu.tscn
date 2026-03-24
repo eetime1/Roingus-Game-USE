@@ -2,6 +2,11 @@
 
 [ext_resource type="Script" uid="uid://c1r3ntbb0hlt8" path="res://Scripts/main_menu.gd" id="1_hr4vk"]
 [ext_resource type="Texture2D" uid="uid://bvcyy3ginpylb" path="res://Assets/Backgrounds/Start_screen.png" id="1_yw2i3"]
+[ext_resource type="Texture2D" uid="uid://bo6wk8ef81w6" path="res://Assets/Sprites/start.png" id="3_iruej"]
+[ext_resource type="Texture2D" uid="uid://3q7bs3uoo4gk" path="res://Assets/Sprites/HowToPlay.png" id="4_8dgdn"]
+[ext_resource type="Texture2D" uid="uid://dt5wqksnupac4" path="res://Assets/Sprites/settings.png" id="5_ybd2e"]
+[ext_resource type="Texture2D" uid="uid://2bkc45f0jglb" path="res://Assets/Sprites/Exit.png" id="6_x0g5v"]
+[ext_resource type="Texture2D" uid="uid://bmridpi25a8v2" path="res://Assets/Sprites/Extras.png" id="7_82l7r"]
 
 [node name="MainMenu" type="Control" unique_id=657747432]
 layout_mode = 3
@@ -200,16 +205,21 @@ layout_mode = 2
 [node name="Text" type="Label" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize" unique_id=1618134516]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Screen Display Resolution: (On Itch it does nothing)"
+text = "Screen Display Resolution: (On Itch it does nothing - Disabled for bugs sake)"
 
 [node name="OptionButton" type="OptionButton" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/ScreenSize" unique_id=530712592]
 layout_mode = 2
+disabled = true
+toggle_mode = false
+button_mask = 0
 selected = 1
 item_count = 3
 popup/item_0/text = "2560 x 1440"
 popup/item_0/id = 0
+popup/item_0/disabled = true
 popup/item_1/text = "1920 x 1080"
 popup/item_1/id = 1
+popup/item_1/disabled = true
 popup/item_2/text = "1280 x 720"
 popup/item_2/id = 2
 
@@ -242,6 +252,7 @@ layout_mode = 2
 flat = true
 
 [node name="NoMycelium" type="HBoxContainer" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo" unique_id=532460770]
+visible = false
 layout_mode = 2
 
 [node name="Text" type="Label" parent="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/NoMycelium" unique_id=1796656867]
@@ -275,46 +286,52 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Play" type="Button" parent="Menu" unique_id=624645716]
+[node name="Play" type="TextureButton" parent="Menu" unique_id=595465145]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.77800006
-anchor_top = 0.693
-anchor_right = 0.77800006
-anchor_bottom = 0.693
-offset_left = -55.840088
-offset_top = -129.96002
-offset_right = 56.159912
-offset_bottom = -98.96002
-text = "Squeak (Play)"
+anchor_left = 0.734
+anchor_top = 0.674
+anchor_right = 0.822
+anchor_bottom = 0.712
+offset_left = 0.47998047
+offset_top = -116.28003
+offset_right = -0.16003418
+offset_bottom = -112.640015
+texture_normal = ExtResource("3_iruej")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="Tutorial (Recommended)" type="Button" parent="Menu" unique_id=271293431]
+[node name="How to Play" type="TextureButton" parent="Menu" unique_id=787328941]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.77800006
-anchor_top = 0.694
-anchor_right = 0.77800006
-anchor_bottom = 0.694
-offset_left = -55.840088
-offset_top = -93.67999
-offset_right = 56.159912
-offset_bottom = -62.679993
-text = "How to Play"
+anchor_left = 0.734
+anchor_top = 0.674
+anchor_right = 0.822
+anchor_bottom = 0.712
+offset_left = 0.47998047
+offset_top = -79.28003
+offset_right = -0.16003418
+offset_bottom = -75.640015
+texture_normal = ExtResource("4_8dgdn")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="Settings" type="Button" parent="Menu" unique_id=995171476]
+[node name="Settings" type="TextureButton" parent="Menu" unique_id=276434584]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.77800006
-anchor_top = 0.69600004
-anchor_right = 0.77800006
-anchor_bottom = 0.69600004
-offset_left = -55.840088
-offset_top = -55.120026
-offset_right = 56.159912
-offset_bottom = -24.120026
-text = "Settings"
+anchor_left = 0.734
+anchor_top = 0.674
+anchor_right = 0.822
+anchor_bottom = 0.71300006
+offset_left = 0.47998047
+offset_top = -39.28003
+offset_right = -0.16003418
+offset_bottom = -36.360046
+texture_normal = ExtResource("5_ybd2e")
+ignore_texture_size = true
+stretch_mode = 4
 
-[node name="Exit" type="Button" parent="Menu" unique_id=589776239]
+[node name="Exit" type="TextureButton" parent="Menu" unique_id=431564114]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.77800006
@@ -325,33 +342,37 @@ offset_left = -55.840088
 offset_top = -15.360016
 offset_right = 56.159912
 offset_bottom = 15.640015
-text = "Exit"
+texture_normal = ExtResource("6_x0g5v")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="Credits" type="Button" parent="Menu" unique_id=766224399]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.039
-anchor_top = 0.95100003
-anchor_right = 0.039
-anchor_bottom = 0.95100003
-offset_left = -30.920002
-offset_top = -15.720032
-offset_right = 32.079998
-offset_bottom = 15.279968
+anchor_left = 0.019000001
+anchor_top = 0.929
+anchor_right = 0.068
+anchor_bottom = 0.97200006
+offset_left = -0.3200016
+offset_top = -36.880005
+offset_right = -0.040008545
+offset_bottom = -36.840027
 text = "Credits"
 
-[node name="Extras" type="Button" parent="Menu" unique_id=1429544681]
+[node name="Extras" type="TextureButton" parent="Menu" unique_id=188272819]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.039
-anchor_top = 0.95100003
-anchor_right = 0.039
-anchor_bottom = 0.95100003
-offset_left = -26.920002
-offset_top = -48.72003
-offset_right = 30.079998
-offset_bottom = -17.720032
-text = "Extras"
+anchor_left = 0.019000001
+anchor_top = 0.929
+anchor_right = 0.116000004
+anchor_bottom = 0.97200006
+offset_left = -0.3200016
+offset_top = 0.11999512
+offset_right = -0.480011
+offset_bottom = 0.15997314
+texture_normal = ExtResource("7_82l7r")
+ignore_texture_size = true
+stretch_mode = 4
 
 [node name="Disclosure" type="Control" parent="." unique_id=422835340]
 layout_mode = 1
@@ -392,7 +413,7 @@ autowrap_mode = 2
 [connection signal="toggled" from="SettingsControls/SettingsTabs/Video/MarginContainer/VVideo/NoMycelium/CheckButton" to="." method="_toggles" binds= ["noMycelium"]]
 [connection signal="pressed" from="SettingsControls/ExitSettings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Menu/Play" to="." method="_open_scene"]
-[connection signal="pressed" from="Menu/Tutorial (Recommended)" to="." method="_open_tutorial"]
+[connection signal="pressed" from="Menu/How to Play" to="." method="_open_tutorial"]
 [connection signal="pressed" from="Menu/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Menu/Exit" to="." method="_quit_window"]
 [connection signal="button_down" from="Menu/Credits" to="." method="_on_credits_button_down"]
