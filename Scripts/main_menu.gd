@@ -36,7 +36,7 @@ func _ready() -> void:
 	get_tree().root.content_scale_size = Vector2i(dataFromFile["screenX"],dataFromFile["screenY"])
 	DisplayServer.window_set_current_screen(dataFromFile["currentScreen"])
 	get_tree().root.unresizable = true
-	
+	get_tree().root.maximize_disabled = true
 	get_tree().root.current_screen = dataFromFile["currentScreen"]
 	
 	if dataFromFile["mode"] == "windowed":
