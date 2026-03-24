@@ -37,11 +37,7 @@ func _physics_process(delta: float) -> void:
 		
 		
 		
-		if timer >= 1:
-			navmesh.bake_navigation_polygon()
-			timer -=1
-		else:
-			timer += delta
+		
 		
 		if !nav_agent.is_navigation_finished() && !movementPaused:
 			if nav_point_direction != diffGoal:
@@ -101,9 +97,3 @@ func _physics_process(delta: float) -> void:
 			position = burrow.global_position
 		
 	
-
-
-func _on_child_entered_tree(node: Node) -> void:
-	if diffGoal:
-		navmesh.bake_navigation_polygon()
-	pass # Replace with function body.

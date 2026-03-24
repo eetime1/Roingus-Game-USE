@@ -19,13 +19,8 @@ func _ready() -> void:
 	if (get_parent().name != "TutorialGame"):
 		nav_agent.target_position = burrow.global_position
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if (get_parent().name != "TutorialGame"):
-		if timer >= 1:
-			navmesh.bake_navigation_polygon()
-			timer -=1
-		else:
-			timer += delta
 		
 		if !nav_agent.is_navigation_finished() && !movementPaused:
 			if nav_point_direction != diffGoal:
@@ -61,9 +56,3 @@ func _physics_process(delta: float) -> void:
 			position = home.global_position
 		
 	
-
-
-func _on_child_entered_tree(node: Node) -> void:
-	if diffGoal:
-		navmesh.bake_navigation_polygon()
-	pass # Replace with function body.
