@@ -48,6 +48,7 @@ tile_set = ExtResource("1_c0r4e")
 
 [node name="Settlement" parent="." unique_id=1886421436 instance=ExtResource("3_20uw2")]
 position = Vector2(17847, 12110)
+civInside = 10
 
 [node name="HomeShroom" parent="." unique_id=1160796152 instance=ExtResource("4_i36j2")]
 position = Vector2(-21196, 10966)

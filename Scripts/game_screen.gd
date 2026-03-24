@@ -13,7 +13,7 @@ func instance(mushroom = null) -> void:
 		"turret":
 			shroom = load("res://Scenes/Characters/TurretPlain.tscn")
 		"path":
-			shroom = load("res://Scenes/Characters/Turretpath.tscn")
+			shroom = load("res://Scenes/Characters/TurretPath.tscn")
 		"wall":
 			shroom = load("res://Scenes/Characters/TurretWall.tscn")
 		"heal":

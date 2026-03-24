@@ -50,6 +50,7 @@ They operate just like the Burrows.
 Some Roingu will be inspired by your fungal bravery and choose to join you as a Worker when rescued.
 These Roingen will go back and forth from their Burrow to give you more Crystals to spend on your mushrooms.
 "
+editable = false
 
 [node name="Button" type="Button" parent="." unique_id=1235711307]
 layout_mode = 0
