@@ -1,10 +1,10 @@
 {
-	"Master": 0.0,
+	"Master": 0.75,
 	"Music": 0.75,
 	"SFX": 0.75,
 	"borderless": false,
 	"currentScreen": 1,
-	"level": 1.0,
+	"level": 0.0,
 	"mode": "windowed",
 	"modeNo": 1.0,
 	"noMycelium": false,

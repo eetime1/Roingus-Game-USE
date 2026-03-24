@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://it1wysm8hv2a" path="res://Assets/Tiles/darkBlue.png" id="4_albwa"]
 [ext_resource type="Texture2D" uid="uid://bumvkmj75x45q" path="res://Assets/Placeholders/TileFloor.png" id="4_k1i5l"]
 [ext_resource type="Texture2D" uid="uid://xpgxp6rhmt7s" path="res://Assets/Tiles/WaterTiles.png" id="8_xqv00"]
+[ext_resource type="Texture2D" uid="uid://8msftbd2mqg7" path="res://Assets/mike.png" id="9_moufg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4xb6x"]
 texture = ExtResource("1_albwa")
@@ -647,6 +648,10 @@ texture_region_size = Vector2i(400, 400)
 2:2/0/physics_layer_1/polygon_0/points = PackedVector2Array(-200, -200, 200, -200, 200, 200, -200, 200)
 2:2/0/physics_layer_2/polygon_0/points = PackedVector2Array(-200, -200, 200, -200, 200, 200, -200, 200)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_amg56"]
+texture = ExtResource("9_moufg")
+texture_region_size = Vector2i(400, 400)
+
 [resource]
 tile_size = Vector2i(400, 400)
 physics_layer_0/collision_layer = 1
@@ -663,3 +668,4 @@ sources/1 = SubResource("TileSetAtlasSource_at8wu")
 sources/2 = SubResource("TileSetAtlasSource_nfxl2")
 sources/7 = SubResource("TileSetAtlasSource_386k6")
 sources/3 = SubResource("TileSetAtlasSource_moufg")
+sources/8 = SubResource("TileSetAtlasSource_amg56")
