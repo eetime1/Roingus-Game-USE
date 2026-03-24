@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c8j6820x8nbcr"]
 
 [ext_resource type="Texture2D" uid="uid://cbwkqjv7g7i1i" path="res://Assets/Sprites/Terrain/BridgeHorizontalNew.png" id="1_y5hmo"]
+[ext_resource type="Texture2D" uid="uid://bvjbl0a6vi1g0" path="res://Assets/Sprites/Terrain/BridgeHBotNew.png" id="2_apnme"]
+[ext_resource type="Texture2D" uid="uid://dfkd6wranafn3" path="res://Assets/Sprites/Terrain/BridgeHTopNew.png" id="3_h7ky2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eg707"]
 size = Vector2(8653, 425)
@@ -10,6 +12,7 @@ collision_layer = 0
 collision_mask = 0
 
 [node name="BridgeHorizontalNew" type="Sprite2D" parent="." unique_id=731297028]
+visible = false
 texture = ExtResource("1_y5hmo")
 offset = Vector2(0, 800)
 
@@ -17,3 +20,12 @@ offset = Vector2(0, 800)
 visible = false
 position = Vector2(-233, 174)
 shape = SubResource("RectangleShape2D_eg707")
+
+[node name="BridgeHBotNew" type="Sprite2D" parent="." unique_id=1825171311]
+z_index = -1
+position = Vector2(-8, 821)
+texture = ExtResource("2_apnme")
+
+[node name="BridgeHTopNew" type="Sprite2D" parent="." unique_id=592935268]
+position = Vector2(-10, 807)
+texture = ExtResource("3_h7ky2")
