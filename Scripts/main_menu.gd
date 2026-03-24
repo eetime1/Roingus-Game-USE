@@ -8,27 +8,27 @@ var incrWindow = Vector2(5, 20)
 
 func _ready() -> void:
 	Transition.goaway()
-	Global.write("currentScreen", DisplayServer.window_get_current_screen(), txtFile)
+	Global.write("currentScreen", DisplayServer.window_get_current_screen())
 	
 	var file = FileAccess.open(txtFile, FileAccess.READ)
 	dataFromFile = JSON.parse_string(file.get_as_text())
 	get_tree().set_auto_accept_quit(false)
 	# To make sure it actually detects something smh || Fix later
 	if dataFromFile.size() < 14:
-		Global.write("screenX", 1280, txtFile)
-		Global.write("screenY", 720, txtFile)
-		Global.write("screenButtonNo", 2, txtFile)
-		Global.write("borderless", false, txtFile)
-		Global.write("currentScreen", 0, txtFile)
-		Global.write("mode", "windowed", txtFile)
-		Global.write("modeNo", 1, txtFile)
-		Global.write("showFPS", false, txtFile)
-		Global.write("noMycelium", false, txtFile)
-		Global.write("squeak", true, txtFile)
-		Global.write("level", 0, txtFile)
-		Global.write("Master", 0.75, txtFile)
-		Global.write("SFX", 1.5, txtFile)
-		Global.write("Music", 1.5, txtFile)
+		Global.write("screenX", 1280)
+		Global.write("screenY", 720)
+		Global.write("screenButtonNo", 2)
+		Global.write("borderless", false)
+		Global.write("currentScreen", 0)
+		Global.write("mode", "windowed")
+		Global.write("modeNo", 1)
+		Global.write("showFPS", false)
+		Global.write("noMycelium", false)
+		Global.write("squeak", true)
+		Global.write("level", 0)
+		Global.write("Master", 0.75)
+		Global.write("SFX", 1.5)
+		Global.write("Music", 1.5)
 		dataFromFile = JSON.parse_string(file.get_as_text())
 		
 	# Sets current screen and size
@@ -49,9 +49,6 @@ func _ready() -> void:
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 		get_tree().root.borderless = true
 		
-	var centerPositioningX = DisplayServer.screen_get_position().x + incrWindow.x + (DisplayServer.screen_get_size().x / 2.0 - DisplayServer.window_get_size().x / 2.0)
-	var centerPositioningY = DisplayServer.screen_get_position().y + incrWindow.y + (DisplayServer.screen_get_size().y / 2.0 - DisplayServer.window_get_size().y / 2.0)
-	get_tree().root.position = Vector2i(centerPositioningX, centerPositioningY)
 	
 	# Sets up all audio to be audio shenanigans
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(int(dataFromFile["Master"])))

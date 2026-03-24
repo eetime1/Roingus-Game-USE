@@ -30,6 +30,6 @@ func instance(mushroom = null) -> void:
 		AudioManager.play_audio_oneshot(placeshroom)
 		var a = shroom.instantiate()
 		$Level.add_child(a)
-		a.position = Vector2(get_global_mouse_position() + Vector2(0, 640))
+		a.position = $Level.get_local_mouse_position()
 		#print(a.position)
 		

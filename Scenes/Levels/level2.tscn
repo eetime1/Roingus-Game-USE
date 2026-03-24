@@ -226,7 +226,6 @@ position = Vector2(-5151, -2923)
 scale = Vector2(0.6, 0.6)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=355655874]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_hpjhc")
 
 [node name="FireSpawner" parent="." unique_id=1726283708 instance=ExtResource("18_jywle")]

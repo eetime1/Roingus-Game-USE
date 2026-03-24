@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 				if closestTurret[i].turretHealth <= closestTurret[i].maxHealth - 25:
 					print('heal')
 					AudioManager.play_audio_oneshot(heal)
-					closestTurret[0].turretHealth += 25
+					closestTurret[i].turretHealth += 25
 					break
 	elif timer >= 2:
 		Global.data["gemCount"] -= 1

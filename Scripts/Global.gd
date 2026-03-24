@@ -10,7 +10,7 @@ var globalPosition = Vector2(0,0)
 	#write("roingusCount", 1)
 	#write("fireIndex", 0)
 
-func read(ourString: String, filePath: String = "./Data/configs/config.json") -> Variant:
+func read(ourString: String, filePath: String = "res://Data/configs/config.json") -> Variant:
 	var wFile = FileAccess.open(filePath, FileAccess.READ)
 	var jsoned = wFile.get_as_text()
 	json.parse(jsoned)
@@ -21,7 +21,7 @@ func read(ourString: String, filePath: String = "./Data/configs/config.json") ->
 		return json
 	return(data_received[ourString])
 	
-func write(ourString: String, ourData, filePath: String = "./Data/configs/config.json") -> void:
+func write(ourString: String, ourData, filePath: String = "res://Data/configs/config.json") -> void:
 	var fuckyou = read('all', filePath)
 	var quack = fuckyou.data
 	quack[ourString] = ourData
@@ -29,6 +29,8 @@ func write(ourString: String, ourData, filePath: String = "./Data/configs/config
 	var file = FileAccess.open(filePath, FileAccess.WRITE)
 	
 	var json_string = JSON.stringify(quack, "\t")
+	prints(file, "5")
+	
 	file.store_string(json_string)
 	file.close()
 	
