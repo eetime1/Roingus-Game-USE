@@ -18,6 +18,7 @@ bg_color = Color(0.15294118, 0.7882353, 0.18039216, 1)
 [sub_resource type="CircleShape2D" id="CircleShape2D_2k5ak"]
 
 [node name="GUI" type="Control" unique_id=314829441]
+z_index = 5
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -402,12 +403,10 @@ offset_bottom = 0.19995117
 text = "Delete"
 
 [node name="OnMouse" type="Area2D" parent="." unique_id=1755619586]
+z_index = 5
 collision_layer = 0
 collision_mask = 188
 script = ExtResource("7_2k5ak")
-
-[node name="Sprite2D" type="Sprite2D" parent="OnMouse" unique_id=706528060]
-z_index = 10
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OnMouse" unique_id=1713425318]
 shape = SubResource("CircleShape2D_iqavc")
@@ -426,8 +425,8 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OnMouse/TurretDetector" unique_id=409938585]
 shape = SubResource("CircleShape2D_2k5ak")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="OnMouse/TurretDetector" unique_id=1993551749]
-shape = SubResource("CircleShape2D_2k5ak")
+[node name="Sprite2D" type="Sprite2D" parent="OnMouse" unique_id=706528060]
+z_index = 10
 
 [connection signal="changeHeld" from="." to="OnMouse" method="_on_gui_change_held"]
 [connection signal="pressed" from="CanvasLayer/BuildMenu1/Build Menu" to="." method="_open_build_menu"]

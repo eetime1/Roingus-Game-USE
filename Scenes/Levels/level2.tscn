@@ -56,6 +56,7 @@ position = Vector2(-22291, 12153)
 [node name="Settlement" parent="." unique_id=1886421436 instance=ExtResource("6_pyd1a")]
 position = Vector2(-23028, -7949)
 scale = Vector2(-1, 1)
+civInside = 10
 
 [node name="Burrow2" parent="." unique_id=425347599 instance=ExtResource("4_16px4")]
 position = Vector2(11533, 1506)
@@ -225,7 +226,6 @@ position = Vector2(-5151, -2923)
 scale = Vector2(0.6, 0.6)
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=355655874]
-visible = false
 navigation_polygon = SubResource("NavigationPolygon_hpjhc")
 
 [node name="FireSpawner" parent="." unique_id=1726283708 instance=ExtResource("18_jywle")]

@@ -54,6 +54,7 @@ position = Vector2(-10695, -3061)
 
 [node name="Settlement" parent="." unique_id=1886421436 instance=ExtResource("5_wlbe4")]
 position = Vector2(829, 2380)
+civInside = 10
 
 [node name="Burrow2" parent="." unique_id=2117302199 instance=ExtResource("4_vfl4p")]
 position = Vector2(17660, 2904)

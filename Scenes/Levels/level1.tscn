@@ -147,8 +147,7 @@ position = Vector2(22344, 7627)
 scale = Vector2(0.6, 0.6)
 
 [node name="BridgeHorizontal2" parent="Level_Objects" unique_id=109810102 instance=ExtResource("16_j5o2p")]
-z_index = -1
-position = Vector2(-546, -10672)
+position = Vector2(-529, -10645)
 
 [node name="Rock8" parent="Level_Objects" unique_id=1932110310 instance=ExtResource("19_7e7vy")]
 position = Vector2(5316, -3731)

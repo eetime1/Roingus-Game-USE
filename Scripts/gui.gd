@@ -19,7 +19,7 @@ func _process(_delta: float) -> void:
 	$CanvasLayer/Crystals/Label2.text = str(Global.data["gemCount"])
 	$CanvasLayer/Roingus/Label2.text = str(Global.data["roingusCount"], " / 25")
 	
-	$OnMouse.global_position = get_global_mouse_position()
+	$OnMouse.position = get_local_mouse_position()
 	if $CanvasLayer/Panel2/Secret.modulate.a > 0.02:
 		$CanvasLayer/Panel2/Secret.modulate.a = (1 -($CanvasLayer/AudioStreamPlayer2D.get_playback_position() / 1.25))
 		$CanvasLayer/Panel2/Secret.self_modulate.a = (1 -($CanvasLayer/AudioStreamPlayer2D.get_playback_position() / 1.25))
