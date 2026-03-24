@@ -10,8 +10,10 @@ var lastMouseX
 var lastMouseY
 var camEdgesX = [-9999999, 9999999]
 var camEdgesY = [-9999999, 9999999]
+var timer = 0
+@onready var navmesh = $"../Level/NavigationRegion2D"
 
-func _physics_process(_delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	# *I'm going to cry*
@@ -39,6 +41,12 @@ func _physics_process(_delta: float) -> void:
 		velocity.y = 0
 		
 	move_and_slide()	
+	
+	if timer >= 1:
+		navmesh.bake_navigation_polygon()
+		timer -= 1
+	else:
+		timer += delta
 	
 
 func _input(event):
