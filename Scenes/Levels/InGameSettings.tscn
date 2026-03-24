@@ -112,6 +112,7 @@ popup/item_2/text = "Windowed-Borderless"
 popup/item_2/id = 2
 
 [node name="DisplayResolution" type="MarginContainer" parent="CanvasLayer/CenterContainer/Panel/VBoxContainer" unique_id=887961047]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 5
