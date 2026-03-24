@@ -31,7 +31,7 @@ func _ready() -> void:
 	if (get_parent().name != "TutorialGame"):
 		nav_agent.target_position = goal.global_position
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	nav_agent.get_next_path_position()
 	if (get_parent().name != "TutorialGame"):
 		
