@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var fireHealth = 10.0
-var timer = 0
+var timer = randf()
 var turretsInRange = []
 var animTimer = 0.0
 
