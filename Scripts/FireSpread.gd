@@ -20,16 +20,18 @@ func _ready() -> void:
 
 func raycastAndRandomize(angle:Vector2) -> float:
 	var space_state = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(position + Vector2(0, 0), position + 2560*angle, 0b1010)
+	var query = PhysicsRayQueryParameters2D.create(global_position + Vector2(0, 0), global_position + 2560*angle, 0b1010)
 	var result = space_state.intersect_ray(query)
 	
 	var longestDistance = 2560
 	if result:
-		longestDistance = (result.position - position).length()
+		longestDistance = (result.position - global_position).length()
 		if longestDistance <= 1280:
 			return 0
-	
-	return randf_range(1280,longestDistance)
+	else:
+		return randf_range(1280,longestDistance)
+		pass
+	return 0
 
 func _process(delta: float) -> void:
 	if fireHealth <= 0:

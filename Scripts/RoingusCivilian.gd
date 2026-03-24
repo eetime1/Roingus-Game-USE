@@ -83,10 +83,14 @@ func _physics_process(_delta: float) -> void:
 			for i in range(burrow.lowerNodes.size()):
 				if burrow.lowerNodes[i].distFromHome < burrow.lowerNodes[lowestIndex].distFromHome:
 					lowestIndex = i
-			goal = burrow.lowerNodes[lowestIndex]
-			nav_agent.target_position = goal.global_position
-			movementPaused = false
-			position = burrow.global_position
+			if burrow.lowerNodes != []:
+				goal = burrow.lowerNodes[lowestIndex]
+				nav_agent.target_position = goal.global_position
+				movementPaused = false
+				position = burrow.global_position
+			else:
+				burrow.civGenned -= 1
+				queue_free()
 		
 		if !nav_agent.is_target_reachable():
 			for i in range(burrow.lowerNodes.size()):

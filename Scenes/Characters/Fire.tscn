@@ -30,6 +30,7 @@ collision_mask = 16
 shape = SubResource("CircleShape2D_qy72q")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1965438387]
+collision_layer = 9
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=867148623]

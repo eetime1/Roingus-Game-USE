@@ -6,7 +6,8 @@ func _ready() -> void:
 	Transition.goaway()
 	$TextureRect/Button2.disabled = true
 	$TextureRect/Button3.disabled = true
-	var lvl = Global.read("level")
+	#var lvl = Global.read("level")
+	var lvl = Global.data["level"]
 
 	if lvl == 0:
 		$TextureRect.texture = load("res://Assets/Backgrounds/MapLevel1.png")
