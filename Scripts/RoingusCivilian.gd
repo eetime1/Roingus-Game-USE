@@ -57,6 +57,7 @@ func _physics_process(_delta: float) -> void:
 					AudioManager.stop("Game")
 					AudioManager.play('Victory')
 					#Global.write("level", get_parent().level)
+					Global.data["level"] = get_parent().level
 					get_tree().change_scene_to_file("res://Scenes/Levels/WinScreen.tscn")
 				queue_free()
 				
