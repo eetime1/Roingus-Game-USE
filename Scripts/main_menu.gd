@@ -8,27 +8,27 @@ var incrWindow = Vector2(5, 20)
 
 func _ready() -> void:
 	Transition.goaway()
-	Global.write("currentScreen", DisplayServer.window_get_current_screen())
+	#Global.write("currentScreen", DisplayServer.window_get_current_screen())
 	
 	var file = FileAccess.open(txtFile, FileAccess.READ)
 	dataFromFile = JSON.parse_string(file.get_as_text())
 	get_tree().set_auto_accept_quit(false)
 	# To make sure it actually detects something smh || Fix later
-	if dataFromFile.size() < 14:
-		Global.write("screenX", 1280)
-		Global.write("screenY", 720)
-		Global.write("screenButtonNo", 2)
-		Global.write("borderless", false)
-		Global.write("currentScreen", 0)
-		Global.write("mode", "windowed")
-		Global.write("modeNo", 1)
-		Global.write("showFPS", false)
-		Global.write("noMycelium", false)
-		Global.write("squeak", true)
-		Global.write("level", 0)
-		Global.write("Master", 0.75)
-		Global.write("SFX", 1.5)
-		Global.write("Music", 1.5)
+	if dataFromFile.size() < 14 && false:
+		#Global.write("screenX", 1280)
+		#Global.write("screenY", 720)
+		#Global.write("screenButtonNo", 2)
+		#Global.write("borderless", false)
+		#Global.write("currentScreen", 0)
+		#Global.write("mode", "windowed")
+		#Global.write("modeNo", 1)
+		#Global.write("showFPS", false)
+		#Global.write("noMycelium", false)
+		#Global.write("squeak", true)
+		#Global.write("level", 0)
+		#Global.write("Master", 0.75)
+		#Global.write("SFX", 1.5)
+		#Global.write("Music", 1.5)
 		dataFromFile = JSON.parse_string(file.get_as_text())
 		
 	# Sets current screen and size
@@ -80,7 +80,6 @@ func _ready() -> void:
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/squeakContainer/HBoxContainer/CheckButton.button_pressed = bool(dataFromFile["squeak"])
 		$CanvasLayer/CenterContainer/Panel/VBoxContainer/fpsContainer/HBoxContainer/CheckButton.button_pressed = bool(dataFromFile["showFPS"])
 
-	Transition.fixYourself()
 
 func _on_settings_pressed() -> void:
 	if name == "MainMenu":
@@ -92,7 +91,7 @@ func _on_settings_pressed() -> void:
 
 func _musicStuff(nValue, slider) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index(slider), linear_to_db(nValue))
-	Global.write(slider, nValue, txtFile)
+	#Global.write(slider, nValue, txtFile)
 
 func _setSize(this) -> void:
 	# [2560 x 1440], [1920 x 1080], [1280 x 720], [640, 360]
@@ -107,11 +106,10 @@ func _setSize(this) -> void:
 		3:
 			newResolution = [640,360,3]
 
-	Global.write("screenX", newResolution[0], txtFile)
-	Global.write("screenY", newResolution[1], txtFile)
+	#Global.write("screenX", newResolution[0], txtFile)
+	#Global.write("screenY", newResolution[1], txtFile)
 	get_tree().root.content_scale_size = Vector2i(newResolution[0],newResolution[1])
 	DisplayServer.window_set_size(get_tree().root.content_scale_size)
-	Transition.fixYourself()
 	_restart_global()
 	
 func _setMode(this) -> void:
@@ -165,20 +163,24 @@ func _open_tutorial():
 	
 func _restart_global() -> void:
 	if newResolution != null:
-		Global.write("screenX", newResolution[0], txtFile)
-		Global.write("screenY", newResolution[1], txtFile)
-		Global.write("screenButtonNo", newResolution[2], txtFile)
+		#Global.write("screenX", newResolution[0], txtFile)
+		#Global.write("screenY", newResolution[1], txtFile)
+		#Global.write("screenButtonNo", newResolution[2], txtFile)
+		pass
 	if newMode != null:
-		Global.write("mode", newMode[0], txtFile)
-		Global.write("modeNo", newMode[1], txtFile)
-	Global.write("currentScreen", DisplayServer.window_get_current_screen(), txtFile)
+		#Global.write("mode", newMode[0], txtFile)
+		#Global.write("modeNo", newMode[1], txtFile)
+		pass
+	#Global.write("currentScreen", DisplayServer.window_get_current_screen(), txtFile)
 	#prints(dataFromFile["screenX"],dataFromFile["screenY"],DisplayServer.window_get_size(),get_tree().root.content_scale_size,DisplayServer.window_get_mode())
 
 func _toggles(toggled_on: bool, what: String) -> void:
 	if toggled_on == true:
-		Global.write(what, true, txtFile)
+		#Global.write(what, true, txtFile)
+		pass
 	elif toggled_on == false:
-		Global.write(what, false, txtFile)
+		#Global.write(what, false, txtFile)
+		pass
 		
 	if what == "squeak" && toggled_on:
 		soundy()
